@@ -1,15 +1,20 @@
-import { Linkedin, Globe, Github } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Linkedin, Globe, Github, Star, Settings } from "lucide-react";
 
 export function SiteHeader({
   totalPrompts,
   totalDomains,
   phdCount,
   researchCount,
+  onOpenLibrary,
+  favoritesCount,
 }: {
   totalPrompts: number;
   totalDomains: number;
   phdCount: number;
   researchCount: number;
+  onOpenLibrary?: () => void;
+  favoritesCount?: number;
 }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
@@ -53,11 +58,10 @@ export function SiteHeader({
 
       {/* Brand row */}
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-        <a
-          href="https://kalilurrahman.lovable.app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to="/"
           className="flex items-center gap-3 group shrink-0"
+          aria-label="Home"
         >
           <div className="w-10 h-10 rounded-full bg-card border border-primary/40 flex items-center justify-center group-hover:border-primary transition-colors">
             <span className="font-display text-base font-bold text-primary">
@@ -72,13 +76,39 @@ export function SiteHeader({
               v7.0 · {totalPrompts} prompts · {totalDomains} domains
             </div>
           </div>
-        </a>
+        </Link>
 
-        <div className="hidden md:flex items-center gap-2 text-xs">
-          <Stat label="Prompts" value={totalPrompts} />
-          <Stat label="Domains" value={totalDomains} />
-          <Stat label="PhD" value={phdCount} accent="phd" />
-          <Stat label="Research" value={researchCount} accent="research" />
+        <div className="flex items-center gap-2 text-xs">
+          <div className="hidden md:flex items-center gap-2">
+            <Stat label="Prompts" value={totalPrompts} />
+            <Stat label="Domains" value={totalDomains} />
+            <Stat label="PhD" value={phdCount} accent="phd" />
+            <Stat label="Research" value={researchCount} accent="research" />
+          </div>
+          {onOpenLibrary && (
+            <button
+              type="button"
+              onClick={onOpenLibrary}
+              className="relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
+              aria-label={`Open library (${favoritesCount ?? 0} favorites)`}
+            >
+              <Star className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Library</span>
+              {(favoritesCount ?? 0) > 0 && (
+                <span className="font-mono text-[10px] px-1.5 py-0 rounded bg-primary text-primary-foreground">
+                  {favoritesCount}
+                </span>
+              )}
+            </button>
+          )}
+          <Link
+            to="/admin"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
+            aria-label="Admin"
+          >
+            <Settings className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Admin</span>
+          </Link>
         </div>
       </div>
     </header>

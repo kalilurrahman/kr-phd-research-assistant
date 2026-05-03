@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copy, Check, X } from "lucide-react";
+import { Copy, Check, X, Star } from "lucide-react";
 import type { FlatPrompt } from "@/data/phd-sections";
 
 const badgeStyles: Record<string, string> = {
@@ -13,72 +13,124 @@ const badgeStyles: Record<string, string> = {
 export function PromptCard({
   prompt,
   onOpen,
+  isFavorite,
+  onToggleFavorite,
+  isSelected,
+  onToggleSelect,
 }: {
   prompt: FlatPrompt;
   onOpen: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
+  isSelected: boolean;
+  onToggleSelect: () => void;
 }) {
   const colour = prompt.sectionColor;
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="text-left group rounded-xl border border-border bg-card hover:bg-card/80 transition-all p-5 flex flex-col gap-3 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]"
+    <div
+      className={`relative text-left group rounded-xl border bg-card hover:bg-card/80 transition-all p-5 flex flex-col gap-3 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] ${
+        isSelected ? "border-primary ring-1 ring-primary/40" : "border-border"
+      }`}
       style={{ borderTop: `2px solid ${colour}` }}
     >
-      <div className="flex items-center justify-between gap-2">
-        <span
-          className="font-mono text-[10px] px-2 py-0.5 rounded-md border"
-          style={{
-            color: colour,
-            borderColor: `${colour}55`,
-            background: `${colour}14`,
-          }}
-        >
-          #{prompt.num}
-        </span>
-        <span
-          className={`font-mono text-[10px] uppercase px-2 py-0.5 rounded-full border ${
-            badgeStyles[prompt.badge] ?? badgeStyles.intermediate
+      {/* Top action row — stops click propagation to card */}
+      <div className="absolute top-2.5 right-2.5 flex items-center gap-1 z-10">
+        <button
+          type="button"
+          onClick={onToggleFavorite}
+          aria-label={isFavorite ? "Unfavorite" : "Favorite"}
+          aria-pressed={isFavorite}
+          className={`p-1.5 rounded-md border transition-colors ${
+            isFavorite
+              ? "border-[hsl(43,52%,54%)] bg-[hsl(43,52%,54%)]/15 text-[hsl(43,70%,66%)]"
+              : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40"
           }`}
         >
-          {prompt.badge}
-        </span>
+          <Star className="w-3.5 h-3.5" fill={isFavorite ? "currentColor" : "none"} />
+        </button>
+        <label
+          className={`p-1.5 rounded-md border cursor-pointer transition-colors flex items-center justify-center w-7 h-7 ${
+            isSelected
+              ? "border-primary bg-primary/15 text-primary"
+              : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40"
+          }`}
+          aria-label={isSelected ? "Deselect" : "Select for export"}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <input
+            type="checkbox"
+            className="sr-only"
+            checked={isSelected}
+            onChange={onToggleSelect}
+          />
+          {isSelected ? <Check className="w-3.5 h-3.5" /> : <span className="w-3.5 h-3.5" />}
+        </label>
       </div>
-      <h3 className="font-display text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
-        {prompt.title}
-      </h3>
-      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
-        {prompt.useCase}
-      </p>
-      <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
-        {prompt.vars.slice(0, 3).map((v) => (
+
+      <button
+        type="button"
+        onClick={onOpen}
+        className="text-left flex flex-col gap-3 -m-1 p-1 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      >
+        <div className="flex items-center gap-2 pr-24">
           <span
-            key={v}
-            className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-background/60 border border-border text-muted-foreground"
+            className="font-mono text-[10px] px-2 py-0.5 rounded-md border"
+            style={{
+              color: colour,
+              borderColor: `${colour}55`,
+              background: `${colour}14`,
+            }}
           >
-            [{v}]
+            #{prompt.num}
           </span>
-        ))}
-        {prompt.vars.length > 3 && (
-          <span className="font-mono text-[10px] text-muted-foreground self-center">
-            +{prompt.vars.length - 3}
+          <span
+            className={`font-mono text-[10px] uppercase px-2 py-0.5 rounded-full border ${
+              badgeStyles[prompt.badge] ?? badgeStyles.intermediate
+            }`}
+          >
+            {prompt.badge}
           </span>
-        )}
-      </div>
-      <div className="text-[10px] text-muted-foreground/80 pt-1 inline-flex items-center gap-1">
-        <span style={{ color: colour }}>{prompt.sectionIcon}</span>
-        <span className="truncate">{prompt.sectionLabel}</span>
-      </div>
-    </button>
+        </div>
+        <h3 className="font-display text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+          {prompt.title}
+        </h3>
+        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+          {prompt.useCase}
+        </p>
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
+          {prompt.vars.slice(0, 3).map((v) => (
+            <span
+              key={v}
+              className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-background/60 border border-border text-muted-foreground"
+            >
+              [{v}]
+            </span>
+          ))}
+          {prompt.vars.length > 3 && (
+            <span className="font-mono text-[10px] text-muted-foreground self-center">
+              +{prompt.vars.length - 3}
+            </span>
+          )}
+        </div>
+        <div className="text-[10px] text-muted-foreground/80 pt-1 inline-flex items-center gap-1">
+          <span style={{ color: colour }}>{prompt.sectionIcon}</span>
+          <span className="truncate">{prompt.sectionLabel}</span>
+        </div>
+      </button>
+    </div>
   );
 }
 
 export function PromptModal({
   prompt,
   onClose,
+  isFavorite,
+  onToggleFavorite,
 }: {
   prompt: FlatPrompt | null;
   onClose: () => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
 }) {
   const [copied, setCopied] = useState(false);
   if (!prompt) return null;
@@ -100,17 +152,34 @@ export function PromptModal({
         style={{ borderTop: `3px solid ${colour}` }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent"
-          aria-label="Close"
-        >
-          <X className="w-4 h-4" />
-        </button>
+        <div className="absolute top-3 right-3 flex items-center gap-1.5">
+          {onToggleFavorite && (
+            <button
+              type="button"
+              onClick={onToggleFavorite}
+              className={`p-1.5 rounded-md border ${
+                isFavorite
+                  ? "border-[hsl(43,52%,54%)] bg-[hsl(43,52%,54%)]/15 text-[hsl(43,70%,66%)]"
+                  : "border-border text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label={isFavorite ? "Unfavorite" : "Favorite"}
+              aria-pressed={isFavorite ?? false}
+            >
+              <Star className="w-4 h-4" fill={isFavorite ? "currentColor" : "none"} />
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent border border-transparent hover:border-border"
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
 
         <div className="p-6 sm:p-8 space-y-5">
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap pr-24">
             <span
               className="font-mono text-[10px] px-2 py-0.5 rounded-md border"
               style={{
