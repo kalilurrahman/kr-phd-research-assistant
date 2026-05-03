@@ -29,14 +29,22 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "PhD Research Scholar Prompt Guide — Kalilur Rahman" },
+      {
+        name: "description",
+        content:
+          "244 expert-grade AI prompts across 40 academic and research domains — PhD-exclusive, advanced research methods, ethics, open science and AI-augmented scholarship.",
+      },
+      { name: "author", content: "Kalilur Rahman" },
+      { property: "og:title", content: "PhD Research Scholar Prompt Guide" },
+      {
+        property: "og:description",
+        content:
+          "A scholar's complete AI prompting companion. Curated by Kalilur Rahman.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@kalilurrahman" },
     ],
     links: [
       {
