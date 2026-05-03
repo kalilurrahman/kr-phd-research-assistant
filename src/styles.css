@@ -162,6 +162,23 @@
   background: hsl(43, 52%, 54%);
 }
 
+/* Admin form inputs */
+.admin-input {
+  width: 100%;
+  background: hsl(220, 33%, 7%);
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+.admin-input:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+}
+
 html {
   transition: background-color 0.25s ease, color 0.25s ease;
   scroll-behavior: smooth;
