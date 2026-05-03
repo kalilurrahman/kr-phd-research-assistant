@@ -25,6 +25,8 @@ export interface PhdSection {
   prompts: PhdPrompt[];
 }
 
+type RawSection = Omit<PhdSection, "id" | "meta"> & { meta?: string };
+
 export type SectionGroupKey = "general" | "phd" | "methods" | "bonus";
 
 export interface SectionGroup {
@@ -35,8 +37,12 @@ export interface SectionGroup {
 }
 
 const baseSections: PhdSection[] = Object.entries(
-  rawData as Record<string, Omit<PhdSection, "id">>,
-).map(([id, value]) => ({ id, ...value }));
+  rawData as unknown as Record<string, RawSection>,
+).map(([id, value]) => ({
+  id,
+  ...value,
+  meta: value.meta ?? `${value.prompts.length} prompts`,
+}));
 
 // Bonus domain — KR-curated extension prompts on top of the 236 imported ones.
 const bonusSection: PhdSection = {
