@@ -1,30 +1,40 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, GraduationCap, FlaskConical, Sparkles } from "lucide-react";
+import {
+  Search,
+  GraduationCap,
+  FlaskConical,
+  Sparkles,
+  CheckSquare,
+  Square,
+} from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PromptCard, PromptModal } from "@/components/prompt-card";
+import { FavoritesPanel } from "@/components/favorites-panel";
+import { ExportBar, ExportLauncher } from "@/components/export-bar";
 import {
-  allPrompts,
-  phdSections,
-  sectionGroups,
-  totalPromptCount,
-  totalDomainCount,
-  phdExclusiveCount,
-  researchMethodsCount,
   type FlatPrompt,
   type SectionGroupKey,
 } from "@/data/phd-sections";
+import { useEffectiveData } from "@/hooks/use-effective-data";
+import {
+  useFavorites,
+  useRecentSearches,
+  useRecentViews,
+  useSelection,
+} from "@/hooks/use-user-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: `PhD Research Scholar Prompt Guide — ${totalPromptCount} prompts · ${totalDomainCount} domains`,
+        title: "PhD Research Scholar Prompt Guide — by Kalilur Rahman",
       },
       {
         name: "description",
-        content: `A scholar's complete AI prompting companion. ${totalPromptCount} expert-grade prompts across ${totalDomainCount} academic and research domains. Curated by Kalilur Rahman.`,
+        content:
+          "A scholar's complete AI prompting companion. Expert-grade prompts across academic and research domains — favorite, search, export and admin-curated by Kalilur Rahman.",
       },
       {
         property: "og:title",
@@ -32,7 +42,8 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content: `${totalPromptCount} expert-grade research prompts across ${totalDomainCount} domains — including PhD-exclusive, advanced methods, ethics and AI-augmented scholarship.`,
+        content:
+          "Expert-grade research prompts across PhD, methods, ethics and AI-augmented scholarship — favorite, export and curate.",
       },
     ],
   }),
@@ -45,13 +56,36 @@ type Filter =
   | { kind: "section"; sectionId: string };
 
 function Index() {
+  const data = useEffectiveData();
+  const {
+    sections,
+    groups,
+    flatPrompts,
+    totalPrompts,
+    totalDomains,
+    groupCounts,
+  } = data;
+
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>({ kind: "all" });
   const [active, setActive] = useState<FlatPrompt | null>(null);
+  const [libraryOpen, setLibraryOpen] = useState(false);
+
+  const favorites = useFavorites();
+  const recentSearches = useRecentSearches();
+  const recentViews = useRecentViews();
+  const selection = useSelection();
+
+  // Debounce-record searches once the user pauses typing.
+  useEffect(() => {
+    if (!query.trim()) return;
+    const id = window.setTimeout(() => recentSearches.record(query), 700);
+    return () => window.clearTimeout(id);
+  }, [query, recentSearches]);
 
   const visiblePrompts = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return allPrompts.filter((p) => {
+    return flatPrompts.filter((p) => {
       if (filter.kind === "group" && p.groupKey !== filter.group) return false;
       if (filter.kind === "section" && p.sectionId !== filter.sectionId)
         return false;
@@ -65,9 +99,8 @@ function Index() {
         p.vars.some((v) => v.toLowerCase().includes(q))
       );
     });
-  }, [query, filter]);
+  }, [query, filter, flatPrompts]);
 
-  // Group by section for display
   const grouped = useMemo(() => {
     const map = new Map<string, FlatPrompt[]>();
     for (const p of visiblePrompts) {
@@ -75,18 +108,33 @@ function Index() {
       arr.push(p);
       map.set(p.sectionId, arr);
     }
-    return phdSections
+    return sections
       .map((s) => ({ section: s, prompts: map.get(s.id) ?? [] }))
       .filter((g) => g.prompts.length > 0);
-  }, [visiblePrompts]);
+  }, [visiblePrompts, sections]);
+
+  const visibleNums = useMemo(
+    () => visiblePrompts.map((p) => p.num),
+    [visiblePrompts],
+  );
+  const allVisibleSelected =
+    visibleNums.length > 0 &&
+    visibleNums.every((n) => selection.has(n));
+
+  const openPrompt = (p: FlatPrompt) => {
+    setActive(p);
+    recentViews.record(p.num);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <SiteHeader
-        totalPrompts={totalPromptCount}
-        totalDomains={totalDomainCount}
-        phdCount={phdExclusiveCount}
-        researchCount={researchMethodsCount}
+        totalPrompts={totalPrompts}
+        totalDomains={totalDomains}
+        phdCount={groupCounts.phd}
+        researchCount={groupCounts.methods}
+        onOpenLibrary={() => setLibraryOpen(true)}
+        favoritesCount={favorites.ids.length}
       />
 
       {/* HERO */}
@@ -105,43 +153,30 @@ function Index() {
             </span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mt-6 leading-relaxed">
-            <span className="text-foreground font-semibold">
-              {totalPromptCount}
-            </span>{" "}
+            <span className="text-foreground font-semibold">{totalPrompts}</span>{" "}
             expert-grade prompts across{" "}
-            <span className="text-foreground font-semibold">
-              {totalDomainCount}
-            </span>{" "}
-            domains — including{" "}
-            <span className="text-[#8BB4E0] font-semibold">
-              {phdExclusiveCount} PhD-exclusive
-            </span>{" "}
-            and{" "}
-            <span className="text-[#FB923C] font-semibold">
-              {researchMethodsCount} researcher-focused
-            </span>{" "}
-            prompts covering ethics, data management, open science, advanced
-            qualitative, quantitative and computational methods, and knowledge
-            translation.
+            <span className="text-foreground font-semibold">{totalDomains}</span>{" "}
+            domains. Favorite the ones you use, build a personal collection, and
+            export curated bundles as JSON or a branded PDF report.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
             <HeroPill
               accent="#8BB4E0"
               icon={<GraduationCap className="w-4 h-4" />}
-              title={`${phdExclusiveCount} PhD-Exclusive Prompts`}
+              title={`${groupCounts.phd} PhD-Exclusive Prompts`}
               caption="Dissertation, viva, grants, postdoc, supervision"
             />
             <HeroPill
               accent="#FB923C"
               icon={<FlaskConical className="w-4 h-4" />}
-              title={`${researchMethodsCount} Research Method Prompts`}
+              title={`${groupCounts.methods} Research Method Prompts`}
               caption="PRISMA, qualitative, quantitative, mixed, ethics, FAIR"
             />
             <HeroPill
               accent="#F59E0B"
               icon={<Sparkles className="w-4 h-4" />}
-              title="8 KR Bonus Prompts (new)"
+              title={`${groupCounts.bonus} KR Bonus Prompts`}
               caption="AI co-author, reproducibility, pre-registration, wellbeing"
             />
           </div>
@@ -151,19 +186,49 @@ function Index() {
       {/* TOOLBAR */}
       <section className="sticky top-[6.5rem] sm:top-[6.5rem] z-30 bg-background/85 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-3 space-y-3">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder={`Search ${totalPromptCount} prompts — title, framework, variable…`}
+                placeholder={`Search ${totalPrompts} prompts — title, framework, variable…`}
                 className="w-full pl-9 pr-3 py-2 rounded-md bg-card border border-border focus:border-primary focus:outline-none text-sm placeholder:text-muted-foreground"
               />
             </div>
-            <div className="hidden sm:block text-xs text-muted-foreground font-mono">
-              {visiblePrompts.length}/{totalPromptCount}
+            <button
+              type="button"
+              onClick={() => {
+                if (allVisibleSelected) {
+                  // Deselect just the currently visible set
+                  selection.setMany(
+                    selection.ids.filter((n) => !visibleNums.includes(n)),
+                  );
+                } else {
+                  const merged = Array.from(
+                    new Set([...selection.ids, ...visibleNums]),
+                  );
+                  selection.setMany(merged);
+                }
+              }}
+              disabled={visibleNums.length === 0}
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors disabled:opacity-40"
+            >
+              {allVisibleSelected ? (
+                <CheckSquare className="w-3.5 h-3.5" />
+              ) : (
+                <Square className="w-3.5 h-3.5" />
+              )}
+              {allVisibleSelected ? "Deselect" : "Select all"}
+            </button>
+            <ExportLauncher
+              flatPrompts={flatPrompts}
+              selectedNums={selection.ids}
+              favoriteNums={favorites.ids}
+            />
+            <div className="hidden md:block text-xs text-muted-foreground font-mono whitespace-nowrap">
+              {visiblePrompts.length}/{totalPrompts}
             </div>
           </div>
 
@@ -173,7 +238,7 @@ function Index() {
               onClick={() => setFilter({ kind: "all" })}
               label="✦ All Domains"
             />
-            {sectionGroups.map((g) => (
+            {groups.map((g) => (
               <FilterPill
                 key={g.key}
                 active={filter.kind === "group" && filter.group === g.key}
@@ -183,7 +248,7 @@ function Index() {
               />
             ))}
             <span className="w-px h-5 bg-border mx-1 shrink-0" />
-            {phdSections.map((s) => (
+            {sections.map((s) => (
               <FilterPill
                 key={s.id}
                 active={filter.kind === "section" && filter.sectionId === s.id}
@@ -207,12 +272,18 @@ function Index() {
           </div>
         )}
         {grouped.map(({ section, prompts }) => (
-          <section key={section.id} id={section.id} className="space-y-4 scroll-mt-48">
+          <section
+            key={section.id}
+            id={section.id}
+            className="space-y-4 scroll-mt-48"
+          >
             <div className="flex items-center justify-between gap-4 flex-wrap">
               <div className="flex items-center gap-3">
                 <span
                   className="text-2xl"
-                  style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.08))" }}
+                  style={{
+                    filter: "drop-shadow(0 0 8px rgba(255,255,255,0.08))",
+                  }}
                 >
                   {section.icon}
                 </span>
@@ -238,7 +309,11 @@ function Index() {
                 <PromptCard
                   key={p.num}
                   prompt={p}
-                  onOpen={() => setActive(p)}
+                  onOpen={() => openPrompt(p)}
+                  isFavorite={favorites.isFavorite(p.num)}
+                  onToggleFavorite={() => favorites.toggle(p.num)}
+                  isSelected={selection.has(p.num)}
+                  onToggleSelect={() => selection.toggle(p.num)}
                 />
               ))}
             </div>
@@ -247,7 +322,33 @@ function Index() {
       </main>
 
       <SiteFooter />
-      <PromptModal prompt={active} onClose={() => setActive(null)} />
+
+      <PromptModal
+        prompt={active}
+        onClose={() => setActive(null)}
+        isFavorite={active ? favorites.isFavorite(active.num) : false}
+        onToggleFavorite={
+          active ? () => favorites.toggle(active.num) : undefined
+        }
+      />
+
+      <FavoritesPanel
+        open={libraryOpen}
+        onClose={() => setLibraryOpen(false)}
+        flatPrompts={flatPrompts}
+        onOpenPrompt={(p) => {
+          setLibraryOpen(false);
+          openPrompt(p);
+        }}
+        onApplySearch={(q) => setQuery(q)}
+      />
+
+      <ExportBar
+        selectedNums={selection.ids}
+        onClear={selection.clear}
+        flatPrompts={flatPrompts}
+        favoriteNums={favorites.ids}
+      />
     </div>
   );
 }
@@ -278,7 +379,10 @@ function HeroPill({
         {icon}
       </div>
       <div className="leading-tight">
-        <div className="font-display text-sm font-bold" style={{ color: accent }}>
+        <div
+          className="font-display text-sm font-bold"
+          style={{ color: accent }}
+        >
           {title}
         </div>
         <div className="text-xs text-muted-foreground mt-0.5">{caption}</div>
