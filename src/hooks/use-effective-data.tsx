@@ -251,6 +251,7 @@ export function mergeData(overrides: AdminOverrides): EffectiveData {
     phd: 0,
     methods: 0,
     bonus: 0,
+    bonus2: 0,
   };
   for (const p of flatPrompts) groupCounts[p.groupKey] += 1;
 
