@@ -1,0 +1,9 @@
+Tool Name,Category,Description,Type,Best For,URL
+Slack,Team Communication,Channel-based team messaging platform,Freemium,Real-time team communication,https://slack.com
+Microsoft Teams,Team Communication,"Chat, meetings, and collaboration in Microsoft 365",Freemium,Microsoft ecosystem users,https://www.microsoft.com/microsoft-teams
+Zoom,Video Conferencing,Video conferencing platform,Freemium,"Meetings, webinars, interviews",https://zoom.us
+Google Workspace,Collaboration Suite,"Docs, Sheets, Drive, and collaboration tools",Freemium,Document collaboration,https://workspace.google.com
+Confluence,Knowledge Management,Team workspace for documentation and knowledge sharing,Freemium,"Team wikis, documentation",https://www.atlassian.com/software/confluence
+Miro,Visual Collaboration,Interactive whiteboard for brainstorming and synthesis,Freemium,"Research synthesis, affinity mapping",https://miro.com
+FigJam,Visual Collaboration,Figma's collaborative whiteboard tool,Free,"Quick brainstorming, design thinking",https://www.figma.com/figjam
+Overleaf,LaTeX Collaboration,Online LaTeX editor with real-time collaboration,Freemium,Collaborative paper writing in LaTeX,https://www.overleaf.com

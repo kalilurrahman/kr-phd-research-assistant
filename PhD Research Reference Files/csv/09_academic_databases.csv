@@ -1,0 +1,13 @@
+Tool Name,Category,Description,Coverage,Access,Best For,URL
+PubMed,Biomedical Database,Free biomedical literature database by NIH,"~5,200 journals",Free,"Life sciences, medicine",https://pubmed.ncbi.nlm.nih.gov
+Scopus,Multidisciplinary Database,Elsevier's abstract and citation database,"~27,000 journals",Subscription,"Citation tracking, multidisciplinary",https://www.scopus.com
+Web of Science,Multidisciplinary Database,Clarivate's citation indexing service,"~21,000 journals",Subscription,"Citation analysis, impact factor",https://www.webofknowledge.com
+Google Scholar,Search Engine,Free academic search engine,Millions of papers,Free,"Broad searches, accessibility",https://scholar.google.com
+JSTOR,Humanities Database,Digital library of academic journals and books,"12,000+ journals",Subscription,"Humanities, social sciences",https://www.jstor.org
+ERIC,Education Database,Education Resources Information Center,1.7M records,Free,Education research,https://eric.ed.gov
+IEEE Xplore,Engineering Database,Digital library for engineering and technology,5M+ documents,Subscription,"Engineering, computer science",https://ieeexplore.ieee.org
+ScienceDirect,Multidisciplinary Database,Elsevier's full-text database,16M+ articles,Subscription,"Full-text access, STEM",https://www.sciencedirect.com
+DOAJ,Open Access Database,Directory of Open Access Journals,"~20,000 journals",Free,Open access verification,https://doaj.org
+arXiv,Preprint Repository,Open-access preprint repository,2M+ papers,Free,"Physics, math, CS preprints",https://arxiv.org
+bioRxiv,Preprint Repository,Preprint server for biology,200K+ papers,Free,Biology preprints,https://www.biorxiv.org
+Embase,Biomedical Database,Biomedical and pharmacological database,32M+ records,Subscription,"Pharmacology, clinical medicine",https://www.embase.com

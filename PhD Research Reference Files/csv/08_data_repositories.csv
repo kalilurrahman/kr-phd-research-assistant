@@ -1,0 +1,9 @@
+Tool Name,Category,Description,Type,Storage Limit,Best For,URL
+Zenodo,Data Repository,CERN-operated research repository with GitHub integration,Free,50 GB per file,"Software, datasets, all disciplines",https://zenodo.org
+Figshare,Data Repository,Open data repository for all research outputs,Free,Up to 10 TB,"Large datasets, multimedia",https://figshare.com
+Dryad,Data Repository,Curated data repository with CC0 licensing,Paid ($120/dataset),Up to 300 GB,Publication-linked data,https://datadryad.org
+Open Science Framework (OSF),Data Repository,Project management and data repository,Free,Flexible,"Open science, preregistration",https://osf.io
+Mendeley Data,Data Repository,Free research data repository,Free,Flexible,"Mendeley users, multidisciplinary",https://data.mendeley.com
+Harvard Dataverse,Data Repository,Open repository for all researchers,Free,2.5 GB per file,Academic institutions,https://dataverse.harvard.edu
+GitHub,Code Repository,Version control and collaboration for code,Freemium,Varies,"Software, code, version control",https://github.com
+Vivli,Clinical Data,Platform for sharing clinical trial data,Free,Varies,Clinical research data sharing,https://vivli.org

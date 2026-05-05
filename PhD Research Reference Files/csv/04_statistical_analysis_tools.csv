@@ -1,0 +1,9 @@
+Tool Name,Category,Description,Type,Best For,URL
+R,Statistical Analysis,Open-source programming language for statistical computing,Free,"Advanced statistics, data visualization",https://www.r-project.org
+Python,Statistical Analysis,Programming language with extensive data science libraries,Free,"Machine learning, automation, large datasets",https://www.python.org
+SPSS,Statistical Analysis,User-friendly statistical software with GUI,Paid (IBM),"Survey research, social sciences",https://www.ibm.com/spss
+SAS,Statistical Analysis,Advanced analytics and business intelligence software,Paid,"Enterprise analytics, clinical trials",https://www.sas.com
+Stata,Statistical Analysis,Statistical software for data science,Paid,"Economics, epidemiology",https://www.stata.com
+JASP,Statistical Analysis,Free alternative to SPSS with Bayesian statistics,Free,"Psychology research, teaching",https://jasp-stats.org
+MATLAB,Statistical Analysis,Programming platform for engineering and scientific computing,Paid,"Engineering, signal processing",https://www.mathworks.com/products/matlab.html
+GraphPad Prism,Statistical Analysis,Statistics and graphing software for life sciences,Paid,"Biomedical research, publication-ready graphs",https://www.graphpad.com

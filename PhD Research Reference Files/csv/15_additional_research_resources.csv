@@ -1,0 +1,31 @@
+Category,Tool Name,Description,Type,URL
+Plagiarism Detection,Turnitin,Academic plagiarism detection service,Institutional,https://www.turnitin.com
+Plagiarism Detection,iThenticate,Professional plagiarism checker,Paid,https://www.ithenticate.com
+Plagiarism Detection,Copyscape,Online plagiarism detector,Freemium,https://www.copyscape.com
+Research Networking,ResearchGate,Social networking site for researchers,Free,https://www.researchgate.net
+Research Networking,Academia.edu,Platform for sharing academic research,Freemium,https://www.academia.edu
+Research Networking,ORCID,Researcher identifier system,Free,https://orcid.org
+Research Networking,Publons,Track peer review and publications,Free,https://publons.com
+Image Editing,ImageJ/Fiji,Open-source image processing,Free,https://imagej.net
+Image Editing,GIMP,Free image editor,Free,https://www.gimp.org
+Image Editing,BioRender,Scientific figure creation tool,Freemium,https://biorender.com
+Transcription,Otter.ai,AI-powered transcription service,Freemium,https://otter.ai
+Transcription,Descript,Audio/video transcription and editing,Freemium,https://www.descript.com
+Transcription,Rev,Human and AI transcription services,Pay per minute,https://www.rev.com
+Screen Recording,Loom,Quick screen and video recording,Freemium,https://www.loom.com
+Screen Recording,OBS Studio,Open-source screen recording,Free,https://obsproject.com
+Mind Mapping,MindMeister,Online collaborative mind mapping,Freemium,https://www.mindmeister.com
+Mind Mapping,XMind,Mind mapping and brainstorming tool,Freemium,https://www.xmind.net
+Mind Mapping,Coggle,Simple collaborative mind maps,Freemium,https://coggle.it
+Time Tracking,Toggl Track,Simple time tracking,Freemium,https://toggl.com
+Time Tracking,RescueTime,Automatic time tracking and productivity,Freemium,https://www.rescuetime.com
+Focus Tools,Forest,Gamified focus and productivity app,Freemium,https://www.forestapp.cc
+Focus Tools,Focus@Will,Music for concentration,Subscription,https://www.focusatwill.com
+PDF Tools,Adobe Acrobat,Professional PDF editing,Paid,https://www.adobe.com/acrobat
+PDF Tools,PDFtk,Open-source PDF toolkit,Free,https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit
+Cloud Storage,Dropbox,Cloud file storage and sharing,Freemium,https://www.dropbox.com
+Cloud Storage,OneDrive,Microsoft cloud storage,Freemium,https://onedrive.live.com
+Cloud Storage,Box,Enterprise cloud content management,Freemium,https://www.box.com
+Password Management,1Password,Password manager for teams,Subscription,https://1password.com
+Password Management,LastPass,Password management service,Freemium,https://www.lastpass.com
+VPN/Security,NordVPN,Virtual private network service,Subscription,https://nordvpn.com

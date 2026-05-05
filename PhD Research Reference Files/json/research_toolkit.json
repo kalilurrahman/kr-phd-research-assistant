@@ -1,0 +1,1359 @@
+{
+  "metadata": {
+    "title": "PhD Research Assistant Comprehensive Toolkit",
+    "version": "1.0",
+    "last_updated": "2026-05-05",
+    "total_resources": 154,
+    "categories": 15
+  },
+  "categories": [
+    {
+      "id": "writing-productivity",
+      "name": "Research Writing & Productivity",
+      "icon": "✍️",
+      "tools_count": 14,
+      "tools": [
+        {
+          "Tool Name": "Writefull",
+          "Category": "Academic Writing",
+          "Description": "AI-powered proofreading tool for scientific texts with Word/Overleaf integration",
+          "Type": "Freemium",
+          "Best For": "Language corrections, academic style",
+          "URL": "https://writefull.com"
+        },
+        {
+          "Tool Name": "Paperpal",
+          "Category": "Academic Writing",
+          "Description": "Comprehensive AI academic writing assistant with grammar checker, paraphraser, plagiarism checker",
+          "Type": "Freemium",
+          "Best For": "Research paper writing, journal submission checks",
+          "URL": "https://paperpal.com"
+        },
+        {
+          "Tool Name": "Grammarly",
+          "Category": "Academic Writing",
+          "Description": "Writing assistant for grammar, spelling, and style",
+          "Type": "Freemium",
+          "Best For": "General writing quality, clarity",
+          "URL": "https://www.grammarly.com"
+        },
+        {
+          "Tool Name": "Academic Phrasebank",
+          "Category": "Academic Writing",
+          "Description": "Database of common academic phrases organized by paper sections",
+          "Type": "Free",
+          "Best For": "Finding appropriate academic phrasing",
+          "URL": "http://www.phrasebank.manchester.ac.uk"
+        },
+        {
+          "Tool Name": "Ref-n-Write",
+          "Category": "Academic Writing",
+          "Description": "Academic phrasebank and paraphrasing tool",
+          "Type": "Paid",
+          "Best For": "Academic phrase suggestions",
+          "URL": "https://ref-n-write.com"
+        },
+        {
+          "Tool Name": "Hemingway Editor",
+          "Category": "Writing Clarity",
+          "Description": "Highlights complex sentences and common errors",
+          "Type": "Freemium",
+          "Best For": "Simplifying academic prose",
+          "URL": "https://hemingwayapp.com"
+        },
+        {
+          "Tool Name": "Scrivener",
+          "Category": "Long-form Writing",
+          "Description": "Comprehensive writing software for complex projects with research organization",
+          "Type": "Paid ($49)",
+          "Best For": "Dissertations, theses, books",
+          "URL": "https://www.literatureandlatte.com"
+        },
+        {
+          "Tool Name": "Ulysses",
+          "Category": "Long-form Writing",
+          "Description": "Clean, minimalist writing app for Mac/iOS users",
+          "Type": "Subscription",
+          "Best For": "Distraction-free writing",
+          "URL": "https://ulysses.app"
+        },
+        {
+          "Tool Name": "Todoist",
+          "Category": "Task Management",
+          "Description": "Task management and planning app",
+          "Type": "Freemium",
+          "Best For": "Research task organization",
+          "URL": "https://todoist.com"
+        },
+        {
+          "Tool Name": "Evernote",
+          "Category": "Note Taking",
+          "Description": "Note-taking and organization platform",
+          "Type": "Freemium",
+          "Best For": "Research notes, web clipping",
+          "URL": "https://evernote.com"
+        },
+        {
+          "Tool Name": "Notion",
+          "Category": "All-in-One",
+          "Description": "Workspace for notes, databases, wikis, and project management",
+          "Type": "Freemium",
+          "Best For": "Research organization, lab notebooks",
+          "URL": "https://www.notion.so"
+        },
+        {
+          "Tool Name": "Thesify",
+          "Category": "Academic Feedback",
+          "Description": "AI tool for feedback on structure, argumentation, and evidence use",
+          "Type": "Paid",
+          "Best For": "Pre-submission checks",
+          "URL": "https://www.thesify.ai"
+        },
+        {
+          "Tool Name": "Elicit",
+          "Category": "Literature Discovery",
+          "Description": "AI research assistant for literature discovery and evidence mapping",
+          "Type": "Freemium",
+          "Best For": "Literature reviews, finding papers",
+          "URL": "https://elicit.org"
+        },
+        {
+          "Tool Name": "Connected Papers",
+          "Category": "Literature Discovery",
+          "Description": "Visualizes networks of related research papers",
+          "Type": "Freemium",
+          "Best For": "Finding related work",
+          "URL": "https://www.connectedpapers.com"
+        }
+      ]
+    },
+    {
+      "id": "reference-management",
+      "name": "Reference Management",
+      "icon": "📚",
+      "tools_count": 5,
+      "tools": [
+        {
+          "Tool Name": "Mendeley",
+          "Category": "Reference Management",
+          "Description": "Reference manager with PDF organization and citation plugins",
+          "Type": "Free",
+          "Best For": "PDF library, collaboration",
+          "URL": "https://www.mendeley.com"
+        },
+        {
+          "Tool Name": "Zotero",
+          "Category": "Reference Management",
+          "Description": "Open-source reference manager with browser integration",
+          "Type": "Free",
+          "Best For": "Academic writing, literature reviews",
+          "URL": "https://www.zotero.org"
+        },
+        {
+          "Tool Name": "EndNote",
+          "Category": "Reference Management",
+          "Description": "Professional reference management software",
+          "Type": "Paid",
+          "Best For": "Large libraries, institutional use",
+          "URL": "https://endnote.com"
+        },
+        {
+          "Tool Name": "Paperpile",
+          "Category": "Reference Management",
+          "Description": "Reference manager for Google Docs with Chrome extension",
+          "Type": "Subscription",
+          "Best For": "Google Docs users",
+          "URL": "https://paperpile.com"
+        },
+        {
+          "Tool Name": "RefWorks",
+          "Category": "Reference Management",
+          "Description": "Web-based reference management tool",
+          "Type": "Institutional",
+          "Best For": "Institution-wide collaboration",
+          "URL": "https://refworks.proquest.com"
+        }
+      ]
+    },
+    {
+      "id": "systematic-review",
+      "name": "Systematic Review Tools",
+      "icon": "🔍",
+      "tools_count": 6,
+      "tools": [
+        {
+          "Tool Name": "Covidence",
+          "Category": "Systematic Review",
+          "Description": "Cochrane-endorsed tool for systematic review management",
+          "Type": "Subscription",
+          "Best For": "Full systematic reviews, team collaboration",
+          "URL": "https://www.covidence.org"
+        },
+        {
+          "Tool Name": "Rayyan",
+          "Category": "Systematic Review",
+          "Description": "Title/abstract screening with collaboration features",
+          "Type": "Freemium",
+          "Best For": "Article screening, real-time blinding",
+          "URL": "https://www.rayyan.ai"
+        },
+        {
+          "Tool Name": "EPPI-Reviewer",
+          "Category": "Systematic Review",
+          "Description": "Comprehensive tool for all review types including meta-analyses",
+          "Type": "Subscription",
+          "Best For": "Large-scale reviews, qualitative coding",
+          "URL": "https://eppi.ioe.ac.uk/"
+        },
+        {
+          "Tool Name": "DistillerSR",
+          "Category": "Systematic Review",
+          "Description": "Literature collection, screening, and assessment with AI workflows",
+          "Type": "Subscription",
+          "Best For": "Audit-ready reviews, compliance",
+          "URL": "https://www.distillersr.com"
+        },
+        {
+          "Tool Name": "JBI SUMARI",
+          "Category": "Systematic Review",
+          "Description": "Systematic review software supporting 10 review types",
+          "Type": "Subscription",
+          "Best For": "Qualitative reviews, new review types",
+          "URL": "https://jbi.global/systematic-review-software"
+        },
+        {
+          "Tool Name": "CADIMA",
+          "Category": "Systematic Review",
+          "Description": "Free systematic review tool with full-text screening",
+          "Type": "Free",
+          "Best For": "Environmental science reviews",
+          "URL": "https://www.cadima.info"
+        }
+      ]
+    },
+    {
+      "id": "statistical-analysis",
+      "name": "Statistical Analysis",
+      "icon": "📊",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "R",
+          "Category": "Statistical Analysis",
+          "Description": "Open-source programming language for statistical computing",
+          "Type": "Free",
+          "Best For": "Advanced statistics, data visualization",
+          "URL": "https://www.r-project.org"
+        },
+        {
+          "Tool Name": "Python",
+          "Category": "Statistical Analysis",
+          "Description": "Programming language with extensive data science libraries",
+          "Type": "Free",
+          "Best For": "Machine learning, automation, large datasets",
+          "URL": "https://www.python.org"
+        },
+        {
+          "Tool Name": "SPSS",
+          "Category": "Statistical Analysis",
+          "Description": "User-friendly statistical software with GUI",
+          "Type": "Paid (IBM)",
+          "Best For": "Survey research, social sciences",
+          "URL": "https://www.ibm.com/spss"
+        },
+        {
+          "Tool Name": "SAS",
+          "Category": "Statistical Analysis",
+          "Description": "Advanced analytics and business intelligence software",
+          "Type": "Paid",
+          "Best For": "Enterprise analytics, clinical trials",
+          "URL": "https://www.sas.com"
+        },
+        {
+          "Tool Name": "Stata",
+          "Category": "Statistical Analysis",
+          "Description": "Statistical software for data science",
+          "Type": "Paid",
+          "Best For": "Economics, epidemiology",
+          "URL": "https://www.stata.com"
+        },
+        {
+          "Tool Name": "JASP",
+          "Category": "Statistical Analysis",
+          "Description": "Free alternative to SPSS with Bayesian statistics",
+          "Type": "Free",
+          "Best For": "Psychology research, teaching",
+          "URL": "https://jasp-stats.org"
+        },
+        {
+          "Tool Name": "MATLAB",
+          "Category": "Statistical Analysis",
+          "Description": "Programming platform for engineering and scientific computing",
+          "Type": "Paid",
+          "Best For": "Engineering, signal processing",
+          "URL": "https://www.mathworks.com/products/matlab.html"
+        },
+        {
+          "Tool Name": "GraphPad Prism",
+          "Category": "Statistical Analysis",
+          "Description": "Statistics and graphing software for life sciences",
+          "Type": "Paid",
+          "Best For": "Biomedical research, publication-ready graphs",
+          "URL": "https://www.graphpad.com"
+        }
+      ]
+    },
+    {
+      "id": "qualitative-analysis",
+      "name": "Qualitative Data Analysis",
+      "icon": "💬",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "NVivo",
+          "Category": "Qualitative Analysis",
+          "Description": "Comprehensive QDA software for multimedia data",
+          "Type": "Paid (Subscription)",
+          "Best For": "Complex datasets, dissertations, multimedia",
+          "URL": "https://lumivero.com"
+        },
+        {
+          "Tool Name": "MAXQDA",
+          "Category": "Qualitative Analysis",
+          "Description": "User-friendly QDA tool with mixed methods support",
+          "Type": "Paid (Subscription)",
+          "Best For": "Mixed methods, Mac users",
+          "URL": "https://www.maxqda.com"
+        },
+        {
+          "Tool Name": "ATLAS.ti",
+          "Category": "Qualitative Analysis",
+          "Description": "Powerful qualitative analysis software",
+          "Type": "Paid (Subscription)",
+          "Best For": "Grounded theory, discourse analysis",
+          "URL": "https://atlasti.com"
+        },
+        {
+          "Tool Name": "Dedoose",
+          "Category": "Qualitative Analysis",
+          "Description": "Web-based mixed methods research tool",
+          "Type": "Subscription",
+          "Best For": "Team collaboration, mixed methods",
+          "URL": "https://www.dedoose.com"
+        },
+        {
+          "Tool Name": "QDA Miner",
+          "Category": "Qualitative Analysis",
+          "Description": "Qualitative data analysis with text mining",
+          "Type": "Paid",
+          "Best For": "Content analysis, text mining",
+          "URL": "https://provalisresearch.com"
+        },
+        {
+          "Tool Name": "Quirkos",
+          "Category": "Qualitative Analysis",
+          "Description": "Visual, user-friendly qualitative analysis",
+          "Type": "Paid",
+          "Best For": "Beginners, visual learners",
+          "URL": "https://www.quirkos.com"
+        },
+        {
+          "Tool Name": "Taguette",
+          "Category": "Qualitative Analysis",
+          "Description": "Free, open-source qualitative coding tool",
+          "Type": "Free",
+          "Best For": "Small projects, students",
+          "URL": "https://www.taguette.org"
+        },
+        {
+          "Tool Name": "Transana",
+          "Category": "Qualitative Analysis",
+          "Description": "Video/audio analysis software",
+          "Type": "Freemium",
+          "Best For": "Video/audio transcription analysis",
+          "URL": "https://www.transana.com"
+        }
+      ]
+    },
+    {
+      "id": "project-management",
+      "name": "Project Management",
+      "icon": "📋",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "Asana",
+          "Category": "Project Management",
+          "Description": "Work management with tasks, timelines, and dependencies",
+          "Type": "Freemium",
+          "Best For": "Research phases, cross-functional teams",
+          "URL": "https://asana.com"
+        },
+        {
+          "Tool Name": "monday.com",
+          "Category": "Project Management",
+          "Description": "Flexible workflow platform with custom boards",
+          "Type": "Freemium",
+          "Best For": "Visual workflow tracking, automation",
+          "URL": "https://monday.com"
+        },
+        {
+          "Tool Name": "ClickUp",
+          "Category": "Project Management",
+          "Description": "All-in-one project management with custom fields",
+          "Type": "Freemium",
+          "Best For": "Custom workflows, experiments",
+          "URL": "https://clickup.com"
+        },
+        {
+          "Tool Name": "Trello",
+          "Category": "Project Management",
+          "Description": "Kanban board for project organization",
+          "Type": "Freemium",
+          "Best For": "Simple project tracking",
+          "URL": "https://trello.com"
+        },
+        {
+          "Tool Name": "Basecamp",
+          "Category": "Project Management",
+          "Description": "Team collaboration and communication platform",
+          "Type": "Paid",
+          "Best For": "Lab management, team communication",
+          "URL": "https://basecamp.com"
+        },
+        {
+          "Tool Name": "Jira",
+          "Category": "Project Management",
+          "Description": "Agile project management and issue tracking",
+          "Type": "Freemium",
+          "Best For": "Software projects, agile methodology",
+          "URL": "https://www.atlassian.com/software/jira"
+        },
+        {
+          "Tool Name": "GitHub Projects",
+          "Category": "Project Management",
+          "Description": "Project management integrated with GitHub",
+          "Type": "Free",
+          "Best For": "Software development research",
+          "URL": "https://github.com/features/issues"
+        },
+        {
+          "Tool Name": "Wrike",
+          "Category": "Project Management",
+          "Description": "Enterprise project management",
+          "Type": "Freemium",
+          "Best For": "Large research teams",
+          "URL": "https://www.wrike.com"
+        }
+      ]
+    },
+    {
+      "id": "collaboration",
+      "name": "Collaboration Tools",
+      "icon": "🤝",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "Slack",
+          "Category": "Team Communication",
+          "Description": "Channel-based team messaging platform",
+          "Type": "Freemium",
+          "Best For": "Real-time team communication",
+          "URL": "https://slack.com"
+        },
+        {
+          "Tool Name": "Microsoft Teams",
+          "Category": "Team Communication",
+          "Description": "Chat, meetings, and collaboration in Microsoft 365",
+          "Type": "Freemium",
+          "Best For": "Microsoft ecosystem users",
+          "URL": "https://www.microsoft.com/microsoft-teams"
+        },
+        {
+          "Tool Name": "Zoom",
+          "Category": "Video Conferencing",
+          "Description": "Video conferencing platform",
+          "Type": "Freemium",
+          "Best For": "Meetings, webinars, interviews",
+          "URL": "https://zoom.us"
+        },
+        {
+          "Tool Name": "Google Workspace",
+          "Category": "Collaboration Suite",
+          "Description": "Docs, Sheets, Drive, and collaboration tools",
+          "Type": "Freemium",
+          "Best For": "Document collaboration",
+          "URL": "https://workspace.google.com"
+        },
+        {
+          "Tool Name": "Confluence",
+          "Category": "Knowledge Management",
+          "Description": "Team workspace for documentation and knowledge sharing",
+          "Type": "Freemium",
+          "Best For": "Team wikis, documentation",
+          "URL": "https://www.atlassian.com/software/confluence"
+        },
+        {
+          "Tool Name": "Miro",
+          "Category": "Visual Collaboration",
+          "Description": "Interactive whiteboard for brainstorming and synthesis",
+          "Type": "Freemium",
+          "Best For": "Research synthesis, affinity mapping",
+          "URL": "https://miro.com"
+        },
+        {
+          "Tool Name": "FigJam",
+          "Category": "Visual Collaboration",
+          "Description": "Figma's collaborative whiteboard tool",
+          "Type": "Free",
+          "Best For": "Quick brainstorming, design thinking",
+          "URL": "https://www.figma.com/figjam"
+        },
+        {
+          "Tool Name": "Overleaf",
+          "Category": "LaTeX Collaboration",
+          "Description": "Online LaTeX editor with real-time collaboration",
+          "Type": "Freemium",
+          "Best For": "Collaborative paper writing in LaTeX",
+          "URL": "https://www.overleaf.com"
+        }
+      ]
+    },
+    {
+      "id": "data-repositories",
+      "name": "Data Repositories",
+      "icon": "💾",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "Zenodo",
+          "Category": "Data Repository",
+          "Description": "CERN-operated research repository with GitHub integration",
+          "Type": "Free",
+          "Storage Limit": "50 GB per file",
+          "Best For": "Software, datasets, all disciplines",
+          "URL": "https://zenodo.org"
+        },
+        {
+          "Tool Name": "Figshare",
+          "Category": "Data Repository",
+          "Description": "Open data repository for all research outputs",
+          "Type": "Free",
+          "Storage Limit": "Up to 10 TB",
+          "Best For": "Large datasets, multimedia",
+          "URL": "https://figshare.com"
+        },
+        {
+          "Tool Name": "Dryad",
+          "Category": "Data Repository",
+          "Description": "Curated data repository with CC0 licensing",
+          "Type": "Paid ($120/dataset)",
+          "Storage Limit": "Up to 300 GB",
+          "Best For": "Publication-linked data",
+          "URL": "https://datadryad.org"
+        },
+        {
+          "Tool Name": "Open Science Framework (OSF)",
+          "Category": "Data Repository",
+          "Description": "Project management and data repository",
+          "Type": "Free",
+          "Storage Limit": "Flexible",
+          "Best For": "Open science, preregistration",
+          "URL": "https://osf.io"
+        },
+        {
+          "Tool Name": "Mendeley Data",
+          "Category": "Data Repository",
+          "Description": "Free research data repository",
+          "Type": "Free",
+          "Storage Limit": "Flexible",
+          "Best For": "Mendeley users, multidisciplinary",
+          "URL": "https://data.mendeley.com"
+        },
+        {
+          "Tool Name": "Harvard Dataverse",
+          "Category": "Data Repository",
+          "Description": "Open repository for all researchers",
+          "Type": "Free",
+          "Storage Limit": "2.5 GB per file",
+          "Best For": "Academic institutions",
+          "URL": "https://dataverse.harvard.edu"
+        },
+        {
+          "Tool Name": "GitHub",
+          "Category": "Code Repository",
+          "Description": "Version control and collaboration for code",
+          "Type": "Freemium",
+          "Storage Limit": "Varies",
+          "Best For": "Software, code, version control",
+          "URL": "https://github.com"
+        },
+        {
+          "Tool Name": "Vivli",
+          "Category": "Clinical Data",
+          "Description": "Platform for sharing clinical trial data",
+          "Type": "Free",
+          "Storage Limit": "Varies",
+          "Best For": "Clinical research data sharing",
+          "URL": "https://vivli.org"
+        }
+      ]
+    },
+    {
+      "id": "academic-databases",
+      "name": "Academic Databases",
+      "icon": "🗄️",
+      "tools_count": 12,
+      "tools": [
+        {
+          "Tool Name": "PubMed",
+          "Category": "Biomedical Database",
+          "Description": "Free biomedical literature database by NIH",
+          "Coverage": "~5,200 journals",
+          "Access": "Free",
+          "Best For": "Life sciences, medicine",
+          "URL": "https://pubmed.ncbi.nlm.nih.gov"
+        },
+        {
+          "Tool Name": "Scopus",
+          "Category": "Multidisciplinary Database",
+          "Description": "Elsevier's abstract and citation database",
+          "Coverage": "~27,000 journals",
+          "Access": "Subscription",
+          "Best For": "Citation tracking, multidisciplinary",
+          "URL": "https://www.scopus.com"
+        },
+        {
+          "Tool Name": "Web of Science",
+          "Category": "Multidisciplinary Database",
+          "Description": "Clarivate's citation indexing service",
+          "Coverage": "~21,000 journals",
+          "Access": "Subscription",
+          "Best For": "Citation analysis, impact factor",
+          "URL": "https://www.webofknowledge.com"
+        },
+        {
+          "Tool Name": "Google Scholar",
+          "Category": "Search Engine",
+          "Description": "Free academic search engine",
+          "Coverage": "Millions of papers",
+          "Access": "Free",
+          "Best For": "Broad searches, accessibility",
+          "URL": "https://scholar.google.com"
+        },
+        {
+          "Tool Name": "JSTOR",
+          "Category": "Humanities Database",
+          "Description": "Digital library of academic journals and books",
+          "Coverage": "12,000+ journals",
+          "Access": "Subscription",
+          "Best For": "Humanities, social sciences",
+          "URL": "https://www.jstor.org"
+        },
+        {
+          "Tool Name": "ERIC",
+          "Category": "Education Database",
+          "Description": "Education Resources Information Center",
+          "Coverage": "1.7M records",
+          "Access": "Free",
+          "Best For": "Education research",
+          "URL": "https://eric.ed.gov"
+        },
+        {
+          "Tool Name": "IEEE Xplore",
+          "Category": "Engineering Database",
+          "Description": "Digital library for engineering and technology",
+          "Coverage": "5M+ documents",
+          "Access": "Subscription",
+          "Best For": "Engineering, computer science",
+          "URL": "https://ieeexplore.ieee.org"
+        },
+        {
+          "Tool Name": "ScienceDirect",
+          "Category": "Multidisciplinary Database",
+          "Description": "Elsevier's full-text database",
+          "Coverage": "16M+ articles",
+          "Access": "Subscription",
+          "Best For": "Full-text access, STEM",
+          "URL": "https://www.sciencedirect.com"
+        },
+        {
+          "Tool Name": "DOAJ",
+          "Category": "Open Access Database",
+          "Description": "Directory of Open Access Journals",
+          "Coverage": "~20,000 journals",
+          "Access": "Free",
+          "Best For": "Open access verification",
+          "URL": "https://doaj.org"
+        },
+        {
+          "Tool Name": "arXiv",
+          "Category": "Preprint Repository",
+          "Description": "Open-access preprint repository",
+          "Coverage": "2M+ papers",
+          "Access": "Free",
+          "Best For": "Physics, math, CS preprints",
+          "URL": "https://arxiv.org"
+        },
+        {
+          "Tool Name": "bioRxiv",
+          "Category": "Preprint Repository",
+          "Description": "Preprint server for biology",
+          "Coverage": "200K+ papers",
+          "Access": "Free",
+          "Best For": "Biology preprints",
+          "URL": "https://www.biorxiv.org"
+        },
+        {
+          "Tool Name": "Embase",
+          "Category": "Biomedical Database",
+          "Description": "Biomedical and pharmacological database",
+          "Coverage": "32M+ records",
+          "Access": "Subscription",
+          "Best For": "Pharmacology, clinical medicine",
+          "URL": "https://www.embase.com"
+        }
+      ]
+    },
+    {
+      "id": "survey-tools",
+      "name": "Survey & Data Collection",
+      "icon": "📝",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "Qualtrics",
+          "Category": "Survey Platform",
+          "Description": "Enterprise-grade survey and research platform",
+          "Type": "Paid",
+          "Best For": "Complex surveys, advanced analytics",
+          "URL": "https://www.qualtrics.com"
+        },
+        {
+          "Tool Name": "SurveyMonkey",
+          "Category": "Survey Platform",
+          "Description": "User-friendly survey creation tool",
+          "Type": "Freemium",
+          "Best For": "Quick surveys, ease of use",
+          "URL": "https://www.surveymonkey.com"
+        },
+        {
+          "Tool Name": "Google Forms",
+          "Category": "Survey Platform",
+          "Description": "Free survey tool in Google Workspace",
+          "Type": "Free",
+          "Best For": "Simple surveys, students",
+          "URL": "https://www.google.com/forms"
+        },
+        {
+          "Tool Name": "LimeSurvey",
+          "Category": "Survey Platform",
+          "Description": "Open-source survey application",
+          "Type": "Free/Paid",
+          "Best For": "Self-hosted surveys, customization",
+          "URL": "https://www.limesurvey.org"
+        },
+        {
+          "Tool Name": "Typeform",
+          "Category": "Survey Platform",
+          "Description": "Conversational surveys with modern UI",
+          "Type": "Freemium",
+          "Best For": "User-friendly, engaging surveys",
+          "URL": "https://www.typeform.com"
+        },
+        {
+          "Tool Name": "REDCap",
+          "Category": "Research Data Capture",
+          "Description": "Secure web application for research databases",
+          "Type": "Free (Institutional)",
+          "Best For": "Clinical research, HIPAA compliance",
+          "URL": "https://www.project-redcap.org"
+        },
+        {
+          "Tool Name": "Prolific",
+          "Category": "Participant Recruitment",
+          "Description": "Platform for recruiting research participants",
+          "Type": "Pay per participant",
+          "Best For": "Online studies, diverse participants",
+          "URL": "https://www.prolific.co"
+        },
+        {
+          "Tool Name": "MTurk",
+          "Category": "Participant Recruitment",
+          "Description": "Amazon Mechanical Turk for crowdsourcing",
+          "Type": "Pay per task",
+          "Best For": "Large-scale data collection",
+          "URL": "https://www.mturk.com"
+        }
+      ]
+    },
+    {
+      "id": "funding-resources",
+      "name": "Funding & Grants",
+      "icon": "💰",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Tool Name": "Grants.gov",
+          "Category": "Funding Database",
+          "Description": "U.S. federal grant opportunities portal",
+          "Type": "Free",
+          "Coverage": "Federal grants",
+          "Best For": "U.S. federal funding",
+          "URL": "https://www.grants.gov"
+        },
+        {
+          "Tool Name": "GrantForward",
+          "Category": "Funding Database",
+          "Description": "Academic-focused grant search engine",
+          "Type": "Subscription",
+          "Coverage": "190,000+ grants",
+          "Best For": "Academic researchers",
+          "URL": "https://www.grantforward.com"
+        },
+        {
+          "Tool Name": "GrantScape",
+          "Category": "Funding Database",
+          "Description": "Federal, state, and foundation grants",
+          "Type": "Subscription",
+          "Coverage": "180,000+ grantors",
+          "Best For": "Comprehensive grant search",
+          "URL": "https://www.grantscape.com"
+        },
+        {
+          "Tool Name": "Foundation Directory",
+          "Category": "Funding Database",
+          "Description": "Candid's database of U.S. foundations",
+          "Type": "Subscription",
+          "Coverage": "550+ institutions",
+          "Best For": "Foundation funding",
+          "URL": "https://fconline.foundationcenter.org"
+        },
+        {
+          "Tool Name": "NIH RePORTER",
+          "Category": "Award Database",
+          "Description": "NIH grant and contract awards database",
+          "Type": "Free",
+          "Coverage": "NIH funded projects",
+          "Best For": "Finding funded NIH projects",
+          "URL": "https://reporter.nih.gov"
+        },
+        {
+          "Tool Name": "NSF Award Search",
+          "Category": "Award Database",
+          "Description": "NSF grant awards database",
+          "Type": "Free",
+          "Coverage": "NSF funded projects",
+          "Best For": "NSF funding patterns",
+          "URL": "https://www.nsf.gov/awardsearch"
+        },
+        {
+          "Tool Name": "GrantX",
+          "Category": "Funding Database",
+          "Description": "AI-powered grant matching service",
+          "Type": "Paid",
+          "Coverage": "900,000+ funders",
+          "Best For": "AI-assisted grant discovery",
+          "URL": "https://www.grantx.io"
+        },
+        {
+          "Tool Name": "Pivot (ProQuest)",
+          "Category": "Funding Database",
+          "Description": "Global funding opportunities and researcher profiles",
+          "Type": "Subscription",
+          "Coverage": "Global",
+          "Best For": "International funding, collaborations",
+          "URL": "https://pivot.proquest.com"
+        }
+      ]
+    },
+    {
+      "id": "ethics-compliance",
+      "name": "Research Ethics",
+      "icon": "⚖️",
+      "tools_count": 8,
+      "tools": [
+        {
+          "Resource Name": "Institutional Review Board (IRB)",
+          "Category": "Ethics Compliance",
+          "Description": "Committee overseeing human subjects research ethics",
+          "Type": "Institutional",
+          "Best For": "Human subjects research approval",
+          "Reference": "Local institution",
+          "URL": NaN
+        },
+        {
+          "Resource Name": "CITI Program",
+          "Category": "Ethics Training",
+          "Description": "Research ethics and compliance training",
+          "Type": "Paid",
+          "Best For": "IRB training, GCP certification",
+          "Reference": NaN,
+          "URL": "https://about.citiprogram.org"
+        },
+        {
+          "Resource Name": "Office for Human Research Protections (OHRP)",
+          "Category": "Regulatory Guidance",
+          "Description": "Federal office providing IRB guidance",
+          "Type": "Free",
+          "Best For": "U.S. regulatory compliance",
+          "Reference": NaN,
+          "URL": "https://www.hhs.gov/ohrp"
+        },
+        {
+          "Resource Name": "Cayuse Human Ethics",
+          "Category": "IRB Management Software",
+          "Description": "Electronic protocol management system",
+          "Type": "Institutional",
+          "Best For": "IRB submission and tracking",
+          "Reference": NaN,
+          "URL": "https://www.cayuse.com"
+        },
+        {
+          "Resource Name": "Common Rule (45 CFR 46)",
+          "Category": "Regulation",
+          "Description": "Federal policy for protection of human subjects",
+          "Type": "Free",
+          "Best For": "Understanding U.S. research regulations",
+          "Reference": NaN,
+          "URL": "https://www.hhs.gov/ohrp/regulations-and-policy/regulations/common-rule"
+        },
+        {
+          "Resource Name": "Belmont Report",
+          "Category": "Ethics Framework",
+          "Description": "Foundational ethics principles document",
+          "Type": "Free",
+          "Best For": "Ethics principles in human research",
+          "Reference": NaN,
+          "URL": "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report"
+        },
+        {
+          "Resource Name": "ICH-GCP Guidelines",
+          "Category": "Clinical Research",
+          "Description": "Good Clinical Practice international standards",
+          "Type": "Free",
+          "Best For": "Clinical trials, pharmaceutical research",
+          "Reference": NaN,
+          "URL": "https://ichgcp.net"
+        },
+        {
+          "Resource Name": "Informed Consent Templates",
+          "Category": "Ethics Resources",
+          "Description": "Sample consent forms and guidance",
+          "Type": "Free",
+          "Best For": "Creating consent documents",
+          "Reference": "Institutional IRB offices",
+          "URL": NaN
+        }
+      ]
+    },
+    {
+      "id": "methodologies",
+      "name": "Research Methodologies",
+      "icon": "🔬",
+      "tools_count": 13,
+      "tools": [
+        {
+          "Methodology": "Systematic Review",
+          "Type": "Literature Review",
+          "Description": "Structured, comprehensive literature search and synthesis",
+          "Key Steps": "Protocol, search, screening, extraction, synthesis",
+          "Common Tools": "Covidence, Rayyan, EPPI-Reviewer",
+          "Disciplines": "Healthcare, social sciences"
+        },
+        {
+          "Methodology": "Meta-Analysis",
+          "Type": "Quantitative Synthesis",
+          "Description": "Statistical combination of study results",
+          "Key Steps": "Data extraction, effect size calculation, heterogeneity assessment",
+          "Common Tools": "R (metafor), RevMan, JASP",
+          "Disciplines": "Medicine, psychology, education"
+        },
+        {
+          "Methodology": "Grounded Theory",
+          "Type": "Qualitative Method",
+          "Description": "Theory development from systematic data collection",
+          "Key Steps": "Open coding, axial coding, selective coding, theory building",
+          "Common Tools": "NVivo, MAXQDA, ATLAS.ti",
+          "Disciplines": "Sociology, nursing, education"
+        },
+        {
+          "Methodology": "Phenomenology",
+          "Type": "Qualitative Method",
+          "Description": "Study of lived experiences and consciousness",
+          "Key Steps": "Bracketing, data collection, thematic analysis",
+          "Common Tools": "NVivo, MAXQDA",
+          "Disciplines": "Philosophy, psychology, healthcare"
+        },
+        {
+          "Methodology": "Case Study",
+          "Type": "Qualitative Method",
+          "Description": "In-depth investigation of single or multiple cases",
+          "Key Steps": "Case selection, data collection, within-case analysis, cross-case comparison",
+          "Common Tools": "NVivo, Dedoose",
+          "Disciplines": "Business, education, social sciences"
+        },
+        {
+          "Methodology": "Ethnography",
+          "Type": "Qualitative Method",
+          "Description": "Study of cultures and social interactions",
+          "Key Steps": "Participant observation, field notes, interviews, cultural analysis",
+          "Common Tools": "ATLAS.ti, NVivo, field journals",
+          "Disciplines": "Anthropology, sociology"
+        },
+        {
+          "Methodology": "Action Research",
+          "Type": "Applied Research",
+          "Description": "Participatory approach to solving practical problems",
+          "Key Steps": "Planning, action, observation, reflection (cyclical)",
+          "Common Tools": "Project management tools, qualitative software",
+          "Disciplines": "Education, organizational development"
+        },
+        {
+          "Methodology": "Mixed Methods",
+          "Type": "Combined Approach",
+          "Description": "Integration of quantitative and qualitative methods",
+          "Key Steps": "Design selection, data collection, integration, interpretation",
+          "Common Tools": "MAXQDA, Dedoose, statistical + QDA software",
+          "Disciplines": "Health sciences, education, social sciences"
+        },
+        {
+          "Methodology": "Randomized Controlled Trial (RCT)",
+          "Type": "Experimental",
+          "Description": "Gold standard for causal inference",
+          "Key Steps": "Randomization, intervention, blinding, outcome measurement",
+          "Common Tools": "REDCap, statistical software",
+          "Disciplines": "Medicine, psychology"
+        },
+        {
+          "Methodology": "Longitudinal Study",
+          "Type": "Observational",
+          "Description": "Repeated observations over time",
+          "Key Steps": "Cohort selection, repeated measurements, attrition management",
+          "Common Tools": "Statistical software, data management systems",
+          "Disciplines": "Epidemiology, developmental psychology"
+        },
+        {
+          "Methodology": "Cross-Sectional Study",
+          "Type": "Observational",
+          "Description": "Snapshot of population at single time point",
+          "Key Steps": "Sampling, data collection, analysis",
+          "Common Tools": "Survey tools, SPSS, R",
+          "Disciplines": "Public health, sociology"
+        },
+        {
+          "Methodology": "Scoping Review",
+          "Type": "Literature Review",
+          "Description": "Map available evidence on a topic",
+          "Key Steps": "Question formulation, searching, charting, summarizing",
+          "Common Tools": "Covidence, Excel, qualitative software",
+          "Disciplines": "Healthcare, social sciences"
+        },
+        {
+          "Methodology": "Delphi Method",
+          "Type": "Consensus Building",
+          "Description": "Expert consensus through iterative surveys",
+          "Key Steps": "Expert panel, multiple rounds, consensus definition",
+          "Common Tools": "Qualtrics, SurveyMonkey",
+          "Disciplines": "Policy, healthcare, forecasting"
+        }
+      ]
+    },
+    {
+      "id": "workflow-stages",
+      "name": "Research Workflow",
+      "icon": "🔄",
+      "tools_count": 10,
+      "tools": [
+        {
+          "Stage": "1. Research Planning",
+          "Key Activities": "Literature review, research questions, methodology selection, timeline",
+          "Tools": "Notion, Asana, Trello, mind mapping tools",
+          "Deliverables": "Research proposal, protocol, timeline",
+          "Common Challenges": "Scope creep, unrealistic timelines"
+        },
+        {
+          "Stage": "2. Ethics & Compliance",
+          "Key Activities": "IRB submission, consent forms, data security planning",
+          "Tools": "Cayuse, institutional IRB systems, CITI training",
+          "Deliverables": "IRB approval, consent forms, ethics certificate",
+          "Common Challenges": "Lengthy approval process, protocol revisions"
+        },
+        {
+          "Stage": "3. Literature Review",
+          "Key Activities": "Database searching, screening, synthesis, gap identification",
+          "Tools": "PubMed, Scopus, Zotero, Covidence, Connected Papers",
+          "Deliverables": "Literature review chapter, synthesis tables",
+          "Common Challenges": "Information overload, keeping current"
+        },
+        {
+          "Stage": "4. Data Collection",
+          "Key Activities": "Surveys, interviews, experiments, observations",
+          "Tools": "Qualtrics, REDCap, Zoom, recording equipment",
+          "Deliverables": "Raw data, field notes, recordings",
+          "Common Challenges": "Participant recruitment, data quality"
+        },
+        {
+          "Stage": "5. Data Management",
+          "Key Activities": "Data cleaning, organization, backup, version control",
+          "Tools": "R, Python, Excel, OSF, GitHub",
+          "Deliverables": "Clean datasets, data dictionary, codebook",
+          "Common Challenges": "Data security, missing data"
+        },
+        {
+          "Stage": "6. Data Analysis",
+          "Key Activities": "Statistical analysis, coding, thematic analysis, visualization",
+          "Tools": "R, SPSS, NVivo, MAXQDA, Python",
+          "Deliverables": "Analysis outputs, figures, themes",
+          "Common Challenges": "Method selection, software learning curve"
+        },
+        {
+          "Stage": "7. Writing & Reporting",
+          "Key Activities": "Manuscript drafting, revisions, citation management",
+          "Tools": "Scrivener, Word, Overleaf, Zotero, Grammarly",
+          "Deliverables": "Manuscript, thesis chapters, reports",
+          "Common Challenges": "Writer's block, structure, clarity"
+        },
+        {
+          "Stage": "8. Peer Review",
+          "Key Activities": "Journal submission, responding to reviewers, revisions",
+          "Tools": "Journal submission systems, Overleaf, track changes",
+          "Deliverables": "Revised manuscript, response letter",
+          "Common Challenges": "Rejection, critical feedback"
+        },
+        {
+          "Stage": "9. Publication",
+          "Key Activities": "Final submission, proofs, open access decisions",
+          "Tools": "Publisher platforms, ORCID",
+          "Deliverables": "Published paper, DOI",
+          "Common Challenges": "Publication fees, copyright"
+        },
+        {
+          "Stage": "10. Dissemination",
+          "Key Activities": "Conference presentations, social media, data sharing",
+          "Tools": "Zenodo, OSF, Twitter/X, ResearchGate, conference platforms",
+          "Deliverables": "Presentations, datasets, preprints",
+          "Common Challenges": "Impact measurement, reach"
+        }
+      ]
+    },
+    {
+      "id": "additional-resources",
+      "name": "Additional Resources",
+      "icon": "🛠️",
+      "tools_count": 30,
+      "tools": [
+        {
+          "Category": "Plagiarism Detection",
+          "Tool Name": "Turnitin",
+          "Description": "Academic plagiarism detection service",
+          "Type": "Institutional",
+          "URL": "https://www.turnitin.com"
+        },
+        {
+          "Category": "Plagiarism Detection",
+          "Tool Name": "iThenticate",
+          "Description": "Professional plagiarism checker",
+          "Type": "Paid",
+          "URL": "https://www.ithenticate.com"
+        },
+        {
+          "Category": "Plagiarism Detection",
+          "Tool Name": "Copyscape",
+          "Description": "Online plagiarism detector",
+          "Type": "Freemium",
+          "URL": "https://www.copyscape.com"
+        },
+        {
+          "Category": "Research Networking",
+          "Tool Name": "ResearchGate",
+          "Description": "Social networking site for researchers",
+          "Type": "Free",
+          "URL": "https://www.researchgate.net"
+        },
+        {
+          "Category": "Research Networking",
+          "Tool Name": "Academia.edu",
+          "Description": "Platform for sharing academic research",
+          "Type": "Freemium",
+          "URL": "https://www.academia.edu"
+        },
+        {
+          "Category": "Research Networking",
+          "Tool Name": "ORCID",
+          "Description": "Researcher identifier system",
+          "Type": "Free",
+          "URL": "https://orcid.org"
+        },
+        {
+          "Category": "Research Networking",
+          "Tool Name": "Publons",
+          "Description": "Track peer review and publications",
+          "Type": "Free",
+          "URL": "https://publons.com"
+        },
+        {
+          "Category": "Image Editing",
+          "Tool Name": "ImageJ/Fiji",
+          "Description": "Open-source image processing",
+          "Type": "Free",
+          "URL": "https://imagej.net"
+        },
+        {
+          "Category": "Image Editing",
+          "Tool Name": "GIMP",
+          "Description": "Free image editor",
+          "Type": "Free",
+          "URL": "https://www.gimp.org"
+        },
+        {
+          "Category": "Image Editing",
+          "Tool Name": "BioRender",
+          "Description": "Scientific figure creation tool",
+          "Type": "Freemium",
+          "URL": "https://biorender.com"
+        },
+        {
+          "Category": "Transcription",
+          "Tool Name": "Otter.ai",
+          "Description": "AI-powered transcription service",
+          "Type": "Freemium",
+          "URL": "https://otter.ai"
+        },
+        {
+          "Category": "Transcription",
+          "Tool Name": "Descript",
+          "Description": "Audio/video transcription and editing",
+          "Type": "Freemium",
+          "URL": "https://www.descript.com"
+        },
+        {
+          "Category": "Transcription",
+          "Tool Name": "Rev",
+          "Description": "Human and AI transcription services",
+          "Type": "Pay per minute",
+          "URL": "https://www.rev.com"
+        },
+        {
+          "Category": "Screen Recording",
+          "Tool Name": "Loom",
+          "Description": "Quick screen and video recording",
+          "Type": "Freemium",
+          "URL": "https://www.loom.com"
+        },
+        {
+          "Category": "Screen Recording",
+          "Tool Name": "OBS Studio",
+          "Description": "Open-source screen recording",
+          "Type": "Free",
+          "URL": "https://obsproject.com"
+        },
+        {
+          "Category": "Mind Mapping",
+          "Tool Name": "MindMeister",
+          "Description": "Online collaborative mind mapping",
+          "Type": "Freemium",
+          "URL": "https://www.mindmeister.com"
+        },
+        {
+          "Category": "Mind Mapping",
+          "Tool Name": "XMind",
+          "Description": "Mind mapping and brainstorming tool",
+          "Type": "Freemium",
+          "URL": "https://www.xmind.net"
+        },
+        {
+          "Category": "Mind Mapping",
+          "Tool Name": "Coggle",
+          "Description": "Simple collaborative mind maps",
+          "Type": "Freemium",
+          "URL": "https://coggle.it"
+        },
+        {
+          "Category": "Time Tracking",
+          "Tool Name": "Toggl Track",
+          "Description": "Simple time tracking",
+          "Type": "Freemium",
+          "URL": "https://toggl.com"
+        },
+        {
+          "Category": "Time Tracking",
+          "Tool Name": "RescueTime",
+          "Description": "Automatic time tracking and productivity",
+          "Type": "Freemium",
+          "URL": "https://www.rescuetime.com"
+        },
+        {
+          "Category": "Focus Tools",
+          "Tool Name": "Forest",
+          "Description": "Gamified focus and productivity app",
+          "Type": "Freemium",
+          "URL": "https://www.forestapp.cc"
+        },
+        {
+          "Category": "Focus Tools",
+          "Tool Name": "Focus@Will",
+          "Description": "Music for concentration",
+          "Type": "Subscription",
+          "URL": "https://www.focusatwill.com"
+        },
+        {
+          "Category": "PDF Tools",
+          "Tool Name": "Adobe Acrobat",
+          "Description": "Professional PDF editing",
+          "Type": "Paid",
+          "URL": "https://www.adobe.com/acrobat"
+        },
+        {
+          "Category": "PDF Tools",
+          "Tool Name": "PDFtk",
+          "Description": "Open-source PDF toolkit",
+          "Type": "Free",
+          "URL": "https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit"
+        },
+        {
+          "Category": "Cloud Storage",
+          "Tool Name": "Dropbox",
+          "Description": "Cloud file storage and sharing",
+          "Type": "Freemium",
+          "URL": "https://www.dropbox.com"
+        },
+        {
+          "Category": "Cloud Storage",
+          "Tool Name": "OneDrive",
+          "Description": "Microsoft cloud storage",
+          "Type": "Freemium",
+          "URL": "https://onedrive.live.com"
+        },
+        {
+          "Category": "Cloud Storage",
+          "Tool Name": "Box",
+          "Description": "Enterprise cloud content management",
+          "Type": "Freemium",
+          "URL": "https://www.box.com"
+        },
+        {
+          "Category": "Password Management",
+          "Tool Name": "1Password",
+          "Description": "Password manager for teams",
+          "Type": "Subscription",
+          "URL": "https://1password.com"
+        },
+        {
+          "Category": "Password Management",
+          "Tool Name": "LastPass",
+          "Description": "Password management service",
+          "Type": "Freemium",
+          "URL": "https://www.lastpass.com"
+        },
+        {
+          "Category": "VPN/Security",
+          "Tool Name": "NordVPN",
+          "Description": "Virtual private network service",
+          "Type": "Subscription",
+          "URL": "https://nordvpn.com"
+        }
+      ]
+    }
+  ]
+}

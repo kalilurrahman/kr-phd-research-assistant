@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Research Toolkit - Quick Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            margin: 2rem auto;
+            display: block;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 3px solid;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+        .tool-count {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+        .tools-section { margin-top: 3rem; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .tool-card h3 { margin-bottom: 0.5rem; }
+        .type-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .type-free { background: #d4edda; color: #155724; }
+        .type-freemium { background: #d1ecf1; color: #0c5460; }
+        .type-paid { background: #fff3cd; color: #856404; }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: #e9ecef;
+            border-radius: 16px;
+            font-size: 0.75rem;
+        }
+        .tool-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .tool-card a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PhD Research Assistant Toolkit</h1>
+            <p>154+ curated tools for PhD researchers</p>
+        </header>
+
+        <input type="search" id="searchBox" class="search-box" placeholder="Search tools...">
+
+        <div id="categoryGrid" class="category-grid"></div>
+        <div id="toolsSection" class="tools-section"></div>
+    </div>
+
+    <script>
+        // Load the JSON data
+        fetch('./json/web_toolkit.json')
+            .then(response => response.json())
+            .then(data => {
+                window.toolkitData = data;
+                renderCategories(data.categories);
+                setupSearch();
+            });
+
+        function renderCategories(categories) {
+            const grid = document.getElementById('categoryGrid');
+            grid.innerHTML = categories.map(cat => `
+                <div class="category-card" 
+                     style="border-color: ${cat.color}"
+                     onclick="showTools('${cat.id}')">
+                    <span class="icon">${cat.icon}</span>
+                    <h2>${cat.title}</h2>
+                    <p>${cat.description}</p>
+                    <span class="tool-count">${cat.tools.length} tools</span>
+                </div>
+            `).join('');
+        }
+
+        function showTools(categoryId) {
+            const category = toolkitData.categories.find(c => c.id === categoryId);
+            const section = document.getElementById('toolsSection');
+
+            section.innerHTML = `
+                <h2>${category.icon} ${category.title}</h2>
+                <div class="tools-grid">
+                    ${category.tools.map(tool => `
+                        <div class="tool-card">
+                            <h3>${tool.name}</h3>
+                            <span class="type-badge type-${tool.type.toLowerCase().replace(' ', '-')}">
+                                ${tool.type}
+                            </span>
+                            <p>${tool.description}</p>
+                            <div class="tags">
+                                ${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                            <p><strong>Best for:</strong> ${tool.best_for}</p>
+                            <a href="${tool.url}" target="_blank">Visit Website →</a>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function setupSearch() {
+            const searchBox = document.getElementById('searchBox');
+            searchBox.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                if (!term) return;
+
+                const allTools = toolkitData.categories.flatMap(c => c.tools);
+                const results = allTools.filter(tool =>
+                    tool.name.toLowerCase().includes(term) ||
+                    tool.description.toLowerCase().includes(term) ||
+                    tool.tags.some(tag => tag.toLowerCase().includes(term))
+                );
+
+                displaySearchResults(results, term);
+            });
+        }
+
+        function displaySearchResults(tools, term) {
+            const section = document.getElementById('toolsSection');
+            section.innerHTML = `
+                <h2>Search Results for "${term}"</h2>
+                <p>${tools.length} tools found</p>
+                <div class="tools-grid">
+                    ${tools.map(tool => `
+                        <div class="tool-card">
+                            <h3>${tool.name}</h3>
+                            <span class="type-badge type-${tool.type.toLowerCase()}">
+                                ${tool.type}
+                            </span>
+                            <p>${tool.description}</p>
+                            <div class="tags">
+                                ${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                            <a href="${tool.url}" target="_blank">Visit Website →</a>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

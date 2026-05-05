@@ -1,0 +1,9 @@
+Tool Name,Category,Description,Type,Best For,URL
+Qualtrics,Survey Platform,Enterprise-grade survey and research platform,Paid,"Complex surveys, advanced analytics",https://www.qualtrics.com
+SurveyMonkey,Survey Platform,User-friendly survey creation tool,Freemium,"Quick surveys, ease of use",https://www.surveymonkey.com
+Google Forms,Survey Platform,Free survey tool in Google Workspace,Free,"Simple surveys, students",https://www.google.com/forms
+LimeSurvey,Survey Platform,Open-source survey application,Free/Paid,"Self-hosted surveys, customization",https://www.limesurvey.org
+Typeform,Survey Platform,Conversational surveys with modern UI,Freemium,"User-friendly, engaging surveys",https://www.typeform.com
+REDCap,Research Data Capture,Secure web application for research databases,Free (Institutional),"Clinical research, HIPAA compliance",https://www.project-redcap.org
+Prolific,Participant Recruitment,Platform for recruiting research participants,Pay per participant,"Online studies, diverse participants",https://www.prolific.co
+MTurk,Participant Recruitment,Amazon Mechanical Turk for crowdsourcing,Pay per task,Large-scale data collection,https://www.mturk.com
