@@ -1,0 +1,11 @@
+Stage,Key Activities,Tools,Deliverables,Common Challenges
+1. Research Planning,"Literature review, research questions, methodology selection, timeline","Notion, Asana, Trello, mind mapping tools","Research proposal, protocol, timeline","Scope creep, unrealistic timelines"
+2. Ethics & Compliance,"IRB submission, consent forms, data security planning","Cayuse, institutional IRB systems, CITI training","IRB approval, consent forms, ethics certificate","Lengthy approval process, protocol revisions"
+3. Literature Review,"Database searching, screening, synthesis, gap identification","PubMed, Scopus, Zotero, Covidence, Connected Papers","Literature review chapter, synthesis tables","Information overload, keeping current"
+4. Data Collection,"Surveys, interviews, experiments, observations","Qualtrics, REDCap, Zoom, recording equipment","Raw data, field notes, recordings","Participant recruitment, data quality"
+5. Data Management,"Data cleaning, organization, backup, version control","R, Python, Excel, OSF, GitHub","Clean datasets, data dictionary, codebook","Data security, missing data"
+6. Data Analysis,"Statistical analysis, coding, thematic analysis, visualization","R, SPSS, NVivo, MAXQDA, Python","Analysis outputs, figures, themes","Method selection, software learning curve"
+7. Writing & Reporting,"Manuscript drafting, revisions, citation management","Scrivener, Word, Overleaf, Zotero, Grammarly","Manuscript, thesis chapters, reports","Writer's block, structure, clarity"
+8. Peer Review,"Journal submission, responding to reviewers, revisions","Journal submission systems, Overleaf, track changes","Revised manuscript, response letter","Rejection, critical feedback"
+9. Publication,"Final submission, proofs, open access decisions","Publisher platforms, ORCID","Published paper, DOI","Publication fees, copyright"
+10. Dissemination,"Conference presentations, social media, data sharing","Zenodo, OSF, Twitter/X, ResearchGate, conference platforms","Presentations, datasets, preprints","Impact measurement, reach"

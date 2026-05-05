@@ -1,0 +1,1095 @@
+{
+  "app_info": {
+    "name": "PhD Research Assistant Toolkit",
+    "version": "1.0.0",
+    "last_updated": "2026-05-05",
+    "description": "Comprehensive research tools and resources for PhD researchers",
+    "total_resources": 154
+  },
+  "categories": [
+    {
+      "id": "writing-productivity",
+      "title": "Research Writing & Productivity",
+      "icon": "✍️",
+      "description": "Tools for academic writing, productivity, and literature discovery",
+      "color": "#4A90E2",
+      "tools": [
+        {
+          "name": "Writefull",
+          "type": "Freemium",
+          "description": "AI-powered proofreading tool for scientific texts with Word/Overleaf integration",
+          "url": "https://writefull.com",
+          "tags": [
+            "AI",
+            "Grammar",
+            "Academic Writing"
+          ],
+          "best_for": "Language corrections, academic style"
+        },
+        {
+          "name": "Paperpal",
+          "type": "Freemium",
+          "description": "Comprehensive AI academic writing assistant with grammar checker, paraphraser, plagiarism checker",
+          "url": "https://paperpal.com",
+          "tags": [
+            "AI",
+            "Writing Assistant",
+            "Plagiarism Check"
+          ],
+          "best_for": "Research paper writing, journal submission checks"
+        },
+        {
+          "name": "Grammarly",
+          "type": "Freemium",
+          "description": "Writing assistant for grammar, spelling, and style",
+          "url": "https://www.grammarly.com",
+          "tags": [
+            "Grammar",
+            "Style",
+            "Editing"
+          ],
+          "best_for": "General writing quality, clarity"
+        },
+        {
+          "name": "Academic Phrasebank",
+          "type": "Free",
+          "description": "Database of common academic phrases organized by paper sections",
+          "url": "http://www.phrasebank.manchester.ac.uk",
+          "tags": [
+            "Academic Writing",
+            "Phrases",
+            "Reference"
+          ],
+          "best_for": "Finding appropriate academic phrasing"
+        },
+        {
+          "name": "Scrivener",
+          "type": "Paid",
+          "price": "$49",
+          "description": "Comprehensive writing software for complex projects with research organization",
+          "url": "https://www.literatureandlatte.com",
+          "tags": [
+            "Long-form Writing",
+            "Organization",
+            "Dissertation"
+          ],
+          "best_for": "Dissertations, theses, books"
+        },
+        {
+          "name": "Ulysses",
+          "type": "Subscription",
+          "description": "Clean, minimalist writing app for Mac/iOS users",
+          "url": "https://ulysses.app",
+          "tags": [
+            "Writing",
+            "Mac",
+            "Minimalist"
+          ],
+          "best_for": "Distraction-free writing"
+        },
+        {
+          "name": "Notion",
+          "type": "Freemium",
+          "description": "Workspace for notes, databases, wikis, and project management",
+          "url": "https://www.notion.so",
+          "tags": [
+            "All-in-One",
+            "Organization",
+            "Collaboration"
+          ],
+          "best_for": "Research organization, lab notebooks"
+        },
+        {
+          "name": "Thesify",
+          "type": "Paid",
+          "description": "AI tool for feedback on structure, argumentation, and evidence use",
+          "url": "https://www.thesify.ai",
+          "tags": [
+            "AI",
+            "Feedback",
+            "Academic"
+          ],
+          "best_for": "Pre-submission checks"
+        },
+        {
+          "name": "Elicit",
+          "type": "Freemium",
+          "description": "AI research assistant for literature discovery and evidence mapping",
+          "url": "https://elicit.org",
+          "tags": [
+            "AI",
+            "Literature Review",
+            "Discovery"
+          ],
+          "best_for": "Literature reviews, finding papers"
+        },
+        {
+          "name": "Connected Papers",
+          "type": "Freemium",
+          "description": "Visualizes networks of related research papers",
+          "url": "https://www.connectedpapers.com",
+          "tags": [
+            "Visualization",
+            "Literature",
+            "Discovery"
+          ],
+          "best_for": "Finding related work"
+        }
+      ]
+    },
+    {
+      "id": "reference-management",
+      "title": "Reference Management",
+      "icon": "📚",
+      "description": "Tools for managing citations and bibliographies",
+      "color": "#E67E22",
+      "tools": [
+        {
+          "name": "Mendeley",
+          "type": "Free",
+          "description": "Reference manager with PDF organization and citation plugins",
+          "url": "https://www.mendeley.com",
+          "tags": [
+            "References",
+            "PDF",
+            "Collaboration"
+          ],
+          "best_for": "PDF library, collaboration"
+        },
+        {
+          "name": "Zotero",
+          "type": "Free",
+          "description": "Open-source reference manager with browser integration",
+          "url": "https://www.zotero.org",
+          "tags": [
+            "Open Source",
+            "Browser",
+            "Citations"
+          ],
+          "best_for": "Academic writing, literature reviews"
+        },
+        {
+          "name": "EndNote",
+          "type": "Paid",
+          "description": "Professional reference management software",
+          "url": "https://endnote.com",
+          "tags": [
+            "Professional",
+            "Enterprise",
+            "Citations"
+          ],
+          "best_for": "Large libraries, institutional use"
+        },
+        {
+          "name": "Paperpile",
+          "type": "Subscription",
+          "description": "Reference manager for Google Docs with Chrome extension",
+          "url": "https://paperpile.com",
+          "tags": [
+            "Google Docs",
+            "Cloud",
+            "Browser"
+          ],
+          "best_for": "Google Docs users"
+        },
+        {
+          "name": "RefWorks",
+          "type": "Institutional",
+          "description": "Web-based reference management tool",
+          "url": "https://refworks.proquest.com",
+          "tags": [
+            "Web-based",
+            "Institutional",
+            "Collaboration"
+          ],
+          "best_for": "Institution-wide collaboration"
+        }
+      ]
+    },
+    {
+      "id": "systematic-review",
+      "title": "Systematic Review Tools",
+      "icon": "🔍",
+      "description": "Specialized tools for systematic reviews and meta-analyses",
+      "color": "#9B59B6",
+      "tools": [
+        {
+          "name": "Covidence",
+          "type": "Subscription",
+          "description": "Cochrane-endorsed tool for systematic review management",
+          "url": "https://www.covidence.org",
+          "tags": [
+            "Systematic Review",
+            "Cochrane",
+            "Team"
+          ],
+          "best_for": "Full systematic reviews, team collaboration"
+        },
+        {
+          "name": "Rayyan",
+          "type": "Freemium",
+          "description": "Title/abstract screening with collaboration features",
+          "url": "https://www.rayyan.ai",
+          "tags": [
+            "Screening",
+            "Collaboration",
+            "Fast"
+          ],
+          "best_for": "Article screening, real-time blinding"
+        },
+        {
+          "name": "EPPI-Reviewer",
+          "type": "Subscription",
+          "description": "Comprehensive tool for all review types including meta-analyses",
+          "url": "https://eppi.ioe.ac.uk/",
+          "tags": [
+            "Meta-analysis",
+            "Qualitative",
+            "Comprehensive"
+          ],
+          "best_for": "Large-scale reviews, qualitative coding"
+        },
+        {
+          "name": "DistillerSR",
+          "type": "Subscription",
+          "description": "Literature collection, screening, and assessment with AI workflows",
+          "url": "https://www.distillersr.com",
+          "tags": [
+            "AI",
+            "Automation",
+            "Compliance"
+          ],
+          "best_for": "Audit-ready reviews, compliance"
+        },
+        {
+          "name": "JBI SUMARI",
+          "type": "Subscription",
+          "description": "Systematic review software supporting 10 review types",
+          "url": "https://jbi.global/systematic-review-software",
+          "tags": [
+            "Multiple Types",
+            "Qualitative",
+            "Comprehensive"
+          ],
+          "best_for": "Qualitative reviews, new review types"
+        },
+        {
+          "name": "CADIMA",
+          "type": "Free",
+          "description": "Free systematic review tool with full-text screening",
+          "url": "https://www.cadima.info",
+          "tags": [
+            "Free",
+            "Environmental",
+            "Full-text"
+          ],
+          "best_for": "Environmental science reviews"
+        }
+      ]
+    },
+    {
+      "id": "statistical-analysis",
+      "title": "Statistical Analysis",
+      "icon": "📊",
+      "description": "Software for quantitative data analysis and statistics",
+      "color": "#27AE60",
+      "tools": [
+        {
+          "name": "R",
+          "type": "Free",
+          "description": "Open-source programming language for statistical computing",
+          "url": "https://www.r-project.org",
+          "tags": [
+            "Programming",
+            "Open Source",
+            "Advanced Statistics"
+          ],
+          "best_for": "Advanced statistics, data visualization",
+          "learning_curve": "High"
+        },
+        {
+          "name": "Python",
+          "type": "Free",
+          "description": "Programming language with extensive data science libraries",
+          "url": "https://www.python.org",
+          "tags": [
+            "Programming",
+            "Machine Learning",
+            "Automation"
+          ],
+          "best_for": "Machine learning, automation, large datasets",
+          "learning_curve": "Medium-High"
+        },
+        {
+          "name": "SPSS",
+          "type": "Paid",
+          "description": "User-friendly statistical software with GUI",
+          "url": "https://www.ibm.com/spss",
+          "tags": [
+            "GUI",
+            "User-friendly",
+            "Social Sciences"
+          ],
+          "best_for": "Survey research, social sciences",
+          "learning_curve": "Low"
+        },
+        {
+          "name": "SAS",
+          "type": "Paid",
+          "description": "Advanced analytics and business intelligence software",
+          "url": "https://www.sas.com",
+          "tags": [
+            "Enterprise",
+            "Clinical",
+            "Advanced"
+          ],
+          "best_for": "Enterprise analytics, clinical trials",
+          "learning_curve": "High"
+        },
+        {
+          "name": "Stata",
+          "type": "Paid",
+          "description": "Statistical software for data science",
+          "url": "https://www.stata.com",
+          "tags": [
+            "Economics",
+            "Epidemiology",
+            "Statistics"
+          ],
+          "best_for": "Economics, epidemiology",
+          "learning_curve": "Medium"
+        },
+        {
+          "name": "JASP",
+          "type": "Free",
+          "description": "Free alternative to SPSS with Bayesian statistics",
+          "url": "https://jasp-stats.org",
+          "tags": [
+            "Free",
+            "Bayesian",
+            "User-friendly"
+          ],
+          "best_for": "Psychology research, teaching",
+          "learning_curve": "Low"
+        }
+      ]
+    },
+    {
+      "id": "qualitative-analysis",
+      "title": "Qualitative Data Analysis",
+      "icon": "💬",
+      "description": "Tools for coding and analyzing qualitative data",
+      "color": "#E74C3C",
+      "tools": [
+        {
+          "name": "NVivo",
+          "type": "Subscription",
+          "description": "Comprehensive QDA software for multimedia data",
+          "url": "https://lumivero.com",
+          "tags": [
+            "Multimedia",
+            "Comprehensive",
+            "Professional"
+          ],
+          "best_for": "Complex datasets, dissertations, multimedia"
+        },
+        {
+          "name": "MAXQDA",
+          "type": "Subscription",
+          "description": "User-friendly QDA tool with mixed methods support",
+          "url": "https://www.maxqda.com",
+          "tags": [
+            "Mixed Methods",
+            "Mac-friendly",
+            "User-friendly"
+          ],
+          "best_for": "Mixed methods, Mac users"
+        },
+        {
+          "name": "ATLAS.ti",
+          "type": "Subscription",
+          "description": "Powerful qualitative analysis software",
+          "url": "https://atlasti.com",
+          "tags": [
+            "Grounded Theory",
+            "Discourse Analysis",
+            "Advanced"
+          ],
+          "best_for": "Grounded theory, discourse analysis"
+        },
+        {
+          "name": "Dedoose",
+          "type": "Subscription",
+          "description": "Web-based mixed methods research tool",
+          "url": "https://www.dedoose.com",
+          "tags": [
+            "Web-based",
+            "Mixed Methods",
+            "Collaboration"
+          ],
+          "best_for": "Team collaboration, mixed methods"
+        },
+        {
+          "name": "Taguette",
+          "type": "Free",
+          "description": "Free, open-source qualitative coding tool",
+          "url": "https://www.taguette.org",
+          "tags": [
+            "Free",
+            "Open Source",
+            "Simple"
+          ],
+          "best_for": "Small projects, students"
+        }
+      ]
+    },
+    {
+      "id": "project-management",
+      "title": "Project Management",
+      "icon": "📋",
+      "description": "Tools for organizing research projects and tasks",
+      "color": "#3498DB",
+      "tools": [
+        {
+          "name": "Asana",
+          "type": "Freemium",
+          "description": "Work management with tasks, timelines, and dependencies",
+          "url": "https://asana.com",
+          "tags": [
+            "Tasks",
+            "Timeline",
+            "Dependencies"
+          ],
+          "best_for": "Research phases, cross-functional teams"
+        },
+        {
+          "name": "monday.com",
+          "type": "Freemium",
+          "description": "Flexible workflow platform with custom boards",
+          "url": "https://monday.com",
+          "tags": [
+            "Visual",
+            "Workflows",
+            "Automation"
+          ],
+          "best_for": "Visual workflow tracking, automation"
+        },
+        {
+          "name": "ClickUp",
+          "type": "Freemium",
+          "description": "All-in-one project management with custom fields",
+          "url": "https://clickup.com",
+          "tags": [
+            "All-in-one",
+            "Custom",
+            "Comprehensive"
+          ],
+          "best_for": "Custom workflows, experiments"
+        },
+        {
+          "name": "Trello",
+          "type": "Freemium",
+          "description": "Kanban board for project organization",
+          "url": "https://trello.com",
+          "tags": [
+            "Kanban",
+            "Simple",
+            "Visual"
+          ],
+          "best_for": "Simple project tracking"
+        },
+        {
+          "name": "Notion",
+          "type": "Freemium",
+          "description": "All-in-one workspace for databases and wikis",
+          "url": "https://www.notion.so",
+          "tags": [
+            "All-in-one",
+            "Databases",
+            "Flexible"
+          ],
+          "best_for": "Knowledge management, lab notebooks"
+        }
+      ]
+    },
+    {
+      "id": "collaboration",
+      "title": "Collaboration Tools",
+      "icon": "🤝",
+      "description": "Platforms for team communication and collaboration",
+      "color": "#F39C12",
+      "tools": [
+        {
+          "name": "Slack",
+          "type": "Freemium",
+          "description": "Channel-based team messaging platform",
+          "url": "https://slack.com",
+          "tags": [
+            "Messaging",
+            "Channels",
+            "Integration"
+          ],
+          "best_for": "Real-time team communication"
+        },
+        {
+          "name": "Microsoft Teams",
+          "type": "Freemium",
+          "description": "Chat, meetings, and collaboration in Microsoft 365",
+          "url": "https://www.microsoft.com/microsoft-teams",
+          "tags": [
+            "Microsoft",
+            "Video",
+            "Integration"
+          ],
+          "best_for": "Microsoft ecosystem users"
+        },
+        {
+          "name": "Zoom",
+          "type": "Freemium",
+          "description": "Video conferencing platform",
+          "url": "https://zoom.us",
+          "tags": [
+            "Video",
+            "Meetings",
+            "Webinars"
+          ],
+          "best_for": "Meetings, webinars, interviews"
+        },
+        {
+          "name": "Miro",
+          "type": "Freemium",
+          "description": "Interactive whiteboard for brainstorming and synthesis",
+          "url": "https://miro.com",
+          "tags": [
+            "Whiteboard",
+            "Visual",
+            "Collaboration"
+          ],
+          "best_for": "Research synthesis, affinity mapping"
+        },
+        {
+          "name": "Overleaf",
+          "type": "Freemium",
+          "description": "Online LaTeX editor with real-time collaboration",
+          "url": "https://www.overleaf.com",
+          "tags": [
+            "LaTeX",
+            "Collaboration",
+            "Academic"
+          ],
+          "best_for": "Collaborative paper writing in LaTeX"
+        }
+      ]
+    },
+    {
+      "id": "data-repositories",
+      "title": "Data Repositories",
+      "icon": "💾",
+      "description": "Platforms for storing and sharing research data",
+      "color": "#16A085",
+      "tools": [
+        {
+          "name": "Zenodo",
+          "type": "Free",
+          "storage": "50 GB per file",
+          "description": "CERN-operated research repository with GitHub integration",
+          "url": "https://zenodo.org",
+          "tags": [
+            "Open Access",
+            "GitHub",
+            "DOI"
+          ],
+          "best_for": "Software, datasets, all disciplines"
+        },
+        {
+          "name": "Figshare",
+          "type": "Free",
+          "storage": "Up to 10 TB",
+          "description": "Open data repository for all research outputs",
+          "url": "https://figshare.com",
+          "tags": [
+            "Large Datasets",
+            "Multimedia",
+            "DOI"
+          ],
+          "best_for": "Large datasets, multimedia"
+        },
+        {
+          "name": "Dryad",
+          "type": "Paid",
+          "price": "$120/dataset",
+          "storage": "Up to 300 GB",
+          "description": "Curated data repository with CC0 licensing",
+          "url": "https://datadryad.org",
+          "tags": [
+            "Curated",
+            "Publication",
+            "CC0"
+          ],
+          "best_for": "Publication-linked data"
+        },
+        {
+          "name": "OSF",
+          "type": "Free",
+          "storage": "Flexible",
+          "description": "Project management and data repository",
+          "url": "https://osf.io",
+          "tags": [
+            "Open Science",
+            "Preregistration",
+            "Project Management"
+          ],
+          "best_for": "Open science, preregistration"
+        },
+        {
+          "name": "GitHub",
+          "type": "Freemium",
+          "description": "Version control and collaboration for code",
+          "url": "https://github.com",
+          "tags": [
+            "Code",
+            "Version Control",
+            "Collaboration"
+          ],
+          "best_for": "Software, code, version control"
+        }
+      ]
+    },
+    {
+      "id": "academic-databases",
+      "title": "Academic Databases",
+      "icon": "🗄️",
+      "description": "Search engines and databases for academic literature",
+      "color": "#8E44AD",
+      "tools": [
+        {
+          "name": "PubMed",
+          "type": "Free",
+          "coverage": "~5,200 journals",
+          "description": "Free biomedical literature database by NIH",
+          "url": "https://pubmed.ncbi.nlm.nih.gov",
+          "tags": [
+            "Biomedical",
+            "Free",
+            "NIH"
+          ],
+          "best_for": "Life sciences, medicine",
+          "discipline": "Biomedical"
+        },
+        {
+          "name": "Scopus",
+          "type": "Subscription",
+          "coverage": "~27,000 journals",
+          "description": "Elsevier's abstract and citation database",
+          "url": "https://www.scopus.com",
+          "tags": [
+            "Citations",
+            "Multidisciplinary",
+            "Analytics"
+          ],
+          "best_for": "Citation tracking, multidisciplinary",
+          "discipline": "Multidisciplinary"
+        },
+        {
+          "name": "Web of Science",
+          "type": "Subscription",
+          "coverage": "~21,000 journals",
+          "description": "Clarivate's citation indexing service",
+          "url": "https://www.webofknowledge.com",
+          "tags": [
+            "Citations",
+            "Impact Factor",
+            "Analytics"
+          ],
+          "best_for": "Citation analysis, impact factor",
+          "discipline": "Multidisciplinary"
+        },
+        {
+          "name": "Google Scholar",
+          "type": "Free",
+          "coverage": "Millions of papers",
+          "description": "Free academic search engine",
+          "url": "https://scholar.google.com",
+          "tags": [
+            "Free",
+            "Comprehensive",
+            "Accessible"
+          ],
+          "best_for": "Broad searches, accessibility",
+          "discipline": "All"
+        },
+        {
+          "name": "arXiv",
+          "type": "Free",
+          "coverage": "2M+ papers",
+          "description": "Open-access preprint repository",
+          "url": "https://arxiv.org",
+          "tags": [
+            "Preprints",
+            "Open Access",
+            "STEM"
+          ],
+          "best_for": "Physics, math, CS preprints",
+          "discipline": "Physics, Math, CS"
+        }
+      ]
+    },
+    {
+      "id": "survey-tools",
+      "title": "Survey & Data Collection",
+      "icon": "📝",
+      "description": "Tools for creating surveys and collecting research data",
+      "color": "#D35400",
+      "tools": [
+        {
+          "name": "Qualtrics",
+          "type": "Paid",
+          "description": "Enterprise-grade survey and research platform",
+          "url": "https://www.qualtrics.com",
+          "tags": [
+            "Enterprise",
+            "Advanced",
+            "Professional"
+          ],
+          "best_for": "Complex surveys, advanced analytics"
+        },
+        {
+          "name": "SurveyMonkey",
+          "type": "Freemium",
+          "description": "User-friendly survey creation tool",
+          "url": "https://www.surveymonkey.com",
+          "tags": [
+            "User-friendly",
+            "Quick",
+            "Popular"
+          ],
+          "best_for": "Quick surveys, ease of use"
+        },
+        {
+          "name": "Google Forms",
+          "type": "Free",
+          "description": "Free survey tool in Google Workspace",
+          "url": "https://www.google.com/forms",
+          "tags": [
+            "Free",
+            "Simple",
+            "Google"
+          ],
+          "best_for": "Simple surveys, students"
+        },
+        {
+          "name": "REDCap",
+          "type": "Free (Institutional)",
+          "description": "Secure web application for research databases",
+          "url": "https://www.project-redcap.org",
+          "tags": [
+            "Clinical",
+            "Secure",
+            "HIPAA"
+          ],
+          "best_for": "Clinical research, HIPAA compliance"
+        },
+        {
+          "name": "Prolific",
+          "type": "Pay per participant",
+          "description": "Platform for recruiting research participants",
+          "url": "https://www.prolific.co",
+          "tags": [
+            "Recruitment",
+            "Participants",
+            "Online"
+          ],
+          "best_for": "Online studies, diverse participants"
+        }
+      ]
+    },
+    {
+      "id": "funding-resources",
+      "title": "Funding & Grants",
+      "icon": "💰",
+      "description": "Resources for finding research funding opportunities",
+      "color": "#C0392B",
+      "tools": [
+        {
+          "name": "Grants.gov",
+          "type": "Free",
+          "coverage": "Federal grants",
+          "description": "U.S. federal grant opportunities portal",
+          "url": "https://www.grants.gov",
+          "tags": [
+            "Federal",
+            "U.S.",
+            "Government"
+          ],
+          "best_for": "U.S. federal funding"
+        },
+        {
+          "name": "GrantForward",
+          "type": "Subscription",
+          "coverage": "190,000+ grants",
+          "description": "Academic-focused grant search engine",
+          "url": "https://www.grantforward.com",
+          "tags": [
+            "Academic",
+            "Search",
+            "Recommendations"
+          ],
+          "best_for": "Academic researchers"
+        },
+        {
+          "name": "NIH RePORTER",
+          "type": "Free",
+          "coverage": "NIH funded projects",
+          "description": "NIH grant and contract awards database",
+          "url": "https://reporter.nih.gov",
+          "tags": [
+            "NIH",
+            "Awards",
+            "Biomedical"
+          ],
+          "best_for": "Finding funded NIH projects"
+        },
+        {
+          "name": "NSF Award Search",
+          "type": "Free",
+          "coverage": "NSF funded projects",
+          "description": "NSF grant awards database",
+          "url": "https://www.nsf.gov/awardsearch",
+          "tags": [
+            "NSF",
+            "Awards",
+            "Science"
+          ],
+          "best_for": "NSF funding patterns"
+        }
+      ]
+    }
+  ],
+  "research_workflow": [
+    {
+      "stage": 1,
+      "name": "Research Planning",
+      "icon": "📋",
+      "activities": [
+        "Literature review",
+        "Research questions",
+        "Methodology selection",
+        "Timeline"
+      ],
+      "tools": [
+        "Notion",
+        "Asana",
+        "Trello"
+      ],
+      "deliverables": [
+        "Research proposal",
+        "Protocol",
+        "Timeline"
+      ],
+      "duration": "2-4 weeks"
+    },
+    {
+      "stage": 2,
+      "name": "Ethics & Compliance",
+      "icon": "⚖️",
+      "activities": [
+        "IRB submission",
+        "Consent forms",
+        "Data security planning"
+      ],
+      "tools": [
+        "Cayuse",
+        "IRB systems",
+        "CITI training"
+      ],
+      "deliverables": [
+        "IRB approval",
+        "Consent forms"
+      ],
+      "duration": "4-12 weeks"
+    },
+    {
+      "stage": 3,
+      "name": "Literature Review",
+      "icon": "📚",
+      "activities": [
+        "Database searching",
+        "Screening",
+        "Synthesis"
+      ],
+      "tools": [
+        "PubMed",
+        "Scopus",
+        "Zotero",
+        "Covidence"
+      ],
+      "deliverables": [
+        "Literature review chapter"
+      ],
+      "duration": "4-8 weeks"
+    },
+    {
+      "stage": 4,
+      "name": "Data Collection",
+      "icon": "📊",
+      "activities": [
+        "Surveys",
+        "Interviews",
+        "Experiments"
+      ],
+      "tools": [
+        "Qualtrics",
+        "REDCap",
+        "Zoom"
+      ],
+      "deliverables": [
+        "Raw data",
+        "Field notes"
+      ],
+      "duration": "Variable"
+    },
+    {
+      "stage": 5,
+      "name": "Data Analysis",
+      "icon": "🔬",
+      "activities": [
+        "Statistical analysis",
+        "Coding",
+        "Visualization"
+      ],
+      "tools": [
+        "R",
+        "SPSS",
+        "NVivo",
+        "Python"
+      ],
+      "deliverables": [
+        "Analysis outputs",
+        "Figures"
+      ],
+      "duration": "4-12 weeks"
+    },
+    {
+      "stage": 6,
+      "name": "Writing & Publishing",
+      "icon": "✍️",
+      "activities": [
+        "Manuscript drafting",
+        "Revisions",
+        "Submission"
+      ],
+      "tools": [
+        "Scrivener",
+        "Overleaf",
+        "Grammarly"
+      ],
+      "deliverables": [
+        "Published paper",
+        "DOI"
+      ],
+      "duration": "8-24 weeks"
+    }
+  ],
+  "quick_recommendations": {
+    "by_budget": {
+      "free": [
+        "Zotero",
+        "R",
+        "Python",
+        "Taguette",
+        "Google Forms",
+        "Zenodo",
+        "OSF"
+      ],
+      "budget_friendly": [
+        "Notion",
+        "Trello",
+        "SurveyMonkey",
+        "Mendeley"
+      ],
+      "premium": [
+        "Scrivener",
+        "SPSS",
+        "NVivo",
+        "Qualtrics"
+      ]
+    },
+    "by_discipline": {
+      "social_sciences": [
+        "SPSS",
+        "NVivo",
+        "Qualtrics",
+        "JSTOR"
+      ],
+      "stem": [
+        "Python",
+        "R",
+        "MATLAB",
+        "IEEE Xplore",
+        "arXiv"
+      ],
+      "health_sciences": [
+        "PubMed",
+        "REDCap",
+        "SPSS",
+        "Covidence"
+      ],
+      "humanities": [
+        "Zotero",
+        "Scrivener",
+        "JSTOR",
+        "ATLAS.ti"
+      ]
+    },
+    "by_research_stage": {
+      "planning": [
+        "Notion",
+        "Asana",
+        "Mind mapping tools"
+      ],
+      "literature_review": [
+        "Zotero",
+        "Connected Papers",
+        "Covidence"
+      ],
+      "data_collection": [
+        "Qualtrics",
+        "REDCap",
+        "Prolific"
+      ],
+      "analysis": [
+        "R",
+        "SPSS",
+        "NVivo",
+        "Python"
+      ],
+      "writing": [
+        "Scrivener",
+        "Grammarly",
+        "Overleaf"
+      ]
+    }
+  },
+  "tool_comparisons": [
+    {
+      "comparison": "Qualtrics vs SurveyMonkey",
+      "winner": "SurveyMonkey for most use cases",
+      "details": "SurveyMonkey offers 95% of Qualtrics features with 10x better ease of use. Choose Qualtrics only for complex enterprise research."
+    },
+    {
+      "comparison": "NVivo vs MAXQDA",
+      "winner": "Depends on needs",
+      "details": "NVivo: Best for multimedia and complex datasets. MAXQDA: Best for Mac users and mixed methods."
+    },
+    {
+      "comparison": "R vs Python",
+      "winner": "Both excellent",
+      "details": "R: Superior for statistics and visualization. Python: Better for ML and automation."
+    },
+    {
+      "comparison": "Scrivener vs Ulysses",
+      "winner": "Depends on platform",
+      "details": "Scrivener: More features, cross-platform. Ulysses: Cleaner interface, Mac/iOS only."
+    }
+  ]
+}
