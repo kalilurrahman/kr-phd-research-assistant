@@ -458,7 +458,7 @@ function EthicsPanel({ query, filter, setFilter }: { query: string; filter: stri
   );
 }
 
-function EthicsCard({ requirement, category }: { requirement: Parameters<typeof DetailList>[0] extends never ? never : { id: string; name: string; description: string; whenNeeded?: string; actions: string[]; timeline?: string; penalties?: string; resources?: string[] }; category: string }) {
+function EthicsCard({ requirement, category }: { requirement: { id: string; name: string; description: string; whenNeeded?: string; actions: string[]; timeline?: string; penalties?: string; resources?: string[] }; category: string }) {
   const [open, setOpen] = useState(false);
   return (
     <article className="rounded-xl border border-border bg-card overflow-hidden">
