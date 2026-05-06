@@ -1,6 +1,25 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Search } from "lucide-react";
+import {
+  Search,
+  BookOpen,
+  Database,
+  Users,
+  FlaskConical,
+  ClipboardList,
+  PenSquare,
+  BarChart3,
+  Library,
+  Shield,
+  Coins,
+  Layers,
+  Sparkles,
+  ExternalLink,
+  Workflow,
+  FileText,
+  Wrench,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
@@ -25,10 +44,106 @@ type CatalogDomain = {
   subdomains: CatalogSubdomain[];
 };
 
-const catalog = resourcesCatalog as {
+const catalogRaw = resourcesCatalog as {
   totals: { domains: number; entries: number; files: number };
   domains: CatalogDomain[];
 };
+
+// Drop guide/prose/index/duplicate-aggregator domains — they contain free-form
+// general info, not structured tool entries.
+const EXCLUDED_DOMAIN_IDS = new Set<string>([
+  "data-management-best-practices",
+  "file-index",
+  "integration-guide",
+  "package-summary",
+  "phd-research-assistant-guide",
+  "phd-research-assistant-master-guide",
+  "phd-research-assistant-comprehensive-toolkit",
+  "phd-research-assistant-resource-repository",
+  "readme",
+  "readme-getting-started",
+  "research-ethics-compliance-guide",
+  "research-methodologies-toolkit",
+  "research-toolkit",
+  "research-tools-database",
+  "web-toolkit",
+  "publication-venues-guide",
+  "phd-best-practices-checklist",
+]);
+
+const EXCLUDED_SUBDOMAINS = new Set<string>(["Guides", "General"]);
+
+// Keep only meaningful structured fields.
+const FIELD_DENYLIST = [
+  "guide",
+  "notes",
+  "section",
+  "content",
+  "summary",
+  "overview",
+];
+
+function isDenseProse(value: string): boolean {
+  if (!value) return false;
+  // > 3 lines OR very long single block of prose
+  if (value.split(/\r?\n/).length > 3) return true;
+  if (value.length > 280) return true;
+  return false;
+}
+
+const catalog = {
+  ...catalogRaw,
+  domains: catalogRaw.domains
+    .filter((d) => !EXCLUDED_DOMAIN_IDS.has(d.id))
+    .map((d) => ({
+      ...d,
+      subdomains: d.subdomains
+        .filter((s) => !EXCLUDED_SUBDOMAINS.has(s.name))
+        .map((s) => ({
+          ...s,
+          entries: s.entries.filter((e) => {
+            const values = Object.values(e.fields).filter(
+              (v) => String(v).trim().length > 0,
+            );
+            if (values.length === 0) return false;
+            // drop entries that are essentially a single long prose blob
+            if (values.length === 1 && isDenseProse(String(values[0])))
+              return false;
+            return true;
+          }),
+        }))
+        .filter((s) => s.entries.length > 0),
+    }))
+    .filter((d) => d.subdomains.length > 0),
+};
+
+const DOMAIN_ICONS: Record<string, { icon: LucideIcon; tint: string }> = {
+  "academic-databases": { icon: Library, tint: "hsl(207 90% 60%)" },
+  "additional-research-resources": { icon: Sparkles, tint: "hsl(280 70% 65%)" },
+  "collaboration-tools": { icon: Users, tint: "hsl(160 70% 50%)" },
+  "data-repositories": { icon: Database, tint: "hsl(195 90% 55%)" },
+  "funding-grant-resources": { icon: Coins, tint: "hsl(36 90% 55%)" },
+  "project-management-tools": { icon: ClipboardList, tint: "hsl(220 80% 65%)" },
+  "qualitative-analysis-tools": { icon: BookOpen, tint: "hsl(330 75% 60%)" },
+  "reference-management-tools": { icon: Library, tint: "hsl(43 70% 55%)" },
+  "research-ethics-compliance": { icon: Shield, tint: "hsl(0 70% 60%)" },
+  "research-ethics-compliance-csv": { icon: Shield, tint: "hsl(0 70% 60%)" },
+  "research-methodologies": { icon: FlaskConical, tint: "hsl(265 70% 65%)" },
+  "research-workflow-stages": { icon: Workflow, tint: "hsl(168 79% 52%)" },
+  "research-writing-productivity-tools": {
+    icon: PenSquare,
+    tint: "hsl(43 70% 60%)",
+  },
+  "statistical-analysis-tools": { icon: BarChart3, tint: "hsl(155 65% 50%)" },
+  "survey-data-collection-tools": { icon: FileText, tint: "hsl(14 90% 60%)" },
+  "systematic-review-tools": { icon: Layers, tint: "hsl(105 55% 50%)" },
+};
+
+function iconFor(domainId: string): { icon: LucideIcon; tint: string } {
+  return (
+    DOMAIN_ICONS[domainId] ?? { icon: Wrench, tint: "hsl(43 52% 54%)" }
+  );
+}
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
@@ -39,52 +154,82 @@ export const Route = createFileRoute("/resources")({
       {
         name: "description",
         content:
-          "Integrated PhD resources from CSV, XLSX sheets, and guides, grouped by domain and sub-domain.",
+          "Curated PhD research tools and resources, grouped by domain and sub-domain in clean alternating rows.",
       },
     ],
   }),
   component: ResourcesPage,
 });
 
+type Row = {
+  domain: string;
+  domainId: string;
+  subdomain: string;
+  entry: CatalogEntry;
+};
+
+function pickHeaders(entries: CatalogEntry[]): string[] {
+  const counts = new Map<string, number>();
+  for (const e of entries) {
+    for (const [k, v] of Object.entries(e.fields)) {
+      const lower = k.toLowerCase();
+      if (FIELD_DENYLIST.some((d) => lower.includes(d))) continue;
+      if (!String(v).trim()) continue;
+      if (isDenseProse(String(v))) continue;
+      counts.set(k, (counts.get(k) ?? 0) + 1);
+    }
+  }
+  return Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([k]) => k);
+}
+
 function ResourcesPage() {
   const data = useEffectiveData();
   const [query, setQuery] = useState("");
   const [domainId, setDomainId] = useState<string>("all");
-  const [subdomainName, setSubdomainName] = useState<string>("all");
 
   const visibleDomains = useMemo(
-    () => (domainId === "all" ? catalog.domains : catalog.domains.filter((d) => d.id === domainId)),
+    () =>
+      domainId === "all"
+        ? catalog.domains
+        : catalog.domains.filter((d) => d.id === domainId),
     [domainId],
   );
 
-  const availableSubdomains = useMemo(() => {
-    const names = new Set<string>();
-    for (const d of visibleDomains) {
-      for (const s of d.subdomains) names.add(s.name);
-    }
-    return Array.from(names).sort((a, b) => a.localeCompare(b));
-  }, [visibleDomains]);
+  const totalEntries = useMemo(
+    () =>
+      catalog.domains.reduce(
+        (sum, d) =>
+          sum + d.subdomains.reduce((s2, sd) => s2 + sd.entries.length, 0),
+        0,
+      ),
+    [],
+  );
 
-  const entries = useMemo(() => {
+  const filteredDomains = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const rows: Array<{ domain: string; subdomain: string; entry: CatalogEntry }> = [];
-    for (const d of visibleDomains) {
-      for (const s of d.subdomains) {
-        if (subdomainName !== "all" && s.name !== subdomainName) continue;
-        for (const e of s.entries) {
-          if (!q) {
-            rows.push({ domain: d.name, subdomain: s.name, entry: e });
-            continue;
-          }
-          const content = Object.values(e.fields).join(" ").toLowerCase();
-          if (content.includes(q) || e.source.toLowerCase().includes(q)) {
-            rows.push({ domain: d.name, subdomain: s.name, entry: e });
-          }
-        }
-      }
-    }
-    return rows;
-  }, [visibleDomains, subdomainName, query]);
+    if (!q) return visibleDomains;
+    return visibleDomains
+      .map((d) => ({
+        ...d,
+        subdomains: d.subdomains
+          .map((s) => ({
+            ...s,
+            entries: s.entries.filter((e) => {
+              const blob = (
+                Object.values(e.fields).join(" ") +
+                " " +
+                e.source
+              ).toLowerCase();
+              return blob.includes(q);
+            }),
+          }))
+          .filter((s) => s.entries.length > 0),
+      }))
+      .filter((d) => d.subdomains.length > 0);
+  }, [visibleDomains, query]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -95,92 +240,195 @@ function ResourcesPage() {
         researchCount={data.groupCounts.methods}
       />
 
-      <section className="border-b border-border">
+      <section className="border-b border-border hero-backdrop">
         <div className="max-w-7xl mx-auto px-4 py-10 space-y-3">
-          <h1 className="font-display text-4xl font-bold gold-text">Integrated Resources Hub</h1>
+          <h1 className="font-display text-4xl font-bold gold-text">
+            Integrated Resources Hub
+          </h1>
           <p className="text-sm text-muted-foreground max-w-3xl">
-            Parsed from all resources in the PhD reference folder, including CSV datasets, individual XLSX sheets, and markdown guides.
+            Curated tools and references parsed from CSV datasets and JSON
+            sources. Generic guides, READMEs, and prose blobs have been removed
+            so only structured rows remain.
           </p>
           <div className="text-xs font-mono text-muted-foreground">
-            Domains: {catalog.totals.domains} · Entries: {catalog.totals.entries} · Files: {catalog.totals.files}
+            Domains: {catalog.domains.length} · Entries: {totalEntries}
           </div>
         </div>
       </section>
 
       <section className="sticky top-[6.5rem] z-30 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-2">
           <div className="relative md:col-span-2">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search all extracted resources"
+              placeholder="Search tools, descriptions, sources…"
               className="w-full pl-9 pr-3 py-2 rounded-md bg-card border border-border focus:border-primary focus:outline-none text-sm"
             />
           </div>
           <select
             value={domainId}
-            onChange={(e) => {
-              setDomainId(e.target.value);
-              setSubdomainName("all");
-            }}
+            onChange={(e) => setDomainId(e.target.value)}
             className="px-3 py-2 rounded-md bg-card border border-border focus:border-primary focus:outline-none text-sm"
           >
-            <option value="all">All Main Domains</option>
+            <option value="all">All Domains</option>
             {catalog.domains.map((d) => (
               <option key={d.id} value={d.id}>
-                {d.name} ({d.count})
-              </option>
-            ))}
-          </select>
-          <select
-            value={subdomainName}
-            onChange={(e) => setSubdomainName(e.target.value)}
-            className="px-3 py-2 rounded-md bg-card border border-border focus:border-primary focus:outline-none text-sm"
-          >
-            <option value="all">All Sub-Domains</option>
-            {availableSubdomains.map((s) => (
-              <option key={s} value={s}>
-                {s}
+                {d.name}
               </option>
             ))}
           </select>
         </div>
       </section>
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 space-y-4">
-        <div className="text-xs text-muted-foreground">
-          Showing {Math.min(entries.length, 150)} of {entries.length} matched entries.
-        </div>
-        <div className="space-y-3">
-          {entries.slice(0, 150).map((row, idx) => (
-            <article key={`${row.entry.source}:${idx}`} className="rounded-lg border border-border bg-card/50 p-3">
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <div className="text-xs text-primary font-mono">
-                  {row.domain} / {row.subdomain}
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 space-y-10">
+        {filteredDomains.map((d) => {
+          const meta = iconFor(d.id);
+          const Icon = meta.icon;
+          const allEntries = d.subdomains.flatMap((s) =>
+            s.entries.map((e) => ({ subdomain: s.name, entry: e })),
+          );
+          const headers = pickHeaders(allEntries.map((r) => r.entry));
+          return (
+            <section key={d.id} className="space-y-3">
+              <header className="flex items-center gap-3">
+                <span
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
+                  style={{
+                    background: `${meta.tint.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`,
+                    color: meta.tint,
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
+                </span>
+                <div>
+                  <h2 className="font-display text-2xl font-semibold">
+                    {d.name}
+                  </h2>
+                  <div className="text-xs text-muted-foreground">
+                    {allEntries.length} entries · {d.subdomains.length}{" "}
+                    sub-domains
+                  </div>
                 </div>
-                <div className="text-[11px] text-muted-foreground font-mono">{row.entry.source}</div>
+              </header>
+
+              <div className="overflow-x-auto rounded-lg border border-border">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr
+                      className="text-left"
+                      style={{
+                        background: meta.tint.replace("hsl(", "hsla(").replace(
+                          ")",
+                          " / 0.10)",
+                        ),
+                      }}
+                    >
+                      <th className="px-3 py-2 font-medium text-foreground/90 w-44">
+                        Sub-domain
+                      </th>
+                      {headers.map((h) => (
+                        <th
+                          key={h}
+                          className="px-3 py-2 font-medium text-foreground/90"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {allEntries.map((row, idx) => {
+                      const url =
+                        row.entry.fields["URL"] ||
+                        row.entry.fields["Url"] ||
+                        row.entry.fields["Website"] ||
+                        row.entry.fields["Link"] ||
+                        "";
+                      return (
+                        <tr
+                          key={`${d.id}-${idx}`}
+                          className={
+                            idx % 2 === 0
+                              ? "bg-card/40"
+                              : "bg-background/40 hover:bg-card/60"
+                          }
+                        >
+                          <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
+                            {row.subdomain}
+                          </td>
+                          {headers.map((h) => {
+                            const val = String(row.entry.fields[h] ?? "");
+                            if (
+                              h.toLowerCase().includes("url") ||
+                              h.toLowerCase() === "website" ||
+                              h.toLowerCase() === "link"
+                            ) {
+                              return (
+                                <td key={h} className="px-3 py-2 align-top">
+                                  {val ? (
+                                    <a
+                                      href={val}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 text-primary hover:underline"
+                                    >
+                                      Visit
+                                      <ExternalLink className="w-3 h-3" />
+                                    </a>
+                                  ) : (
+                                    <span className="text-muted-foreground">
+                                      —
+                                    </span>
+                                  )}
+                                </td>
+                              );
+                            }
+                            return (
+                              <td
+                                key={h}
+                                className="px-3 py-2 align-top text-foreground/90"
+                              >
+                                {val || (
+                                  <span className="text-muted-foreground">
+                                    —
+                                  </span>
+                                )}
+                              </td>
+                            );
+                          })}
+                          {!headers.some((h) =>
+                            h.toLowerCase().includes("url"),
+                          ) &&
+                            url && (
+                              <td className="px-3 py-2 align-top">
+                                <a
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-primary hover:underline"
+                                >
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              </td>
+                            )}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1 mt-2">
-                {Object.entries(row.entry.fields)
-                  .filter(([, v]) => String(v).trim().length > 0)
-                  .slice(0, 12)
-                  .map(([k, v]) => (
-                    <div key={k} className="text-xs">
-                      <span className="text-muted-foreground">{k}: </span>
-                      <span className="text-foreground">{String(v)}</span>
-                    </div>
-                  ))}
-              </div>
-            </article>
-          ))}
-          {entries.length === 0 && (
-            <div className="text-sm text-muted-foreground py-12 text-center">
-              No resources matched your search/filter.
-            </div>
-          )}
-        </div>
+            </section>
+          );
+        })}
+
+        {filteredDomains.length === 0 && (
+          <div className="text-sm text-muted-foreground py-12 text-center">
+            No resources matched your search/filter.
+          </div>
+        )}
       </main>
 
       <SiteFooter />
