@@ -1,0 +1,1357 @@
+{
+  "meta": {
+    "title": "PhD Research Assistant - Complete Resource Library",
+    "description": "Comprehensive resource repository for PhD research including tools, methodologies, frameworks, best practices, publication strategy, ethics, and data management",
+    "version": "1.0",
+    "lastUpdated": "2026-05-06T04:51:58.173201",
+    "author": "Research Excellence Team",
+    "totalResources": 0,
+    "categories": [
+      "Tools",
+      "Methodologies",
+      "Frameworks",
+      "Data Management",
+      "Best Practices",
+      "Publication",
+      "Ethics",
+      "Resources"
+    ]
+  },
+  "tools": {
+    "meta": {
+      "count": 36,
+      "lastUpdated": "2026-05-06T04:51:58.173307",
+      "description": "Comprehensive catalog of research tools across all disciplines"
+    },
+    "categories": [
+      "Literature Management",
+      "Qualitative Analysis",
+      "Quantitative Analysis",
+      "Survey & Data Collection",
+      "Writing & Collaboration",
+      "Reference Search",
+      "Data Visualization",
+      "Project Management"
+    ],
+    "data": [
+      {
+        "id": "tool_001",
+        "name": "Zotero",
+        "category": "Literature Management",
+        "purpose": "Citation management, bibliography generation",
+        "type": "Open Source",
+        "cost": "Free",
+        "features": [
+          "Plugins",
+          "collaboration",
+          "browser integration",
+          "PDF annotation"
+        ],
+        "bestFor": [
+          "Academic writing",
+          "Citation management",
+          "Open source preference"
+        ],
+        "website": "zotero.org",
+        "rating": 4.8,
+        "reviews": 450
+      },
+      {
+        "id": "tool_002",
+        "name": "Mendeley",
+        "category": "Literature Management",
+        "purpose": "Reference management with annotation",
+        "type": "Commercial",
+        "cost": "Free/Paid",
+        "features": [
+          "PDF annotation",
+          "team libraries",
+          "social features",
+          "iOS app"
+        ],
+        "bestFor": [
+          "Individual researchers",
+          "Team projects",
+          "Cross-platform"
+        ],
+        "website": "mendeley.com",
+        "rating": 4.6,
+        "reviews": 380
+      },
+      {
+        "id": "tool_003",
+        "name": "NVivo",
+        "category": "Qualitative Analysis",
+        "purpose": "Comprehensive qualitative data analysis",
+        "type": "Commercial",
+        "cost": "Paid",
+        "features": [
+          "Coding",
+          "visualization",
+          "mixed methods",
+          "AI-assisted analysis",
+          "team work"
+        ],
+        "bestFor": [
+          "Full qualitative projects",
+          "Complex analysis",
+          "Team collaboration"
+        ],
+        "website": "qsrinternational.com/nvivo",
+        "rating": 4.7,
+        "reviews": 520
+      },
+      {
+        "id": "tool_004",
+        "name": "Atlas.ti",
+        "category": "Qualitative Analysis",
+        "purpose": "Qualitative data management and analysis",
+        "type": "Commercial",
+        "cost": "Paid",
+        "features": [
+          "Visual networks",
+          "semantic analysis",
+          "cloud-based",
+          "strong for theory building"
+        ],
+        "bestFor": [
+          "Theory development",
+          "Visual thinking",
+          "European institutions"
+        ],
+        "website": "atlasti.com",
+        "rating": 4.5,
+        "reviews": 280
+      },
+      {
+        "id": "tool_005",
+        "name": "R",
+        "category": "Quantitative Analysis",
+        "purpose": "Statistical computing and graphics",
+        "type": "Open Source",
+        "cost": "Free",
+        "features": [
+          "Extensive packages",
+          "reproducible research",
+          "visualization",
+          "active community"
+        ],
+        "bestFor": [
+          "Statistical analysis",
+          "Data visualization",
+          "Research computing"
+        ],
+        "website": "r-project.org",
+        "rating": 4.9,
+        "reviews": 890
+      },
+      {
+        "id": "tool_006",
+        "name": "Python",
+        "category": "Quantitative Analysis",
+        "purpose": "Programming for data science",
+        "type": "Open Source",
+        "cost": "Free",
+        "features": [
+          "Versatile",
+          "machine learning libraries",
+          "data science ecosystem"
+        ],
+        "bestFor": [
+          "Data science",
+          "Machine learning",
+          "General computing"
+        ],
+        "website": "python.org",
+        "rating": 4.9,
+        "reviews": 1200
+      },
+      {
+        "id": "tool_007",
+        "name": "SPSS",
+        "category": "Quantitative Analysis",
+        "purpose": "Statistical analysis software",
+        "type": "Commercial",
+        "cost": "Paid",
+        "features": [
+          "User-friendly GUI",
+          "widespread academic use",
+          "comprehensive tutorials"
+        ],
+        "bestFor": [
+          "User-friendly analysis",
+          "Social sciences",
+          "Psychology"
+        ],
+        "website": "ibm.com/spss",
+        "rating": 4.4,
+        "reviews": 310
+      },
+      {
+        "id": "tool_008",
+        "name": "Google Forms",
+        "category": "Survey & Data Collection",
+        "purpose": "Simple survey tool",
+        "type": "Free",
+        "cost": "Free",
+        "features": [
+          "Easy to use",
+          "real-time responses",
+          "integration with Sheets",
+          "free"
+        ],
+        "bestFor": [
+          "Simple surveys",
+          "Quick deployment",
+          "Budget-conscious"
+        ],
+        "website": "google.com/forms",
+        "rating": 4.6,
+        "reviews": 720
+      },
+      {
+        "id": "tool_009",
+        "name": "Qualtrics",
+        "category": "Survey & Data Collection",
+        "purpose": "Enterprise survey platform",
+        "type": "Commercial",
+        "cost": "Paid",
+        "features": [
+          "Advanced logic",
+          "complex surveys",
+          "data analysis integration",
+          "enterprise support"
+        ],
+        "bestFor": [
+          "Large-scale surveys",
+          "Complex branching",
+          "Enterprise deployment"
+        ],
+        "website": "qualtrics.com",
+        "rating": 4.7,
+        "reviews": 460
+      },
+      {
+        "id": "tool_010",
+        "name": "Overleaf",
+        "category": "Writing & Collaboration",
+        "purpose": "LaTeX collaborative editor",
+        "type": "Commercial",
+        "cost": "Free/Paid",
+        "features": [
+          "Real-time collaboration",
+          "templates",
+          "version history",
+          "web-based"
+        ],
+        "bestFor": [
+          "Academic writing",
+          "Equations",
+          "Collaborative LaTeX"
+        ],
+        "website": "overleaf.com",
+        "rating": 4.8,
+        "reviews": 650
+      },
+      {
+        "id": "tool_011",
+        "name": "Google Docs",
+        "category": "Writing & Collaboration",
+        "purpose": "Cloud-based document editing",
+        "type": "Free",
+        "cost": "Free",
+        "features": [
+          "Real-time collaboration",
+          "comments",
+          "sharing",
+          "simple"
+        ],
+        "bestFor": [
+          "Quick collaborative writing",
+          "Comments and feedback",
+          "Accessibility"
+        ],
+        "website": "google.com/docs",
+        "rating": 4.7,
+        "reviews": 980
+      },
+      {
+        "id": "tool_012",
+        "name": "Notion",
+        "category": "Writing & Collaboration",
+        "purpose": "All-in-one workspace",
+        "type": "Commercial",
+        "cost": "Free/Paid",
+        "features": [
+          "Database features",
+          "templates",
+          "cross-device",
+          "knowledge management"
+        ],
+        "bestFor": [
+          "Project organization",
+          "Knowledge base",
+          "Academic notes"
+        ],
+        "website": "notion.so",
+        "rating": 4.6,
+        "reviews": 540
+      },
+      {
+        "id": "tool_013",
+        "name": "Google Scholar",
+        "category": "Reference Search",
+        "purpose": "Academic literature search",
+        "type": "Free",
+        "cost": "Free",
+        "features": [
+          "Broad coverage",
+          "citation metrics",
+          "free",
+          "accessible"
+        ],
+        "bestFor": [
+          "Quick literature search",
+          "Citation tracking",
+          "Accessible"
+        ],
+        "website": "scholar.google.com",
+        "rating": 4.7,
+        "reviews": 1100
+      },
+      {
+        "id": "tool_014",
+        "name": "PubMed",
+        "category": "Reference Search",
+        "purpose": "Biomedical literature database",
+        "type": "Free",
+        "cost": "Free",
+        "features": [
+          "Life sciences focus",
+          "MeSH indexing",
+          "free full texts available"
+        ],
+        "bestFor": [
+          "Biomedical research",
+          "Life sciences",
+          "Clinical research"
+        ],
+        "website": "pubmed.ncbi.nlm.nih.gov",
+        "rating": 4.8,
+        "reviews": 890
+      },
+      {
+        "id": "tool_015",
+        "name": "Tableau",
+        "category": "Data Visualization",
+        "purpose": "Business intelligence and visualization",
+        "type": "Commercial",
+        "cost": "Paid",
+        "features": [
+          "Interactive dashboards",
+          "scalable",
+          "enterprise support",
+          "wide data source support"
+        ],
+        "bestFor": [
+          "Business analytics",
+          "Interactive reporting",
+          "Enterprise use"
+        ],
+        "website": "tableau.com",
+        "rating": 4.6,
+        "reviews": 420
+      },
+      {
+        "id": "tool_016",
+        "name": "Asana",
+        "category": "Project Management",
+        "purpose": "Project and task management",
+        "type": "Commercial",
+        "cost": "Free/Paid",
+        "features": [
+          "Task management",
+          "timelines",
+          "portfolios",
+          "team communication"
+        ],
+        "bestFor": [
+          "Research projects",
+          "Team coordination",
+          "Milestone tracking"
+        ],
+        "website": "asana.com",
+        "rating": 4.5,
+        "reviews": 680
+      }
+    ]
+  },
+  "methodologies": {
+    "meta": {
+      "count": 15,
+      "lastUpdated": "2026-05-06T04:51:58.173347",
+      "description": "Detailed research methodologies with characteristics and applications"
+    },
+    "data": [
+      {
+        "id": "M001",
+        "type": "Quantitative Research",
+        "description": "Numerical data analysis using statistics and mathematics",
+        "designApproach": "Deductive; hypothesis-testing",
+        "dataType": "Numerical; structured data",
+        "analysisApproach": "Statistical analysis; patterns; relationships",
+        "sampleSize": "Large samples; representative sampling",
+        "strengths": [
+          "Objective",
+          "measurable",
+          "generalizable",
+          "replicable"
+        ],
+        "challenges": [
+          "Standardization",
+          "response rates",
+          "causality claims"
+        ],
+        "bestFor": [
+          "Hypothesis testing",
+          "large-scale studies",
+          "statistical patterns"
+        ],
+        "recommendedTools": [
+          "SPSS",
+          "R",
+          "Python",
+          "Stata"
+        ],
+        "timeline": "6-12 months",
+        "difficulty": "Intermediate"
+      },
+      {
+        "id": "M002",
+        "type": "Qualitative Research",
+        "description": "In-depth exploration of phenomena through text and observations",
+        "designApproach": "Inductive; exploratory; emergent",
+        "dataType": "Text; observations; narratives",
+        "analysisApproach": "Thematic analysis; coding; interpretation",
+        "sampleSize": "Small purposive samples; information-rich cases",
+        "strengths": [
+          "Rich description",
+          "context",
+          "deeper understanding",
+          "emergent theory"
+        ],
+        "challenges": [
+          "Generalization",
+          "consistency",
+          "subjectivity concerns"
+        ],
+        "bestFor": [
+          "Context understanding",
+          "exploratory studies",
+          "meaning-making"
+        ],
+        "recommendedTools": [
+          "NVivo",
+          "Atlas.ti",
+          "MaxQDA",
+          "Dedoose"
+        ],
+        "timeline": "6-18 months",
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "M003",
+        "type": "Mixed Methods",
+        "description": "Integration of quantitative and qualitative approaches",
+        "designApproach": "Both deductive and inductive; triangulation",
+        "dataType": "Both numerical and textual",
+        "analysisApproach": "Combined statistical and thematic analysis",
+        "sampleSize": "Depends on design; often larger qual samples within quant",
+        "strengths": [
+          "Triangulation",
+          "comprehensive understanding",
+          "validation"
+        ],
+        "challenges": [
+          "Complexity",
+          "data integration",
+          "resource intensity"
+        ],
+        "bestFor": [
+          "Complex questions",
+          "validation",
+          "multiple perspectives"
+        ],
+        "recommendedTools": [
+          "Multiple tools; both CAQDAS and statistical software"
+        ],
+        "timeline": "12-24 months",
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "M004",
+        "type": "Experimental Design",
+        "description": "Controlled manipulation of variables with comparison groups",
+        "designApproach": "Highly controlled; random assignment",
+        "dataType": "Typically quantitative; experimental measurements",
+        "analysisApproach": "Statistical comparison of groups",
+        "sampleSize": "Sample size calculation; randomization; control groups",
+        "strengths": [
+          "Establishes causality",
+          "internal validity",
+          "control"
+        ],
+        "challenges": [
+          "External validity",
+          "ethical constraints",
+          "artificial settings"
+        ],
+        "bestFor": [
+          "Causal relationships",
+          "lab studies",
+          "intervention testing"
+        ],
+        "recommendedTools": [
+          "Statistical software",
+          "experiment management tools"
+        ],
+        "timeline": "6-12 months",
+        "difficulty": "Intermediate"
+      },
+      {
+        "id": "M005",
+        "type": "Longitudinal Study",
+        "description": "Repeated observations of same subjects over time",
+        "designApproach": "Prospective tracking; multiple time points",
+        "dataType": "Quantitative or qualitative; repeated measures",
+        "analysisApproach": "Time series analysis; growth curve modeling",
+        "sampleSize": "Attrition management; follow-up rates critical",
+        "strengths": [
+          "Tracks change",
+          "causality stronger than cross-sectional"
+        ],
+        "challenges": [
+          "Attrition",
+          "practice effects",
+          "cost",
+          "long duration"
+        ],
+        "bestFor": [
+          "Tracking change",
+          "developmental patterns",
+          "causality"
+        ],
+        "recommendedTools": [
+          "Longitudinal analysis tools",
+          "databases"
+        ],
+        "timeline": "24-60 months",
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "M006",
+        "type": "Case Study",
+        "description": "In-depth investigation of specific context or individual",
+        "designApproach": "Exploratory; descriptive; embedded designs",
+        "dataType": "Multiple data sources; mixed methods often used",
+        "analysisApproach": "Within-case; cross-case; thematic analysis",
+        "sampleSize": "Small sample; bounded case selection",
+        "strengths": [
+          "Context",
+          "holistic understanding",
+          "real-world",
+          "rich data"
+        ],
+        "challenges": [
+          "Generalization limited to case",
+          "time-intensive"
+        ],
+        "bestFor": [
+          "Detailed understanding",
+          "unique cases",
+          "bounded phenomena"
+        ],
+        "recommendedTools": [
+          "Qualitative analysis software",
+          "document tools"
+        ],
+        "timeline": "6-18 months",
+        "difficulty": "Intermediate"
+      },
+      {
+        "id": "M007",
+        "type": "Ethnography",
+        "description": "Immersive observation in natural setting",
+        "designApproach": "Participant observation; immersion; reflexivity",
+        "dataType": "Observational; interview; artifact data",
+        "analysisApproach": "Thematic analysis; narrative analysis",
+        "sampleSize": "Prolonged engagement; participant selection flexible",
+        "strengths": [
+          "Cultural understanding",
+          "authentic context",
+          "behavioral insight"
+        ],
+        "challenges": [
+          "Highly subjective",
+          "time-intensive",
+          "limited generalization"
+        ],
+        "bestFor": [
+          "Cultural understanding",
+          "behavioral patterns",
+          "authentic context"
+        ],
+        "recommendedTools": [
+          "Field note tools",
+          "qualitative software",
+          "video/photo tools"
+        ],
+        "timeline": "12-36 months",
+        "difficulty": "Advanced"
+      }
+    ]
+  },
+  "frameworks": {
+    "meta": {
+      "count": 10,
+      "lastUpdated": "2026-05-06T04:51:58.173412",
+      "description": "Academic research frameworks for structuring research"
+    },
+    "data": [
+      {
+        "id": "F001",
+        "name": "Literature Review Framework",
+        "description": "Systematic approach to reviewing existing research",
+        "phases": [
+          "Define scope and research questions",
+          "Search and select relevant sources",
+          "Extract and organize data",
+          "Synthesize and analyze findings",
+          "Identify gaps and implications"
+        ],
+        "applicationInPhD": "Establishing research gap and positioning",
+        "keyComponents": [
+          "Scope",
+          "Sources",
+          "Selection",
+          "Synthesis",
+          "Analysis"
+        ],
+        "timeline": "2-6 months",
+        "difficulty": "Beginner"
+      },
+      {
+        "id": "F002",
+        "name": "IMRAD Structure",
+        "description": "Introduction, Methods, Results, And Discussion",
+        "sections": [
+          {
+            "name": "Introduction",
+            "purpose": "Establish context, gap, and research questions",
+            "keyElements": [
+              "Background",
+              "literature",
+              "gap",
+              "objectives"
+            ]
+          },
+          {
+            "name": "Methods",
+            "purpose": "Detail procedures, participants, instruments",
+            "keyElements": [
+              "Design",
+              "participants",
+              "instruments",
+              "procedures"
+            ]
+          },
+          {
+            "name": "Results",
+            "purpose": "Present findings clearly and objectively",
+            "keyElements": [
+              "Data",
+              "statistics",
+              "tables",
+              "figures"
+            ]
+          },
+          {
+            "name": "Discussion",
+            "purpose": "Interpret findings, discuss implications, acknowledge limitations",
+            "keyElements": [
+              "Interpretation",
+              "implications",
+              "limitations",
+              "future work"
+            ]
+          }
+        ],
+        "applicationInPhD": "Structuring empirical research papers",
+        "timeline": "Ongoing throughout research"
+      },
+      {
+        "id": "F003",
+        "name": "Conceptual Framework",
+        "description": "Visual representation of relationships between research concepts",
+        "components": [
+          "Define key constructs and variables",
+          "Illustrate relationships and interactions",
+          "Ground findings in theory",
+          "Provide interpretation lens"
+        ],
+        "applicationInPhD": "Mapping relationships between variables",
+        "benefits": [
+          "Clarity",
+          "theory grounding",
+          "interpretation lens"
+        ],
+        "timeline": "1-3 months"
+      },
+      {
+        "id": "F004",
+        "name": "Logic Model",
+        "description": "Theory of change visualization",
+        "elements": [
+          "Resources",
+          "Activities",
+          "Outputs",
+          "Outcomes",
+          "Impact"
+        ],
+        "applicationInPhD": "Clarifying research inputs and outputs",
+        "bestFor": [
+          "Evaluation research",
+          "program studies",
+          "impact assessment"
+        ],
+        "timeline": "1-2 months"
+      },
+      {
+        "id": "F005",
+        "name": "Theoretical Framework",
+        "description": "Foundation for understanding research phenomena",
+        "components": [
+          "Key theories",
+          "Concepts",
+          "Propositions",
+          "Assumptions"
+        ],
+        "applicationInPhD": "Interpreting findings through theory lens",
+        "timeline": "2-4 months"
+      }
+    ]
+  },
+  "dataManagement": {
+    "meta": {
+      "count": 10,
+      "lastUpdated": "2026-05-06T04:51:58.173421",
+      "description": "Data management best practices for research"
+    },
+    "practices": [
+      {
+        "id": "DM001",
+        "name": "Data Organization",
+        "description": "Structured file naming and folder hierarchy",
+        "procedures": [
+          "Use structured naming: YYYY-MM-DD_ProjectName_Description",
+          "Create consistent folder structure across projects",
+          "Document directory structure in README files",
+          "Version all changes (v1, v2, etc.)"
+        ],
+        "tools": [
+          "OSF",
+          "DANS",
+          "Dataverse",
+          "Git"
+        ],
+        "bestPractices": [
+          "Version control",
+          "Naming conventions",
+          "Documentation"
+        ],
+        "timeline": "Month 1"
+      },
+      {
+        "id": "DM002",
+        "name": "Data Storage & Backup",
+        "description": "Secure and redundant backup systems",
+        "rule": "3-2-1 Backup Rule",
+        "details": {
+          "copies": "3 copies of data",
+          "media": "2 different media types",
+          "offsite": "1 copy offsite"
+        },
+        "implementation": [
+          "Primary working copy (local machine)",
+          "Automated cloud backup (Google Drive, OneDrive, Dropbox)",
+          "External hard drive copy (offsite storage)"
+        ],
+        "testing": "Test restoration quarterly"
+      },
+      {
+        "id": "DM003",
+        "name": "Data Security",
+        "description": "Protecting sensitive and personal information",
+        "strategies": [
+          "Encryption for storage and transmission",
+          "Access control with strong passwords",
+          "De-identification and anonymization of data",
+          "Secure deletion (shredding) when no longer needed"
+        ],
+        "encryption": {
+          "atRest": [
+            "Full-disk encryption (BitLocker, FileVault, LUKS)"
+          ],
+          "inTransit": [
+            "HTTPS",
+            "VPN",
+            "Encrypted file transfer"
+          ]
+        }
+      },
+      {
+        "id": "DM004",
+        "name": "Data Documentation",
+        "description": "Comprehensive metadata and codebooks",
+        "components": [
+          "Data dictionary—variable names, descriptions, units",
+          "Codebook—coding schemes and category definitions",
+          "Metadata—data collection date, method, source",
+          "README file—overview and how to use the dataset"
+        ],
+        "importance": "Enables reproducibility and sharing"
+      },
+      {
+        "id": "DM005",
+        "name": "De-identification",
+        "description": "Removing or obscuring identifiable information",
+        "process": [
+          "Identify all potentially identifiable variables",
+          "Create mapping document (kept separately)",
+          "Remove identified variables from analysis dataset",
+          "Replace with codes or pseudonyms",
+          "Store mapping document separately"
+        ],
+        "protectedIdentifiers": 15
+      }
+    ]
+  },
+  "bestPractices": {
+    "meta": {
+      "count": 20,
+      "lastUpdated": "2026-05-06T04:51:58.173428",
+      "description": "Month-by-month PhD research best practices"
+    },
+    "phases": {
+      "planning": {
+        "months": "1-2",
+        "practices": [
+          {
+            "id": "BP001",
+            "name": "Define Research Questions",
+            "area": "Research Design",
+            "description": "Establish clear, focused research questions before beginning",
+            "steps": [
+              "Review literature",
+              "Identify gap",
+              "Write specific questions",
+              "Check clarity with advisor"
+            ],
+            "tools": [
+              "Research journal",
+              "advisor",
+              "literature review database"
+            ],
+            "successIndicators": [
+              "Questions are specific",
+              "answerable",
+              "novel"
+            ]
+          },
+          {
+            "id": "BP002",
+            "name": "Create Research Protocol",
+            "area": "Research Design",
+            "description": "Document detailed methodology and analysis plan",
+            "steps": [
+              "Write methods section",
+              "Specify procedures",
+              "Define outcomes",
+              "Plan analysis"
+            ],
+            "tools": [
+              "Word/LaTeX",
+              "statistical software",
+              "protocol templates"
+            ],
+            "successIndicators": [
+              "Clear procedures",
+              "defined measures",
+              "pre-analysis plan"
+            ]
+          }
+        ]
+      },
+      "setup": {
+        "months": "2-3",
+        "practices": [
+          {
+            "id": "BP003",
+            "name": "Obtain IRB Approval",
+            "area": "Ethics & Compliance",
+            "description": "Get institutional review for human subjects research",
+            "steps": [
+              "Complete CITI training",
+              "Develop consent form",
+              "Submit to IRB",
+              "Respond to queries",
+              "Receive approval"
+            ],
+            "tools": [
+              "CITI training platform",
+              "IRB",
+              "protocol templates"
+            ],
+            "successIndicators": [
+              "IRB approval letter",
+              "documented consent process"
+            ]
+          },
+          {
+            "id": "BP004",
+            "name": "Set Up Data Management",
+            "area": "Data Management",
+            "description": "Establish folder structure and backup system",
+            "steps": [
+              "Design naming scheme",
+              "Create folder hierarchy",
+              "Document structure",
+              "Set up backups"
+            ],
+            "timeline": "Month 2-3"
+          }
+        ]
+      },
+      "research": {
+        "months": "3-9",
+        "practices": [
+          {
+            "id": "BP005",
+            "name": "Maintain Lab Notebook",
+            "area": "Documentation",
+            "description": "Record decisions, procedures, and rationale throughout research",
+            "format": "Physical or digital",
+            "frequency": "Daily"
+          }
+        ]
+      },
+      "publication": {
+        "months": "9-12",
+        "practices": [
+          {
+            "id": "BP006",
+            "name": "Plan Publication Strategy",
+            "area": "Publication",
+            "description": "Create dissemination plan for multiple outputs",
+            "outputs": [
+              "Journal article",
+              "Preprint",
+              "Data paper",
+              "Blog post",
+              "Code"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "publicationVenues": {
+    "meta": {
+      "count": 20,
+      "lastUpdated": "2026-05-06T04:51:58.173502",
+      "description": "Publication options with timelines and reach metrics"
+    },
+    "types": {
+      "journals": {
+        "description": "Peer-reviewed journal publications",
+        "venues": [
+          {
+            "id": "PV001",
+            "name": "High-Impact Journals",
+            "examples": [
+              "Nature",
+              "Science",
+              "PNAS"
+            ],
+            "peerReview": "Rigorous (2-4 months)",
+            "timeline": "12-18 months",
+            "audience": "Broad scientific community",
+            "reach": "Very High",
+            "citability": "Yes; high citation potential",
+            "advantages": [
+              "Highest credibility",
+              "maximum reach",
+              "career impact"
+            ],
+            "considerations": [
+              "Extremely competitive",
+              "slow publication"
+            ],
+            "impactFactor": "High"
+          },
+          {
+            "id": "PV002",
+            "name": "Discipline-Specific Journals",
+            "examples": [
+              "Cell",
+              "Neuron",
+              "Ecology Letters"
+            ],
+            "peerReview": "Rigorous (2-4 months)",
+            "timeline": "12-18 months",
+            "audience": "Field-specific community",
+            "reach": "High; Field-focused",
+            "advantages": [
+              "Strong impact in field",
+              "appropriate audience"
+            ],
+            "impactFactor": "Medium-High"
+          }
+        ]
+      },
+      "preprints": {
+        "description": "Pre-publication distribution",
+        "venues": [
+          {
+            "id": "PV003",
+            "name": "bioRxiv/medRxiv",
+            "category": "Life Sciences",
+            "peerReview": "No formal review; community",
+            "timeline": "0-3 months",
+            "audience": "Field community, researchers, media",
+            "reach": "Medium; Field-focused",
+            "advantages": [
+              "Rapid dissemination",
+              "early feedback",
+              "secures priority"
+            ],
+            "considerations": [
+              "Not peer-reviewed",
+              "requires eventual journal publication"
+            ]
+          },
+          {
+            "id": "PV004",
+            "name": "arXiv",
+            "category": "Physics/Math/CS",
+            "timeline": "0-3 months",
+            "advantages": [
+              "Discipline standard",
+              "rapid sharing"
+            ]
+          }
+        ]
+      },
+      "conferences": {
+        "description": "Oral and poster presentations",
+        "timeline": "6-12 months"
+      }
+    }
+  },
+  "ethicsCompliance": {
+    "meta": {
+      "count": 15,
+      "lastUpdated": "2026-05-06T04:51:58.173511",
+      "description": "Compliance requirements and ethical guidelines"
+    },
+    "categories": {
+      "humanSubjects": {
+        "description": "Protection of human research participants",
+        "requirements": [
+          {
+            "id": "EC001",
+            "name": "IRB Approval",
+            "description": "Institutional Review Board review and approval for human subjects research",
+            "whenNeeded": "Any research involving human participants",
+            "actions": [
+              "Complete CITI training",
+              "Develop protocol",
+              "Write consent form",
+              "Submit to IRB",
+              "Respond to queries",
+              "Receive approval"
+            ],
+            "timeline": "2-6 months",
+            "penalties": "Research suspension; disqualification; legal liability"
+          },
+          {
+            "id": "EC002",
+            "name": "Informed Consent",
+            "description": "Ensure participants understand study and voluntarily agree",
+            "elements": [
+              "Study purpose",
+              "Procedures",
+              "Risks and benefits",
+              "Confidentiality",
+              "Voluntary participation",
+              "Contact information"
+            ],
+            "documentation": "Signed/documented consent"
+          },
+          {
+            "id": "EC003",
+            "name": "Confidentiality",
+            "description": "Protect participant privacy and sensitive information",
+            "strategies": [
+              "De-identify data",
+              "Use codes/ID numbers",
+              "Maintain key separately",
+              "Limit access",
+              "Secure storage"
+            ]
+          }
+        ]
+      },
+      "dataProtection": {
+        "description": "Safeguarding research data",
+        "requirements": [
+          {
+            "id": "EC004",
+            "name": "HIPAA Compliance",
+            "description": "Health Insurance Portability and Accountability Act compliance",
+            "applies": "Research with U.S. health data",
+            "key_actions": [
+              "HIPAA training",
+              "Business Associate Agreement",
+              "De-identification",
+              "Safeguards"
+            ],
+            "penalties": "Fines up to $1.5 million per violation"
+          },
+          {
+            "id": "EC005",
+            "name": "GDPR Compliance",
+            "description": "General Data Protection Regulation compliance for EU resident data",
+            "applies": "Research with data of EU residents",
+            "key_actions": [
+              "DPIA",
+              "Document legal basis",
+              "Implement data subject rights"
+            ],
+            "penalties": "Fines up to €20 million or 4% global revenue"
+          }
+        ]
+      },
+      "publicationEthics": {
+        "description": "Responsible research conduct and publication",
+        "requirements": [
+          {
+            "id": "EC006",
+            "name": "Authorship",
+            "description": "Fair recognition of contributor contributions",
+            "criteria": "ICMJE criteria: conception/design, drafting/revision, approval, accountability",
+            "crudTaxonomy": "Document specific contributions"
+          },
+          {
+            "id": "EC007",
+            "name": "Conflict of Interest",
+            "description": "Disclose and manage financial/personal interests",
+            "documentation": "COI disclosure form, management plan"
+          }
+        ]
+      },
+      "researchIntegrity": {
+        "description": "Avoiding research misconduct",
+        "misconduct": [
+          {
+            "type": "Fabrication",
+            "definition": "Inventing data or results",
+            "consequences": "Retraction; loss of funding; career termination"
+          },
+          {
+            "type": "Falsification",
+            "definition": "Changing existing data or selective reporting",
+            "consequences": "Publication retraction; loss of funding"
+          },
+          {
+            "type": "Plagiarism",
+            "definition": "Using others work without attribution",
+            "consequences": "Publication rejection; retraction; expulsion"
+          }
+        ]
+      }
+    }
+  },
+  "resources": {
+    "meta": {
+      "count": 8,
+      "lastUpdated": "2026-05-06T04:51:58.173518",
+      "description": "Support communities and resources for researchers"
+    },
+    "categories": {
+      "fundingDatabases": {
+        "examples": [
+          "NSF",
+          "NIH",
+          "Fellowships.com",
+          "Grants.gov"
+        ],
+        "benefits": [
+          "Access to financial support",
+          "Scholarships",
+          "Research grants"
+        ]
+      },
+      "trainingCertification": {
+        "examples": [
+          "CITI",
+          "Responsible Conduct of Research",
+          "Domain-specific courses"
+        ],
+        "benefits": [
+          "Compliance",
+          "Skill development",
+          "Professional credentials"
+        ]
+      },
+      "researchCommunities": {
+        "examples": [
+          "ResearchGate",
+          "Academia.edu",
+          "Mendeley Groups"
+        ],
+        "benefits": [
+          "Networking",
+          "Collaboration",
+          "Knowledge sharing"
+        ]
+      },
+      "openScience": {
+        "examples": [
+          "OSF",
+          "Zenodo",
+          "PubMed Central",
+          "bioRxiv"
+        ],
+        "benefits": [
+          "Data sharing",
+          "Preprint distribution",
+          "Open access"
+        ]
+      },
+      "mentoringPrograms": {
+        "examples": [
+          "University mentoring",
+          "Professional societies",
+          "Online platforms"
+        ],
+        "benefits": [
+          "Guidance",
+          "Career development",
+          "Peer support"
+        ]
+      }
+    }
+  },
+  "navigation": {
+    "byResearchPhase": {
+      "planning": {
+        "months": "1-2",
+        "focus": "Define research questions, choose methodology, plan ethics",
+        "resources": [
+          "methodologies",
+          "frameworks",
+          "ethicsCompliance"
+        ],
+        "actions": [
+          "Review literature",
+          "Select methodology",
+          "Create protocol",
+          "Plan ethics compliance"
+        ]
+      },
+      "setup": {
+        "months": "2-3",
+        "focus": "Obtain approvals, install tools, establish data management",
+        "resources": [
+          "dataManagement",
+          "tools",
+          "bestPractices"
+        ],
+        "actions": [
+          "Obtain IRB approval",
+          "Set up data management",
+          "Install tools",
+          "Create lab notebook"
+        ]
+      },
+      "research": {
+        "months": "3-9",
+        "focus": "Conduct research, maintain documentation, analyze data",
+        "resources": [
+          "bestPractices",
+          "dataManagement"
+        ],
+        "actions": [
+          "Collect data",
+          "Maintain documentation",
+          "Regular backup",
+          "Begin writing"
+        ]
+      },
+      "publication": {
+        "months": "9-12",
+        "focus": "Write, submit, share findings",
+        "resources": [
+          "publicationVenues",
+          "ethicsCompliance"
+        ],
+        "actions": [
+          "Complete manuscript",
+          "Submit to journal",
+          "Post preprint",
+          "Share data/code"
+        ]
+      }
+    },
+    "byResearchType": {
+      "quantitative": {
+        "methodologies": [
+          "M001"
+        ],
+        "toolCategories": [
+          "Quantitative Analysis"
+        ],
+        "frameworks": [
+          "IMRAD Structure"
+        ],
+        "description": "Statistical analysis of numerical data"
+      },
+      "qualitative": {
+        "methodologies": [
+          "M002"
+        ],
+        "toolCategories": [
+          "Qualitative Analysis"
+        ],
+        "description": "In-depth exploration through text and observations"
+      },
+      "mixedMethods": {
+        "methodologies": [
+          "M003"
+        ],
+        "toolCategories": [
+          "Qualitative Analysis",
+          "Quantitative Analysis"
+        ],
+        "description": "Integration of quantitative and qualitative approaches"
+      }
+    },
+    "quickLinks": {
+      "IRBProcess": "ethicsCompliance.categories.humanSubjects.requirements[0]",
+      "DataBackup": "dataManagement.practices[1]",
+      "PublicationGuide": "publicationVenues",
+      "BestPractices": "bestPractices"
+    }
+  }
+}
