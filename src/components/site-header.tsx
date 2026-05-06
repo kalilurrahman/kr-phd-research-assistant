@@ -80,6 +80,14 @@ export function SiteHeader({
 
         <div className="flex items-center gap-2 text-xs">
           <Link
+            to="/research-hub"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
+            aria-label="Research Hub"
+          >
+            <span className="hidden sm:inline">Hub</span>
+            <span className="sm:hidden">Hub</span>
+          </Link>
+          <Link
             to="/resources"
             className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
             aria-label="Resources"
