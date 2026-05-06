@@ -1,0 +1,620 @@
+{
+  "meta": {
+    "title": "PhD Best Practices Checklist",
+    "description": "Month-by-month implementation guide for PhD research with success indicators",
+    "lastUpdated": "2026-05-05T06:37:51.549204",
+    "version": "1.0",
+    "totalPractices": 20
+  },
+  "phases": [
+    "Planning",
+    "Analysis",
+    "Writing",
+    "Data Collection",
+    "Overall",
+    "Dissemination"
+  ],
+  "practices": [
+    {
+      "id": "practice_001",
+      "phase": "Planning",
+      "area": "Research Design",
+      "name": "Define Research Questions",
+      "description": "Establish clear",
+      "steps": [
+        "focused research questions before beginning"
+      ],
+      "tools": [
+        "1. Review literature",
+        "2. Identify gap",
+        "3. Write specific questions",
+        "4. Check clarity with advisor"
+      ],
+      "successIndicators": [
+        "Research journal",
+        "advisor",
+        "literature review database"
+      ],
+      "pitfalls": [
+        "Questions are specific",
+        "answerable",
+        "novel"
+      ],
+      "timeline": "Too broad; not testable; lack of focus"
+    },
+    {
+      "id": "practice_002",
+      "phase": "Planning",
+      "area": "Research Design",
+      "name": "Create Research Protocol",
+      "description": "Document detailed methodology and analysis plan",
+      "steps": [
+        "1. Write methods section",
+        "2. Specify procedures",
+        "3. Define outcomes",
+        "4. Plan analysis"
+      ],
+      "tools": [
+        "Word/LaTeX",
+        "statistical software",
+        "protocol templates"
+      ],
+      "successIndicators": [
+        "Clear procedures",
+        "defined measures",
+        "pre-analysis plan"
+      ],
+      "pitfalls": [
+        "Vague methods",
+        "flexible analysis",
+        "p-hacking opportunity"
+      ],
+      "timeline": "Month 1-3"
+    },
+    {
+      "id": "practice_003",
+      "phase": "Planning",
+      "area": "Research Design",
+      "name": "Register Protocol",
+      "description": "Pre-register design with external registry for transparency",
+      "steps": [
+        "1. Choose registry (OSF",
+        "ClinicalTrials.gov)",
+        "2. Submit protocol",
+        "3. Receive registration"
+      ],
+      "tools": [
+        "OSF Registries",
+        "ClinicalTrials.gov",
+        "discipline-specific registries"
+      ],
+      "successIndicators": [
+        "Public registration",
+        "time-stamped",
+        "pre-analysis plan locked"
+      ],
+      "pitfalls": [
+        "Late registration",
+        "post-hoc registration",
+        "selective registration"
+      ],
+      "timeline": "Month 2-3"
+    },
+    {
+      "id": "practice_004",
+      "phase": "Planning",
+      "area": "Ethics & Compliance",
+      "name": "Obtain IRB Approval",
+      "description": "Get institutional review for human subjects research",
+      "steps": [
+        "1. Complete CITI training",
+        "2. Develop consent form",
+        "3. Submit to IRB",
+        "4. Respond to queries",
+        "5. Receive approval"
+      ],
+      "tools": [
+        "CITI training platform",
+        "IRB",
+        "protocol templates"
+      ],
+      "successIndicators": [
+        "IRB approval letter",
+        "documented consent process"
+      ],
+      "pitfalls": [
+        "Missed deadlines",
+        "incomplete submission",
+        "late review"
+      ],
+      "timeline": "Month 2-6"
+    },
+    {
+      "id": "practice_005",
+      "phase": "Planning",
+      "area": "Timeline & Milestones",
+      "name": "Create Project Timeline",
+      "description": "Develop realistic schedule with milestones and deliverables",
+      "steps": [
+        "1. Break project into phases",
+        "2. Estimate time per phase",
+        "3. Identify dependencies",
+        "4. Build in contingency",
+        "5. Share with advisor"
+      ],
+      "tools": [
+        "Project management software (Asana",
+        "Monday)",
+        "Gantt charts",
+        "calendar"
+      ],
+      "successIndicators": [
+        "Written timeline",
+        "approved by advisor",
+        "slack built in"
+      ],
+      "pitfalls": [
+        "Unrealistic estimates",
+        "no contingency",
+        "dependent tasks not identified"
+      ],
+      "timeline": "Month 1-2"
+    },
+    {
+      "id": "practice_006",
+      "phase": "Data Collection",
+      "area": "Documentation",
+      "name": "Maintain Lab Notebook",
+      "description": "Record decisions; procedures; rationale throughout research",
+      "steps": [
+        "1. Choose medium (physical or digital)",
+        "2. Record daily",
+        "3. Document decisions",
+        "4. Note deviations",
+        "5. Date all entries"
+      ],
+      "tools": [
+        "Lab notebook software (Notion",
+        "Obsidian)",
+        "physical notebook"
+      ],
+      "successIndicators": [
+        "Complete record of decisions",
+        "dates",
+        "justifications"
+      ],
+      "pitfalls": [
+        "Incomplete recording",
+        "post-hoc documentation",
+        "illegible entries"
+      ],
+      "timeline": "Ongoing"
+    },
+    {
+      "id": "practice_007",
+      "phase": "Data Collection",
+      "area": "Data Management",
+      "name": "Implement Data Organization",
+      "description": "Establish naming conventions and folder structure",
+      "steps": [
+        "1. Design naming scheme (date_project_description)",
+        "2. Create folder hierarchy",
+        "3. Document structure in README",
+        "4. Version all files"
+      ],
+      "tools": [
+        "File management system",
+        "version control (Git)",
+        "cloud storage"
+      ],
+      "successIndicators": [
+        "Consistent naming",
+        "logical structure",
+        "easy retrieval"
+      ],
+      "pitfalls": [
+        "Inconsistent naming",
+        "deep folders",
+        "unclear versions"
+      ],
+      "timeline": "Month 1"
+    },
+    {
+      "id": "practice_008",
+      "phase": "Data Collection",
+      "area": "Data Management",
+      "name": "Set Up Secure Storage",
+      "description": "Establish 3-2-1 backup system for data protection",
+      "steps": [
+        "1. Identify primary working copy",
+        "2. Set automated cloud backup",
+        "3. Create external drive backup",
+        "4. Test restoration",
+        "5. Document process"
+      ],
+      "tools": [
+        "Cloud storage (Google Drive",
+        "OneDrive",
+        "Dropbox)",
+        "external drive",
+        "encryption"
+      ],
+      "successIndicators": [
+        "Multiple copies",
+        "different media",
+        "offsite copy",
+        "tested restoration"
+      ],
+      "pitfalls": [
+        "Single copy",
+        "no backup",
+        "untested backups"
+      ],
+      "timeline": "Month 1"
+    },
+    {
+      "id": "practice_009",
+      "phase": "Data Collection",
+      "area": "Data Management",
+      "name": "Create Data Dictionary",
+      "description": "Document all variables; codes; units; and metadata",
+      "steps": [
+        "1. List all variables",
+        "2. Describe each",
+        "3. Specify units",
+        "4. Document codes",
+        "5. Note data source"
+      ],
+      "tools": [
+        "Data dictionary template",
+        "CDISC standards",
+        "spreadsheet"
+      ],
+      "successIndicators": [
+        "Complete documentation of all variables",
+        "codes explained"
+      ],
+      "pitfalls": [
+        "Incomplete documentation",
+        "vague descriptions",
+        "missing units"
+      ],
+      "timeline": "Month 1 & Ongoing"
+    },
+    {
+      "id": "practice_010",
+      "phase": "Analysis",
+      "area": "Analysis Planning",
+      "name": "Pre-specify Analysis Plan",
+      "description": "Define analysis approach before seeing results",
+      "steps": [
+        "1. Write analysis plan",
+        "2. Define primary outcomes",
+        "3. Specify statistical approaches",
+        "4. Identify hypothesis vs. exploratory",
+        "5. Preregister"
+      ],
+      "tools": [
+        "Pre-registration template",
+        "OSF",
+        "protocol document"
+      ],
+      "successIndicators": [
+        "Written analysis plan",
+        "preregistered",
+        "primary/exploratory labeled"
+      ],
+      "pitfalls": [
+        "Flexible analysis",
+        "post-hoc exploration presented as primary",
+        "p-hacking"
+      ],
+      "timeline": "Month 2-4"
+    },
+    {
+      "id": "practice_011",
+      "phase": "Analysis",
+      "area": "Version Control",
+      "name": "Implement Code Version Control",
+      "description": "Track changes to analysis code and scripts",
+      "steps": [
+        "1. Initialize Git repository",
+        "2. Commit regularly",
+        "3. Write meaningful messages",
+        "4. Push to remote",
+        "5. Tag releases"
+      ],
+      "tools": [
+        "Git",
+        "GitHub",
+        "GitLab"
+      ],
+      "successIndicators": [
+        "Regular commits",
+        "meaningful messages",
+        "clean history"
+      ],
+      "pitfalls": [
+        "No version control",
+        "infrequent commits",
+        "vague messages"
+      ],
+      "timeline": "Month 2"
+    },
+    {
+      "id": "practice_012",
+      "phase": "Analysis",
+      "area": "Reproducibility",
+      "name": "Document Analysis Workflow",
+      "description": "Record all analysis steps for reproducibility",
+      "steps": [
+        "1. Write commented code",
+        "2. Document dependencies",
+        "3. Create README",
+        "4. Test reproducibility",
+        "5. Share code"
+      ],
+      "tools": [
+        "Code editor",
+        "documentation template",
+        "reproducibility checklist"
+      ],
+      "successIndicators": [
+        "Fully commented code",
+        "clear documentation",
+        "reproducible workflow"
+      ],
+      "pitfalls": [
+        "Uncommented code",
+        "missing dependencies",
+        "unclear steps"
+      ],
+      "timeline": "Month 3-5"
+    },
+    {
+      "id": "practice_013",
+      "phase": "Writing",
+      "area": "Writing Practice",
+      "name": "Write Continuously",
+      "description": "Draft sections and analyses throughout research",
+      "steps": [
+        "1. Schedule writing time",
+        "2. Draft methods early",
+        "3. Write results as they emerge",
+        "4. Draft discussion",
+        "5. Iterate"
+      ],
+      "tools": [
+        "Word processor (Google Docs",
+        "Overleaf)",
+        "writing schedule"
+      ],
+      "successIndicators": [
+        "Regular drafts",
+        "iterative improvement",
+        "early completion"
+      ],
+      "pitfalls": [
+        "Leaving writing to end",
+        "single draft",
+        "rushed final writing"
+      ],
+      "timeline": "Months 2-12"
+    },
+    {
+      "id": "practice_014",
+      "phase": "Writing",
+      "area": "Collaboration",
+      "name": "Seek Regular Feedback",
+      "description": "Get feedback from advisor and peers on drafts",
+      "steps": [
+        "1. Develop schedule",
+        "2. Share drafts",
+        "3. Collect feedback",
+        "4. Revise",
+        "5. Iterate"
+      ],
+      "tools": [
+        "Shared document platform",
+        "comment features",
+        "scheduled meetings"
+      ],
+      "successIndicators": [
+        "Regular feedback cycle",
+        "documented comments",
+        "iterative revision"
+      ],
+      "pitfalls": [
+        "No feedback until final",
+        "defensive to criticism",
+        "single revision pass"
+      ],
+      "timeline": "Months 3-12"
+    },
+    {
+      "id": "practice_015",
+      "phase": "Writing",
+      "area": "Publication Planning",
+      "name": "Identify Target Journals",
+      "description": "Choose appropriate venues for publication",
+      "steps": [
+        "1. Review discipline norms",
+        "2. Search journal databases",
+        "3. Check impact factors",
+        "4. Review scope",
+        "5. Select 3-5 options"
+      ],
+      "tools": [
+        "Google Scholar",
+        "Journal Citation Reports",
+        "publisher websites"
+      ],
+      "successIndicators": [
+        "Target list with rationale",
+        "appropriate scope match",
+        "journal metrics"
+      ],
+      "pitfalls": [
+        "Inappropriate journal choice",
+        "misalignment with scope",
+        "poor impact"
+      ],
+      "timeline": "Month 6-10"
+    },
+    {
+      "id": "practice_016",
+      "phase": "Dissemination",
+      "area": "Preprints",
+      "name": "Post Preprint",
+      "description": "Share early findings through preprint server",
+      "steps": [
+        "1. Format according to guidelines",
+        "2. Write clear abstract",
+        "3. Choose appropriate server",
+        "4. Submit",
+        "5. Promote via social media"
+      ],
+      "tools": [
+        "bioRxiv",
+        "arXiv",
+        "OSF Preprints",
+        "Overleaf"
+      ],
+      "successIndicators": [
+        "Preprint posted",
+        "version tracked",
+        "cited by others"
+      ],
+      "pitfalls": [
+        "Delayed preprint",
+        "forgotten promotion",
+        "version confusion"
+      ],
+      "timeline": "Month 8-11"
+    },
+    {
+      "id": "practice_017",
+      "phase": "Dissemination",
+      "area": "Publication",
+      "name": "Submit Manuscript",
+      "description": "Submit research to peer-reviewed journal",
+      "steps": [
+        "1. Format per journal guidelines",
+        "2. Write cover letter",
+        "3. Select reviewers",
+        "4. Submit",
+        "5. Track status"
+      ],
+      "tools": [
+        "Journal submission portal",
+        "manuscript management tools",
+        "calendar"
+      ],
+      "successIndicators": [
+        "Submission confirmed",
+        "tracked in submission system"
+      ],
+      "pitfalls": [
+        "Late submission",
+        "format errors",
+        "incomplete submission"
+      ],
+      "timeline": "Month 10-12"
+    },
+    {
+      "id": "practice_018",
+      "phase": "Dissemination",
+      "area": "Sharing",
+      "name": "Share Data & Code",
+      "description": "Publish data and analysis code for reproducibility",
+      "steps": [
+        "1. Clean and de-identify data",
+        "2. Create codebook",
+        "3. Choose repository",
+        "4. Add metadata",
+        "5. Create DOI",
+        "6. Cite in paper"
+      ],
+      "tools": [
+        "Zenodo",
+        "Figshare",
+        "OSF",
+        "dataverse",
+        "GitHub"
+      ],
+      "successIndicators": [
+        "Published with DOI",
+        "citable",
+        "license specified"
+      ],
+      "pitfalls": [
+        "Unpublished data",
+        "poor documentation",
+        "restrictive licensing"
+      ],
+      "timeline": "Month 10-11"
+    },
+    {
+      "id": "practice_019",
+      "phase": "Overall",
+      "area": "Support",
+      "name": "Build Support Network",
+      "description": "Develop relationships for feedback and encouragement",
+      "steps": [
+        "1. Meet regularly with advisor",
+        "2. Join peer writing group",
+        "3. Attend seminars",
+        "4. Find mentor",
+        "5. Network at conferences"
+      ],
+      "tools": [
+        "Scheduling tool",
+        "community platforms",
+        "professional societies"
+      ],
+      "successIndicators": [
+        "Regular advisee meetings",
+        "active peer group",
+        "mentor relationships"
+      ],
+      "pitfalls": [
+        "Isolated effort",
+        "no feedback",
+        "lack of support"
+      ],
+      "timeline": "Ongoing"
+    },
+    {
+      "id": "practice_020",
+      "phase": "Overall",
+      "area": "Wellbeing",
+      "name": "Maintain Work-Life Balance",
+      "description": "Protect mental health and sustainability throughout PhD",
+      "steps": [
+        "1. Schedule breaks",
+        "2. Set work hours",
+        "3. Exercise regularly",
+        "4. Seek support",
+        "5. Celebrate milestones"
+      ],
+      "tools": [
+        "Calendar",
+        "exercise tracking",
+        "counseling services",
+        "support groups"
+      ],
+      "successIndicators": [
+        "Regular breaks",
+        "maintained schedule",
+        "support accessed when needed"
+      ],
+      "pitfalls": [
+        "Burnout",
+        "unsustainable pace",
+        "isolation",
+        "mental health decline"
+      ],
+      "timeline": "Ongoing"
+    }
+  ]
+}

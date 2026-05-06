@@ -1,0 +1,552 @@
+{
+  "meta": {
+    "title": "Publication Venues Guide",
+    "description": "20+ publication options with timelines, reach, and impact metrics",
+    "lastUpdated": "2026-05-05T06:37:51.551719",
+    "version": "1.0",
+    "totalVenues": 20
+  },
+  "types": [
+    "Blog/Media",
+    "Open Access Journal",
+    "Preprint Server",
+    "Infographic/Visual",
+    "Software/Code",
+    "Video",
+    "Thesis/Dissertation",
+    "Book Chapter",
+    "Podcast/Audio",
+    "Conference Proceeding",
+    "Peer-Reviewed Journal",
+    "Policy Brief",
+    "Data Paper"
+  ],
+  "venues": [
+    {
+      "id": "venue_001",
+      "type": "Peer-Reviewed Journal",
+      "category": "High-Impact Multidisciplinary",
+      "examples": [
+        "Nature",
+        "Science",
+        "PNAS"
+      ],
+      "peerReview": "Rigorous (2-4 months)",
+      "timeline": "12-18",
+      "audience": "Broad scientific community; decision-makers; media",
+      "reach": "Very High; Broad",
+      "citability": "Yes; high citation potential",
+      "advantages": [
+        "Highest credibility",
+        "maximum reach",
+        "career impact",
+        "high visibility"
+      ],
+      "considerations": [
+        "Extremely competitive",
+        "slow publication",
+        "often requires 'top-tier' results"
+      ],
+      "bestFor": "Highly novel findings; broad impact"
+    },
+    {
+      "id": "venue_002",
+      "type": "Peer-Reviewed Journal",
+      "category": "Discipline-Specific",
+      "examples": [
+        "Cell",
+        "Neuron",
+        "Ecology Letters"
+      ],
+      "peerReview": "Rigorous (2-4 months)",
+      "timeline": "12-18",
+      "audience": "Field-specific community; specialists",
+      "reach": "High; Field-focused",
+      "citability": "Yes; discipline standard",
+      "advantages": [
+        "Strong impact in field",
+        "appropriate audience",
+        "good citation prospects"
+      ],
+      "considerations": [
+        "Competitive",
+        "field-specific impact",
+        "longer than preprints"
+      ],
+      "bestFor": "Specialist findings; field contribution"
+    },
+    {
+      "id": "venue_003",
+      "type": "Peer-Reviewed Journal",
+      "category": "Specialty/Niche",
+      "examples": [
+        "Journal of Obscure Research",
+        "Regional journals"
+      ],
+      "peerReview": "Standard (1-3 months)",
+      "timeline": "9-15",
+      "audience": "Specialty community; niche audience",
+      "reach": "Medium; Niche-specific",
+      "citability": "Yes; specialty recognition",
+      "advantages": [
+        "Good fit for specialized work",
+        "faster than top journals",
+        "useful niche impact"
+      ],
+      "considerations": [
+        "Limited visibility",
+        "lower general impact",
+        "smaller audience"
+      ],
+      "bestFor": "Specialized findings; niche contribution"
+    },
+    {
+      "id": "venue_004",
+      "type": "Open Access Journal",
+      "category": "Gold Open Access",
+      "examples": [
+        "PLOS ONE",
+        "Scientific Reports",
+        "eLife"
+      ],
+      "peerReview": "Standard (2-3 months)",
+      "timeline": "9-12",
+      "audience": "Broad audience; public; students; developing world",
+      "reach": "High; Very Accessible",
+      "citability": "Yes; equal to subscription journals",
+      "advantages": [
+        "Immediate open access",
+        "broad visibility",
+        "reader reach",
+        "no paywalls"
+      ],
+      "considerations": [
+        "Author fees (often $1000-3000)",
+        "variable prestige",
+        "potential predatory journals"
+      ],
+      "bestFor": "Broad impact; open science commitment"
+    },
+    {
+      "id": "venue_005",
+      "type": "Preprint Server",
+      "category": "Biology/Medicine",
+      "examples": [
+        "bioRxiv",
+        "medRxiv"
+      ],
+      "peerReview": "No formal review; community",
+      "timeline": "0-3",
+      "audience": "Field community; researchers; media",
+      "reach": "Medium; Field-focused",
+      "citability": "No; but gains citations post-publication",
+      "advantages": [
+        "Rapid dissemination",
+        "early feedback",
+        "secures priority",
+        "media interest"
+      ],
+      "considerations": [
+        "Less formal",
+        "not peer-reviewed",
+        "requires eventual journal publication"
+      ],
+      "bestFor": "Early dissemination; rapid feedback; priority establishment"
+    },
+    {
+      "id": "venue_006",
+      "type": "Preprint Server",
+      "category": "Physics/Math/CS",
+      "examples": [
+        "arXiv"
+      ],
+      "peerReview": "No formal review; community",
+      "timeline": "0-3",
+      "audience": "Field researchers; students; AI community",
+      "reach": "Medium-High; Field-focused",
+      "citability": "Somewhat; discipline standard",
+      "advantages": [
+        "Rapid",
+        "early engagement",
+        "discipline standard",
+        "often simultaneously submitted to journals"
+      ],
+      "considerations": [
+        "Not formally peer-reviewed",
+        "niche audience",
+        "less impact outside field"
+      ],
+      "bestFor": "Rapid dissemination; CS/Physics standard practice"
+    },
+    {
+      "id": "venue_007",
+      "type": "Preprint Server",
+      "category": "Multidisciplinary",
+      "examples": [
+        "OSF Preprints",
+        "PsyArXiv"
+      ],
+      "peerReview": "No formal review; community",
+      "timeline": "0-3",
+      "audience": "Broad research community; discipline-specific (psychology)",
+      "reach": "Medium; Multi/specific",
+      "citability": "Variable; emerging practice",
+      "advantages": [
+        "Open science",
+        "community feedback",
+        "no publication delay"
+      ],
+      "considerations": [
+        "Emerging practice",
+        "variable recognition",
+        "not traditional publication"
+      ],
+      "bestFor": "Rapid sharing; open science; multidisciplinary reach"
+    },
+    {
+      "id": "venue_008",
+      "type": "Conference Proceeding",
+      "category": "High-Prestige Conference",
+      "examples": [
+        "ICML",
+        "NeurIPS",
+        "CVPR"
+      ],
+      "peerReview": "Peer-reviewed (1-2 months)",
+      "timeline": "6-12",
+      "audience": "Specialist community; leading researchers",
+      "reach": "High within field; Research",
+      "citability": "Yes; conference papers cited",
+      "advantages": [
+        "Strong field recognition",
+        "networking",
+        "rapid dissemination",
+        "visible community\""
+      ],
+      "considerations": [
+        "Competitive",
+        "requires presence at conference",
+        "field-specific"
+      ],
+      "bestFor": "High-visibility networking; field recognition"
+    },
+    {
+      "id": "venue_009",
+      "type": "Conference Proceeding",
+      "category": "Specialty Conference",
+      "examples": [
+        "Domain conferences"
+      ],
+      "peerReview": "Peer-reviewed (1-2 months)",
+      "timeline": "6-9",
+      "audience": "Specialty community; practitioners",
+      "reach": "Medium; Specialty",
+      "citability": "Yes; specialty recognition",
+      "advantages": [
+        "Good community engagement",
+        "feedback",
+        "networking",
+        "specialized audience"
+      ],
+      "considerations": [
+        "Lower visibility",
+        "smaller audience",
+        "travel required",
+        "field-specific"
+      ],
+      "bestFor": "Community engagement; feedback; specialized impact"
+    },
+    {
+      "id": "venue_010",
+      "type": "Conference Proceeding",
+      "category": "General Academic",
+      "examples": [
+        "Multidisciplinary conferences"
+      ],
+      "peerReview": "Peer-reviewed (1-2 months)",
+      "timeline": "6-9",
+      "audience": "Broad academic audience; interdisciplinary",
+      "reach": "Low-Medium; Interdisciplinary",
+      "citability": "Yes; interdisciplinary exposure",
+      "advantages": [
+        "Broad audience",
+        "networking",
+        "feedback",
+        "multidisciplinary perspective"
+      ],
+      "considerations": [
+        "Less deep engagement",
+        "wide variety of quality",
+        "field mixing"
+      ],
+      "bestFor": "Interdisciplinary bridges; broad networking; wide feedback"
+    },
+    {
+      "id": "venue_011",
+      "type": "Book Chapter",
+      "category": "Edited Volume",
+      "examples": [
+        "Handbooks",
+        "edited collections"
+      ],
+      "peerReview": "Peer-reviewed (2-3 months)",
+      "timeline": "12-24",
+      "audience": "Book readers; specialists; students; librarians",
+      "reach": "Medium; Sustained",
+      "citability": "Yes; chapter citation; book citation",
+      "advantages": [
+        "Sustained visibility",
+        "comprehensive treatment",
+        "book reach",
+        "academic record"
+      ],
+      "considerations": [
+        "Long timeline",
+        "smaller individual reach",
+        "volume-dependent quality"
+      ],
+      "bestFor": "Comprehensive topics; sustained visibility; comprehensive treatment"
+    },
+    {
+      "id": "venue_012",
+      "type": "Thesis/Dissertation",
+      "category": "Institutional Repository",
+      "examples": [
+        "University repository",
+        "ProQuest"
+      ],
+      "peerReview": "No external review (Advisor/Committee review)",
+      "timeline": "24-48",
+      "audience": "Institutional community; databases; accessible researchers",
+      "reach": "Low-Medium; Institutional",
+      "citability": "Yes; formal degree requirement; accessible through databases",
+      "advantages": [
+        "Complete record",
+        "archival",
+        "accessible",
+        "formal degree requirement"
+      ],
+      "considerations": [
+        "Limited distribution",
+        "limited impact",
+        "dense format",
+        "less visible than journal articles"
+      ],
+      "bestFor": "Formal degree; complete record; institutional archival"
+    },
+    {
+      "id": "venue_013",
+      "type": "Blog/Media",
+      "category": "Personal/Research Blog",
+      "examples": [
+        "Personal website",
+        "Medium"
+      ],
+      "peerReview": "Community/Editor review (informal)",
+      "timeline": "1-3",
+      "audience": "Public; interested readers; media; social",
+      "reach": "Medium-High (with promotion); Accessible",
+      "citability": "No; but can influence narrative; not academic",
+      "advantages": [
+        "Accessible writing",
+        "public engagement",
+        "rapid sharing",
+        "brand building"
+      ],
+      "considerations": [
+        "Not peer-reviewed",
+        "limited academic credibility",
+        "requires self-promotion"
+      ],
+      "bestFor": "Public engagement; rapid sharing; accessibility; brand building"
+    },
+    {
+      "id": "venue_014",
+      "type": "Blog/Media",
+      "category": "Science Communication",
+      "examples": [
+        "The Conversation",
+        "Scientific American"
+      ],
+      "peerReview": "Editorial review (1-2 weeks)",
+      "timeline": "1-2",
+      "audience": "Educated public; scientists; policy makers; media",
+      "reach": "High; Broad Public",
+      "citability": "No academic credit; but media influence",
+      "advantages": [
+        "Public understanding",
+        "policy influence",
+        "media attention",
+        "broad reach"
+      ],
+      "considerations": [
+        "Time-limited",
+        "editorial constraints",
+        "not peer-reviewed",
+        "limited academic credit"
+      ],
+      "bestFor": "Public understanding; policy influence; media engagement"
+    },
+    {
+      "id": "venue_015",
+      "type": "Infographic/Visual",
+      "category": "Social Media",
+      "examples": [
+        "Twitter",
+        "LinkedIn",
+        "Instagram"
+      ],
+      "peerReview": "Informal; Community",
+      "timeline": "0-1",
+      "audience": "Twitter users; LinkedIn professionals; Instagram followers",
+      "reach": "Medium-High with sharing; Viral potential",
+      "citability": "No formal credit; but can drive traffic; can be cited informally",
+      "advantages": [
+        "Quick understanding",
+        "shareable",
+        "viral potential",
+        "visual learning"
+      ],
+      "considerations": [
+        "Oversimplification",
+        "limited detail",
+        "requires promotion",
+        "not academic credit"
+      ],
+      "bestFor": "Quick dissemination; visual communication; social reach"
+    },
+    {
+      "id": "venue_016",
+      "type": "Podcast/Audio",
+      "category": "Research Podcast",
+      "examples": [
+        "Discipline podcasts",
+        "public radio"
+      ],
+      "peerReview": "Informal (host selection)",
+      "timeline": "2-4",
+      "audience": "Audio listeners; commuters; public",
+      "reach": "Medium; Niche or Broad",
+      "citability": "No formal credit; but brand building; discovery",
+      "advantages": [
+        "Accessible",
+        "engaging",
+        "reach different audience",
+        "multitasking-friendly"
+      ],
+      "considerations": [
+        "Time-intensive production",
+        "less academic credit",
+        "requires audio production"
+      ],
+      "bestFor": "Audio reach; accessible communication; engagement; narrative"
+    },
+    {
+      "id": "venue_017",
+      "type": "Video",
+      "category": "YouTube; Conference channels",
+      "examples": [
+        "YouTube",
+        "institutional channels",
+        "arXiv"
+      ],
+      "peerReview": "Informal (channel selection or pre-filmed)",
+      "timeline": "2-4",
+      "audience": "YouTube viewers; students; visual learners; social",
+      "reach": "Medium-High with promotion; Accessible",
+      "citability": "No formal academic credit; but can drive citations; discovery",
+      "advantages": [
+        "Engaging format",
+        "visual learning",
+        "accessible",
+        "multi-platform sharing"
+      ],
+      "considerations": [
+        "Production intensive",
+        "requires skills",
+        "not academic credit",
+        "platform-dependent"
+      ],
+      "bestFor": "Engagement; visual learning; broad reach; accessibility"
+    },
+    {
+      "id": "venue_018",
+      "type": "Data Paper",
+      "category": "Data Journal",
+      "examples": [
+        "Scientific Data",
+        "Data in Brief"
+      ],
+      "peerReview": "Peer-reviewed; Lighter",
+      "timeline": "6-9,Data users; researchers; community\"",
+      "audience": "Medium; Data-specific",
+      "reach": "Yes; data citation; emerging standard",
+      "citability": "Dataset as contribution; citable; data recognition; reproducibility promotion",
+      "advantages": [
+        "Emerging category",
+        "lighter than full papers",
+        "limited narrative"
+      ],
+      "considerations": [
+        "Dataset sharing",
+        "data contribution",
+        "data recognition"
+      ],
+      "bestFor": null
+    },
+    {
+      "id": "venue_019",
+      "type": "Policy Brief",
+      "category": "Government/NGO",
+      "examples": [
+        "Government reports",
+        "NGO briefs"
+      ],
+      "peerReview": "Review by organization",
+      "timeline": "3-6",
+      "audience": "Policy makers; government; NGO staff; decision-makers",
+      "reach": "Medium-High; Policy-focused",
+      "citability": "Not traditional academic; but policy impact; influence",
+      "advantages": [
+        "Direct impact",
+        "policy focus",
+        "decision-maker audience",
+        "actionable recommendations"
+      ],
+      "considerations": [
+        "Limited academic credit",
+        "niche audience",
+        "less visible in academia"
+      ],
+      "bestFor": "Policy impact; decision-maker audience; actionable focus"
+    },
+    {
+      "id": "venue_020",
+      "type": "Software/Code",
+      "category": "GitHub; Package Registry",
+      "examples": [
+        "GitHub",
+        "PyPI",
+        "CRAN",
+        "npm"
+      ],
+      "peerReview": "Community review; continuous",
+      "timeline": "Ongoing",
+      "audience": "Developers; researchers; practitioners",
+      "reach": "Medium-High; Developer-focused",
+      "citability": "Yes; code citations emerging; if published in journal",
+      "advantages": [
+        "Practical impact",
+        "reproducibility",
+        "tool contribution",
+        "ongoing maintenance"
+      ],
+      "considerations": [
+        "Requires maintenance",
+        "code citation not standard",
+        "less academic credit traditionally"
+      ],
+      "bestFor": "Practical contribution; tool building; code sharing; sustainability"
+    }
+  ]
+}

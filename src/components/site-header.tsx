@@ -79,6 +79,14 @@ export function SiteHeader({
         </Link>
 
         <div className="flex items-center gap-2 text-xs">
+          <Link
+            to="/resources"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
+            aria-label="Resources"
+          >
+            <span className="hidden sm:inline">Resources</span>
+            <span className="sm:hidden">Res</span>
+          </Link>
           <div className="hidden md:flex items-center gap-2">
             <Stat label="Prompts" value={totalPrompts} />
             <Stat label="Domains" value={totalDomains} />

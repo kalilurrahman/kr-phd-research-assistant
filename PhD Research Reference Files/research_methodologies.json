@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "title": "Research Methodologies Toolkit",
+    "description": "Detailed guide to 15+ research methodologies with characteristics and applications",
+    "lastUpdated": "2026-05-05T06:37:51.547088",
+    "version": "1.0",
+    "totalMethodologies": 15
+  },
+  "methodologies": [
+    {
+      "id": "M001",
+      "type": "Quantitative Research",
+      "description": "Numerical data analysis using statistics and mathematics",
+      "designApproach": "Deductive; hypothesis-testing",
+      "dataType": "Numerical; structured data",
+      "analysisApproach": "Statistical analysis; patterns; relationships",
+      "sampleConsiderations": "Large samples; representative sampling",
+      "strengths": [
+        "Objective",
+        "measurable",
+        "generalizable",
+        "replicable"
+      ],
+      "challenges": [
+        "Standardization",
+        "response rates",
+        "causality claims"
+      ],
+      "bestFor": [
+        "Hypothesis testing; large-scale studies; statistical patterns"
+      ],
+      "recommendedTools": [
+        "SPSS",
+        "R",
+        "Python",
+        "Stata"
+      ]
+    },
+    {
+      "id": "M002",
+      "type": "Qualitative Research",
+      "description": "In-depth exploration through text and observations",
+      "designApproach": "Inductive; exploratory; emergent",
+      "dataType": "Text; observations; narratives",
+      "analysisApproach": "Thematic analysis; coding; interpretation",
+      "sampleConsiderations": "Small purposive samples; information-rich cases",
+      "strengths": [
+        "Rich description",
+        "context",
+        "deeper understanding",
+        "emergent theory"
+      ],
+      "challenges": [
+        "Generalization",
+        "consistency",
+        "subjectivity concerns"
+      ],
+      "bestFor": [
+        "Context understanding; exploratory studies; meaning-making"
+      ],
+      "recommendedTools": [
+        "NVivo",
+        "Atlas.ti",
+        "MaxQDA"
+      ]
+    },
+    {
+      "id": "M003",
+      "type": "Mixed Methods",
+      "description": "Integration of quantitative and qualitative approaches",
+      "designApproach": "Both deductive and inductive; triangulation",
+      "dataType": "Both numerical and textual",
+      "analysisApproach": "Combined statistical and thematic analysis",
+      "sampleConsiderations": "Depends on design; often larger qual samples within quant",
+      "strengths": [
+        "Triangulation",
+        "comprehensive understanding",
+        "validation"
+      ],
+      "challenges": [
+        "Complexity",
+        "data integration",
+        "resource intensity"
+      ],
+      "bestFor": [
+        "Complex questions; validation; multiple perspectives"
+      ],
+      "recommendedTools": [
+        "Multiple tools",
+        "both CAQDAS and statistical software"
+      ]
+    },
+    {
+      "id": "M004",
+      "type": "Experimental Design",
+      "description": "Controlled manipulation of variables with comparison groups",
+      "designApproach": "Highly controlled; random assignment",
+      "dataType": "Typically quantitative; experimental measurements",
+      "analysisApproach": "Statistical comparison of groups",
+      "sampleConsiderations": "Sample size calculation; randomization; control groups",
+      "strengths": [
+        "Establishes causality",
+        "internal validity",
+        "control"
+      ],
+      "challenges": [
+        "External validity",
+        "ethical constraints",
+        "artificial settings"
+      ],
+      "bestFor": [
+        "Causal relationships; lab studies; intervention testing"
+      ],
+      "recommendedTools": [
+        "Statistical software",
+        "experiment management tools"
+      ]
+    },
+    {
+      "id": "M005",
+      "type": "Quasi-Experimental",
+      "description": "Manipulation of variables without random assignment",
+      "designApproach": "Controlled but non-random assignment",
+      "dataType": "Typically quantitative; quasi-experimental measures",
+      "analysisApproach": "Statistical comparison with non-equivalent groups",
+      "sampleConsiderations": "Matching or stratification; careful selection",
+      "strengths": [
+        "Practical",
+        "more ethical than true experimental",
+        "feasible"
+      ],
+      "challenges": [
+        "Internal validity threats",
+        "selection bias",
+        "lower certainty"
+      ],
+      "bestFor": [
+        "Real-world interventions; practical implementation"
+      ],
+      "recommendedTools": [
+        "Statistical software",
+        "matching algorithms"
+      ]
+    },
+    {
+      "id": "M006",
+      "type": "Longitudinal Study",
+      "description": "Repeated observations of same subjects over time",
+      "designApproach": "Prospective tracking; multiple time points",
+      "dataType": "Quantitative or qualitative; repeated measures",
+      "analysisApproach": "Time series analysis; growth curve modeling; qualitative tracking",
+      "sampleConsiderations": "Attrition management; follow-up rates critical",
+      "strengths": [
+        "Tracks change",
+        "causality stronger than cross-sectional"
+      ],
+      "challenges": [
+        "Attrition",
+        "practice effects",
+        "cost",
+        "long duration"
+      ],
+      "bestFor": [
+        "Tracking change; developmental patterns; causality"
+      ],
+      "recommendedTools": [
+        "Longitudinal analysis tools",
+        "data management systems"
+      ]
+    },
+    {
+      "id": "M007",
+      "type": "Case Study",
+      "description": "In-depth investigation of specific context or individual",
+      "designApproach": "Exploratory; descriptive; embedded designs",
+      "dataType": "Multiple data sources; mixed methods often used",
+      "analysisApproach": "Within-case; cross-case; thematic analysis",
+      "sampleConsiderations": "Small sample; bounded case selection",
+      "strengths": [
+        "Context",
+        "holistic understanding",
+        "real-world",
+        "rich data"
+      ],
+      "challenges": [
+        "Generalization limited to case",
+        "time-intensive"
+      ],
+      "bestFor": [
+        "Detailed understanding; unique cases; bounded phenomena"
+      ],
+      "recommendedTools": [
+        "Qualitative analysis software",
+        "document management"
+      ]
+    },
+    {
+      "id": "M008",
+      "type": "Ethnography",
+      "description": "Immersive observation in natural settings",
+      "designApproach": "Participant observation; immersion; reflexivity",
+      "dataType": "Observational; interview; artifact data; very qualitative",
+      "analysisApproach": "Thematic analysis; narrative analysis; constant comparison",
+      "sampleConsiderations": "Prolonged engagement; participant selection flexible",
+      "strengths": [
+        "Cultural understanding",
+        "authentic context",
+        "behavioral insight"
+      ],
+      "challenges": [
+        "Highly subjective",
+        "time-intensive",
+        "limited generalization"
+      ],
+      "bestFor": [
+        "Cultural understanding; behavioral patterns; authentic context"
+      ],
+      "recommendedTools": [
+        "Field note tools",
+        "qualitative software",
+        "video/photo tools"
+      ]
+    },
+    {
+      "id": "M009",
+      "type": "Grounded Theory",
+      "description": "Inductive theory development directly from data",
+      "designApproach": "Iterative; constant comparison; memo-writing",
+      "dataType": "Qualitative; interview or observational",
+      "analysisApproach": "Open coding; axial coding; selective coding; iterative",
+      "sampleConsiderations": "Sample size emerges; theoretical saturation guide",
+      "strengths": [
+        "Theory emerges from data",
+        "systematic",
+        "rigorous"
+      ],
+      "challenges": [
+        "Demanding",
+        "steep learning curve",
+        "can be slow"
+      ],
+      "bestFor": [
+        "Theory building; exploratory; understanding mechanisms"
+      ],
+      "recommendedTools": [
+        "Qualitative software with coding support",
+        "memo tools"
+      ]
+    },
+    {
+      "id": "M010",
+      "type": "Action Research",
+      "description": "Cyclical improvement through planning-acting-observing-reflecting",
+      "designApproach": "Participatory; iterative cycles; collaborative",
+      "dataType": "Mixed methods; practical focus",
+      "analysisApproach": "Reflective analysis; outcome measurement; stakeholder feedback",
+      "sampleConsiderations": "Participant practitioners; voluntary engagement; reflective group",
+      "strengths": [
+        "Improves practice",
+        "collaborative",
+        "participatory",
+        "ethical"
+      ],
+      "challenges": [
+        "Generalization",
+        "researcher bias",
+        "power dynamics"
+      ],
+      "bestFor": [
+        "Organizational improvement; professional development; practice-based"
+      ],
+      "recommendedTools": [
+        "Collaboration platforms",
+        "documentation tools",
+        "coding software"
+      ]
+    },
+    {
+      "id": "M011",
+      "type": "Phenomenology",
+      "description": "Exploration of lived experience and meaning",
+      "designApproach": "Interpretive; participant-centered; existential",
+      "dataType": "Qualitative; interviews; observations; lived accounts",
+      "analysisApproach": "Phenomenological analysis; essence identification; theme extraction",
+      "sampleConsiderations": "Small purposive sample; lived experience requirement",
+      "strengths": [
+        "Understand meaning",
+        "human experience",
+        "lived reality"
+      ],
+      "challenges": [
+        "Requires philosophical engagement",
+        "intensive interpretation"
+      ],
+      "bestFor": [
+        "Understanding experience; meaning-making; individual perspectives"
+      ],
+      "recommendedTools": [
+        "Qualitative software",
+        "interview tools",
+        "transcription services"
+      ]
+    },
+    {
+      "id": "M012",
+      "type": "Discourse Analysis",
+      "description": "Examination of language and communication patterns",
+      "designApproach": "Textual analysis; interpretive; social constructionist",
+      "dataType": "Textual data; communication artifacts; social texts",
+      "analysisApproach": "Content analysis; linguistic analysis; social interpretation",
+      "sampleConsiderations": "Documents or communication samples; no sample size rules",
+      "strengths": [
+        "Reveals power",
+        "social construction",
+        "language patterns"
+      ],
+      "challenges": [
+        "Interpretation variability",
+        "context-dependent",
+        "labor-intensive"
+      ],
+      "bestFor": [
+        "Language patterns; power dynamics; social meaning"
+      ],
+      "recommendedTools": [
+        "Qualitative software",
+        "text analysis tools",
+        "annotation tools"
+      ]
+    },
+    {
+      "id": "M013",
+      "type": "Systematic Review",
+      "description": "Structured analysis and synthesis of existing research",
+      "designApproach": "Transparent; comprehensive; reproducible protocol",
+      "dataType": "Existing research studies; literature-based",
+      "analysisApproach": "Meta-analysis or narrative synthesis; statistical integration",
+      "sampleConsiderations": "Literature inclusion/exclusion criteria; protocol registration",
+      "strengths": [
+        "Evidence synthesis",
+        "comprehensive",
+        "high credibility"
+      ],
+      "challenges": [
+        "Labor-intensive",
+        "quality variability in sources",
+        "bias potential"
+      ],
+      "bestFor": [
+        "Evidence synthesis; clinical guidelines; research gaps"
+      ],
+      "recommendedTools": [
+        "Covidence",
+        "RevMan",
+        "Mendeley",
+        "extraction tools"
+      ]
+    },
+    {
+      "id": "M014",
+      "type": "Survey Research",
+      "description": "Collection of data through questionnaires",
+      "designApproach": "Structured; standardized instruments; quantitative design",
+      "dataType": "Questionnaire responses; structured data",
+      "analysisApproach": "Descriptive statistics; inferential statistics; pattern analysis",
+      "sampleConsiderations": "Large representative samples; sampling frames; response rates",
+      "strengths": [
+        "Efficient data collection",
+        "standardized measures",
+        "large samples"
+      ],
+      "challenges": [
+        "Response bias",
+        "shallow data",
+        "question wording effects"
+      ],
+      "bestFor": [
+        "Broad patterns; population estimates; prevalence"
+      ],
+      "recommendedTools": [
+        "Survey platforms",
+        "statistical software",
+        "data analysis tools"
+      ]
+    },
+    {
+      "id": "M015",
+      "type": "Evaluation Research",
+      "description": "Assessment of program effectiveness and outcomes",
+      "designApproach": "Purpose-driven; outcome-focused; utilization-centered",
+      "dataType": "Mixed methods typically; outcome measurement",
+      "analysisApproach": "Outcome analysis; comparison to goals; impact assessment",
+      "sampleConsiderations": "Program participants; outcome measures; comparison groups",
+      "strengths": [
+        "Practical utility",
+        "answers real questions",
+        "evidence-based"
+      ],
+      "challenges": [
+        "Complexity",
+        "confounding variables",
+        "stakeholder management"
+      ],
+      "bestFor": [
+        "Program evaluation; impact assessment; quality improvement"
+      ],
+      "recommendedTools": [
+        "Evaluation software",
+        "survey tools",
+        "statistical software"
+      ]
+    }
+  ]
+}

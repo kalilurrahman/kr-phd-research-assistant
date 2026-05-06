@@ -1,0 +1,730 @@
+{
+  "meta": {
+    "title": "Research Tools Database",
+    "description": "Comprehensive catalog of 35+ research tools across all research disciplines",
+    "lastUpdated": "2026-05-05T06:37:51.544629",
+    "version": "1.0",
+    "totalTools": 36
+  },
+  "categories": [
+    "Qualitative Analysis",
+    "Survey & Data Collection",
+    "Project Management",
+    "Literature Management",
+    "Writing & Collaboration",
+    "Reference Search",
+    "Data Visualization",
+    "Quantitative Analysis"
+  ],
+  "tools": [
+    {
+      "id": "tool_001",
+      "category": "Literature Management",
+      "name": "Zotero",
+      "purpose": "Citation management and bibliography",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Plugins",
+        "collaboration",
+        "browser integration",
+        "PDF annotation"
+      ],
+      "bestFor": [
+        "Academic writing",
+        "Citation management",
+        "Open source preference"
+      ],
+      "website": "zotero.org"
+    },
+    {
+      "id": "tool_002",
+      "category": "Literature Management",
+      "name": "Mendeley",
+      "purpose": "Reference management with annotation",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "PDF annotation",
+        "team libraries",
+        "social features",
+        "iOS app"
+      ],
+      "bestFor": [
+        "Individual researchers",
+        "Team projects",
+        "Cross-platform"
+      ],
+      "website": "mendeley.com"
+    },
+    {
+      "id": "tool_003",
+      "category": "Literature Management",
+      "name": "EndNote",
+      "purpose": "Professional citation management",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Thousands of citation styles",
+        "institutional support",
+        "journal submission integration"
+      ],
+      "bestFor": [
+        "Large research groups",
+        "Institutional use",
+        "Advanced features"
+      ],
+      "website": "endnote.com"
+    },
+    {
+      "id": "tool_004",
+      "category": "Literature Management",
+      "name": "RefWorks",
+      "purpose": "Collaborative reference management",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Real-time collaboration",
+        "institutional integration",
+        "mobile app"
+      ],
+      "bestFor": [
+        "Team-based research",
+        "Institutional adoption"
+      ],
+      "website": "refworks.com"
+    },
+    {
+      "id": "tool_005",
+      "category": "Qualitative Analysis",
+      "name": "NVivo",
+      "purpose": "Comprehensive qualitative data analysis",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Coding",
+        "visualization",
+        "mixed methods",
+        "AI-assisted analysis",
+        "team work"
+      ],
+      "bestFor": [
+        "Full qualitative projects",
+        "Complex analysis",
+        "Team collaboration"
+      ],
+      "website": "qsrinternational.com/nvivo"
+    },
+    {
+      "id": "tool_006",
+      "category": "Qualitative Analysis",
+      "name": "Atlas.ti",
+      "purpose": "Qualitative data management and analysis",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Visual networks",
+        "semantic analysis",
+        "cloud-based",
+        "strong for theory building"
+      ],
+      "bestFor": [
+        "Theory development",
+        "Visual thinking",
+        "European institutions"
+      ],
+      "website": "atlasti.com"
+    },
+    {
+      "id": "tool_007",
+      "category": "Qualitative Analysis",
+      "name": "MaxQDA",
+      "purpose": "CAQDAS for qualitative research",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Mixed methods focus",
+        "good integration",
+        "visualization tools"
+      ],
+      "bestFor": [
+        "Mixed methods",
+        "Integration with quantitative tools"
+      ],
+      "website": "maxqda.com"
+    },
+    {
+      "id": "tool_008",
+      "category": "Qualitative Analysis",
+      "name": "Dedoose",
+      "purpose": "Cloud-based qualitative analysis",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Real-time collaboration",
+        "media-rich analysis",
+        "analytics dashboard"
+      ],
+      "bestFor": [
+        "Team projects",
+        "Distributed teams",
+        "Multimodal data"
+      ],
+      "website": "dedoose.com"
+    },
+    {
+      "id": "tool_009",
+      "category": "Quantitative Analysis",
+      "name": "R",
+      "purpose": "Statistical computing and graphics",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Extensive packages",
+        "reproducible research",
+        "visualization",
+        "active community"
+      ],
+      "bestFor": [
+        "Statistical analysis",
+        "Data visualization",
+        "Research computing"
+      ],
+      "website": "r-project.org"
+    },
+    {
+      "id": "tool_010",
+      "category": "Quantitative Analysis",
+      "name": "Python",
+      "purpose": "Programming for data science",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Versatile",
+        "machine learning libraries",
+        "data science ecosystem"
+      ],
+      "bestFor": [
+        "Data science",
+        "Machine learning",
+        "General computing"
+      ],
+      "website": "python.org"
+    },
+    {
+      "id": "tool_011",
+      "category": "Quantitative Analysis",
+      "name": "SPSS",
+      "purpose": "Statistical analysis software",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "User-friendly GUI",
+        "widespread academic use",
+        "comprehensive tutorials"
+      ],
+      "bestFor": [
+        "User-friendly analysis",
+        "Social sciences",
+        "Psychology"
+      ],
+      "website": "ibm.com/spss"
+    },
+    {
+      "id": "tool_012",
+      "category": "Quantitative Analysis",
+      "name": "Stata",
+      "purpose": "Data analysis and statistical software",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Econometrics focus",
+        "time series",
+        "reproducible workflows"
+      ],
+      "bestFor": [
+        "Econometrics",
+        "Panel data",
+        "Policy research"
+      ],
+      "website": "stata.com"
+    },
+    {
+      "id": "tool_013",
+      "category": "Quantitative Analysis",
+      "name": "MATLAB",
+      "purpose": "Numerical computing environment",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Matrix operations",
+        "simulation",
+        "signal processing",
+        "engineering focus"
+      ],
+      "bestFor": [
+        "Engineering",
+        "Numerical analysis",
+        "Simulation"
+      ],
+      "website": "mathworks.com"
+    },
+    {
+      "id": "tool_014",
+      "category": "Survey & Data Collection",
+      "name": "Qualtrics",
+      "purpose": "Enterprise survey platform",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Advanced logic",
+        "complex surveys",
+        "data analysis integration",
+        "enterprise support"
+      ],
+      "bestFor": [
+        "Large-scale surveys",
+        "Complex branching",
+        "Enterprise deployment"
+      ],
+      "website": "qualtrics.com"
+    },
+    {
+      "id": "tool_015",
+      "category": "Survey & Data Collection",
+      "name": "Google Forms",
+      "purpose": "Simple survey creation",
+      "type": "Free",
+      "cost": "Free",
+      "features": [
+        "Easy to use",
+        "real-time responses",
+        "integration with Sheets",
+        "free"
+      ],
+      "bestFor": [
+        "Simple surveys",
+        "Quick deployment",
+        "Budget-conscious"
+      ],
+      "website": "google.com/forms"
+    },
+    {
+      "id": "tool_016",
+      "category": "Survey & Data Collection",
+      "name": "REDCap",
+      "purpose": "Secure data capture for research",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "HIPAA compliant",
+        "audit logs",
+        "longitudinal data",
+        "secure"
+      ],
+      "bestFor": [
+        "Biomedical research",
+        "Clinical trials",
+        "Secure data capture"
+      ],
+      "website": "project-redcap.org"
+    },
+    {
+      "id": "tool_017",
+      "category": "Survey & Data Collection",
+      "name": "KoBoToolbox",
+      "purpose": "Open source data collection",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Mobile data collection",
+        "offline capability",
+        "flexible design"
+      ],
+      "bestFor": [
+        "Field research",
+        "Developing countries",
+        "Humanitarian focus"
+      ],
+      "website": "kobotoolbox.org"
+    },
+    {
+      "id": "tool_018",
+      "category": "Data Visualization",
+      "name": "Tableau",
+      "purpose": "Business intelligence and visualization",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Interactive dashboards",
+        "scalable",
+        "enterprise support",
+        "wide data source support"
+      ],
+      "bestFor": [
+        "Business analytics",
+        "Interactive reporting",
+        "Enterprise use"
+      ],
+      "website": "tableau.com"
+    },
+    {
+      "id": "tool_019",
+      "category": "Data Visualization",
+      "name": "Power BI",
+      "purpose": "Microsoft data visualization",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Excel integration",
+        "real-time dashboards",
+        "Microsoft ecosystem",
+        "collaboration"
+      ],
+      "bestFor": [
+        "Microsoft shops",
+        "Excel-heavy workflows",
+        "Office 365 users"
+      ],
+      "website": "microsoft.com/power-bi"
+    },
+    {
+      "id": "tool_020",
+      "category": "Data Visualization",
+      "name": "Plotly",
+      "purpose": "Interactive visualization library",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Interactive charts",
+        "web-based",
+        "multiple languages",
+        "open source"
+      ],
+      "bestFor": [
+        "Custom interactive visualizations",
+        "Web-based dashboards",
+        "Research"
+      ],
+      "website": "plotly.com"
+    },
+    {
+      "id": "tool_021",
+      "category": "Data Visualization",
+      "name": "ggplot2",
+      "purpose": "R visualization package",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Beautiful plots",
+        "grammar of graphics",
+        "extensive customization"
+      ],
+      "bestFor": [
+        "Publication-quality graphics",
+        "Research visualization",
+        "R users"
+      ],
+      "website": "ggplot2.tidyverse.org"
+    },
+    {
+      "id": "tool_022",
+      "category": "Data Visualization",
+      "name": "D3.js",
+      "purpose": "JavaScript visualization library",
+      "type": "Open Source",
+      "cost": "Free",
+      "features": [
+        "Maximum flexibility",
+        "web-based",
+        "learning curve",
+        "powerful"
+      ],
+      "bestFor": [
+        "Custom interactive visualizations",
+        "Web applications",
+        "Exploratory design"
+      ],
+      "website": "d3js.org"
+    },
+    {
+      "id": "tool_023",
+      "category": "Writing & Collaboration",
+      "name": "Overleaf",
+      "purpose": "LaTeX collaborative editor",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Real-time collaboration",
+        "templates",
+        "version history",
+        "web-based"
+      ],
+      "bestFor": [
+        "Academic writing",
+        "Equations",
+        "Collaborative LaTeX"
+      ],
+      "website": "overleaf.com"
+    },
+    {
+      "id": "tool_024",
+      "category": "Writing & Collaboration",
+      "name": "Google Docs",
+      "purpose": "Cloud-based document editing",
+      "type": "Free",
+      "cost": "Free",
+      "features": [
+        "Real-time collaboration",
+        "comments",
+        "sharing",
+        "simple"
+      ],
+      "bestFor": [
+        "Quick collaborative writing",
+        "Comments and feedback",
+        "Accessibility"
+      ],
+      "website": "google.com/docs"
+    },
+    {
+      "id": "tool_025",
+      "category": "Writing & Collaboration",
+      "name": "Microsoft 365",
+      "purpose": "Office suite with collaboration",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Familiar interface",
+        "OneDrive integration",
+        "Teams collaboration",
+        "full features"
+      ],
+      "bestFor": [
+        "Institutional use",
+        "Complex documents",
+        "Enterprise"
+      ],
+      "website": "microsoft.com/365"
+    },
+    {
+      "id": "tool_026",
+      "category": "Writing & Collaboration",
+      "name": "Notion",
+      "purpose": "All-in-one workspace",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Database features",
+        "templates",
+        "cross-device",
+        "knowledge management"
+      ],
+      "bestFor": [
+        "Project organization",
+        "Knowledge base",
+        "Academic notes"
+      ],
+      "website": "notion.so"
+    },
+    {
+      "id": "tool_027",
+      "category": "Writing & Collaboration",
+      "name": "Obsidian",
+      "purpose": "Knowledge management system",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Local-first",
+        "markdown-based",
+        "knowledge graphs",
+        "plugins",
+        "privacy"
+      ],
+      "bestFor": [
+        "Personal knowledge management",
+        "Note-taking",
+        "Privacy-focused"
+      ],
+      "website": "obsidian.md"
+    },
+    {
+      "id": "tool_028",
+      "category": "Reference Search",
+      "name": "Google Scholar",
+      "purpose": "Academic literature search",
+      "type": "Free",
+      "cost": "Free",
+      "features": [
+        "Broad coverage",
+        "citation metrics",
+        "free",
+        "accessible"
+      ],
+      "bestFor": [
+        "Quick literature search",
+        "Citation tracking",
+        "Accessible"
+      ],
+      "website": "scholar.google.com"
+    },
+    {
+      "id": "tool_029",
+      "category": "Reference Search",
+      "name": "PubMed",
+      "purpose": "Biomedical literature database",
+      "type": "Free",
+      "cost": "Free",
+      "features": [
+        "Life sciences focus",
+        "MeSH indexing",
+        "free full texts available"
+      ],
+      "bestFor": [
+        "Biomedical research",
+        "Life sciences",
+        "Clinical research"
+      ],
+      "website": "pubmed.ncbi.nlm.nih.gov"
+    },
+    {
+      "id": "tool_030",
+      "category": "Reference Search",
+      "name": "Web of Science",
+      "purpose": "Citation tracking and analysis",
+      "type": "Commercial",
+      "cost": "Institutional",
+      "features": [
+        "Citation tracking",
+        "impact metrics",
+        "multidisciplinary",
+        "research analytics"
+      ],
+      "bestFor": [
+        "Citation analysis",
+        "Research evaluation",
+        "Institutional access"
+      ],
+      "website": "clarivate.com/webofscience"
+    },
+    {
+      "id": "tool_031",
+      "category": "Reference Search",
+      "name": "Scopus",
+      "purpose": "Abstract and citation database",
+      "type": "Commercial",
+      "cost": "Institutional",
+      "features": [
+        "Broad coverage",
+        "citation metrics",
+        "metrics and analytics",
+        "multidisciplinary"
+      ],
+      "bestFor": [
+        "Research evaluation",
+        "Citation metrics",
+        "Institutional access"
+      ],
+      "website": "scopus.com"
+    },
+    {
+      "id": "tool_032",
+      "category": "Reference Search",
+      "name": "JSTOR",
+      "purpose": "Digital library of academic journals",
+      "type": "Commercial",
+      "cost": "Institutional",
+      "features": [
+        "Historical archives",
+        "multidisciplinary",
+        "institutional access"
+      ],
+      "bestFor": [
+        "Humanities",
+        "Social sciences",
+        "Institutional access"
+      ],
+      "website": "jstor.org"
+    },
+    {
+      "id": "tool_033",
+      "category": "Project Management",
+      "name": "Asana",
+      "purpose": "Project and task management",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Task management",
+        "timelines",
+        "portfolios",
+        "team communication"
+      ],
+      "bestFor": [
+        "Research projects",
+        "Team coordination",
+        "Milestone tracking"
+      ],
+      "website": "asana.com"
+    },
+    {
+      "id": "tool_034",
+      "category": "Project Management",
+      "name": "Monday.com",
+      "purpose": "Work OS platform",
+      "type": "Commercial",
+      "cost": "Paid",
+      "features": [
+        "Flexible workflows",
+        "customizable",
+        "team collaboration",
+        "reporting"
+      ],
+      "bestFor": [
+        "Flexible project tracking",
+        "Team workflows",
+        "Custom tracking"
+      ],
+      "website": "monday.com"
+    },
+    {
+      "id": "tool_035",
+      "category": "Project Management",
+      "name": "Todoist",
+      "purpose": "Task management application",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Simple task lists",
+        "recurring tasks",
+        "integration",
+        "personal productivity"
+      ],
+      "bestFor": [
+        "Individual task management",
+        "Personal productivity",
+        "Simple workflows"
+      ],
+      "website": "todoist.com"
+    },
+    {
+      "id": "tool_036",
+      "category": "Project Management",
+      "name": "Trello",
+      "purpose": "Kanban-style task boards",
+      "type": "Commercial",
+      "cost": "Free/Paid",
+      "features": [
+        "Visual boards",
+        "card-based",
+        "simple",
+        "integration ecosystem"
+      ],
+      "bestFor": [
+        "Visual task tracking",
+        "Kanban workflows",
+        "Team collaboration"
+      ],
+      "website": "trello.com"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "title": "Research Ethics & Compliance",
+    "description": "15+ compliance requirements with timelines and implementation steps",
+    "lastUpdated": "2026-05-05T12:36:48.180541",
+    "version": "1.0",
+    "totalRequirements": 15
+  },
+  "categories": [
+    "Animal",
+    "Conflict",
+    "Data",
+    "Funding",
+    "Human Subjects",
+    "Publication",
+    "Research",
+    "Responsible Conduct"
+  ],
+  "requirements": [
+    {
+      "id": "E001",
+      "category": "Human Subjects",
+      "name": "IRB Approval",
+      "description": "Institutional Review Board review and approval for human subjects research",
+      "whenNeeded": "Any research involving human participants (interviews; surveys; observations; biosamples)",
+      "actions": [
+        "1. Complete CITI training",
+        "2. Develop protocol",
+        "3. Write consent form",
+        "4. Submit to IRB",
+        "5. Respond to queries",
+        "6. Receive approval"
+      ],
+      "documentation": "IRB approval letter; protocol summary; consent form",
+      "responsibleParty": "Primary investigator; Research team",
+      "timeline": "Months 2-6 before data collection",
+      "penalties": "Research suspension; disqualification; legal liability; publication rejection",
+      "resources": [
+        "CITI Training",
+        "IRB office",
+        "institutional policy",
+        "OHRP"
+      ]
+    },
+    {
+      "id": "E002",
+      "category": "Human Subjects",
+      "name": "Informed Consent",
+      "description": "Ensure participants understand study and voluntarily agree",
+      "whenNeeded": "Any human subjects research",
+      "actions": [
+        "1. Provide clear explanation of purpose",
+        "2. Describe procedures",
+        "3. Explain risks/benefits",
+        "4. Ensure voluntary",
+        "5. Obtain signature or affirmation"
+      ],
+      "documentation": "Signed/documented consent; IRB approval; consent form copies",
+      "responsibleParty": "Research team; IRB",
+      "timeline": "Before any data collection",
+      "penalties": "Research suspension; publication rejection; legal liability",
+      "resources": [
+        "IRB guidelines",
+        "ICMJE standards",
+        "institutional templates"
+      ]
+    },
+    {
+      "id": "E003",
+      "category": "Human Subjects",
+      "name": "Confidentiality",
+      "description": "Protect participant privacy and sensitive information",
+      "whenNeeded": "All human subjects research with identifiable data",
+      "actions": [
+        "1. De-identify data",
+        "2. Use codes/ID numbers",
+        "3. Maintain key separately",
+        "4. Limit access",
+        "5. Secure storage",
+        "6. Document procedures"
+      ],
+      "documentation": "De-identification log; access log; code key (secured separately)",
+      "responsibleParty": "Data manager; Research team",
+      "timeline": "Ongoing throughout study",
+      "penalties": "Legal liability; publication rejection; loss of trust; potential criminal charges",
+      "resources": []
+    },
+    {
+      "id": "E004",
+      "category": "Human Subjects",
+      "name": "Vulnerable Populations",
+      "description": "Additional protections for vulnerable groups (children; prisoners; pregnant women; fetuses; cognitively impaired)",
+      "whenNeeded": "Research involving legally vulnerable or cognitively vulnerable populations",
+      "actions": [
+        "1. Develop additional safeguards",
+        "2. Justify inclusion",
+        "3. Minimize risk",
+        "4. Seek assent",
+        "5. Involve advocates if needed",
+        "6. Enhance monitoring"
+      ],
+      "documentation": "IRB protocol with enhanced safeguards; documentation of vulnerability assessment",
+      "responsibleParty": "Primary investigator; IRB",
+      "timeline": "Months 2-6; ongoing",
+      "penalties": "Research suspension; additional penalties for vulnerable population harm",
+      "resources": []
+    },
+    {
+      "id": "E005",
+      "category": "Data",
+      "name": "Data Protection & Security",
+      "description": "Safeguard sensitive and personal information from unauthorized access",
+      "whenNeeded": "Research with sensitive data (health; financial; demographic; biometric)",
+      "actions": [
+        "1. Implement encryption",
+        "2. Use access control",
+        "3. Apply de-identification",
+        "4. Secure transmission",
+        "5. Limit access",
+        "6. Create audit trails"
+      ],
+      "documentation": "Encryption certificates; access logs; data handling plan; security audit results",
+      "responsibleParty": "IT; Data manager; Research team",
+      "timeline": "Before data collection; ongoing",
+      "penalties": "Data breach liability; fines under GDPR/HIPAA; publication rejection; legal liability",
+      "resources": []
+    },
+    {
+      "id": "E006",
+      "category": "Data",
+      "name": "HIPAA Compliance",
+      "description": "Health Insurance Portability and Accountability Act compliance for protected health information (PHI)",
+      "whenNeeded": "Research with U.S. health data or health information",
+      "actions": [
+        "1. Complete HIPAA training",
+        "2. Develop Business Associate Agreement if needed",
+        "3. Use de-identification",
+        "4. Implement safeguards",
+        "5. Document compliance"
+      ],
+      "documentation": "HIPAA training certificate; BAA; de-identification documentation; compliance audit",
+      "responsibleParty": "Research team; Institutional compliance; IRB",
+      "timeline": "Before accessing PHI",
+      "penalties": "Fines ($100-$50",
+      "resources": [
+        "000 per violation)",
+        "legal liability",
+        "publication rejection"
+      ]
+    },
+    {
+      "id": "E007",
+      "category": "Data",
+      "name": "GDPR Compliance",
+      "description": "General Data Protection Regulation compliance for EU resident data",
+      "whenNeeded": "Research with data of EU residents",
+      "actions": [
+        "1. Conduct DPIA (Data Protection Impact Assessment)",
+        "2. Document legal basis",
+        "3. Ensure consent",
+        "4. Implement data subject rights",
+        "5. Establish DPA",
+        "6. Notify DPO"
+      ],
+      "documentation": "DPIA documentation; consent records; DPA; Data protection policy",
+      "responsibleParty": "Data controller (researcher); Institutional legal; Data Protection Officer",
+      "timeline": "Before data collection",
+      "penalties": "Fines up to €20 million or 4% global revenue; legal liability; publication rejection",
+      "resources": []
+    },
+    {
+      "id": "E008",
+      "category": "Conflict",
+      "name": "Conflict of Interest",
+      "description": "Identify and manage financial/personal interests that could bias research",
+      "whenNeeded": "All research with potential financial interests (funding source; employment; equity)",
+      "actions": [
+        "1. Complete COI disclosure form",
+        "2. Identify interests",
+        "3. Develop management plan",
+        "4. Recuse if necessary",
+        "5. Document management",
+        "6. Update annually"
+      ],
+      "documentation": "COI disclosure form; management plan; recusal documentation",
+      "responsibleParty": "Primary investigator; Institutional COI office",
+      "timeline": "Before study initiation; annually",
+      "penalties": "Publication rejection; retraction; loss of funding; reputation damage; legal action",
+      "resources": []
+    },
+    {
+      "id": "E009",
+      "category": "Publication",
+      "name": "Publication Ethics",
+      "description": "Ensure ethical publication practices and responsible dissemination",
+      "whenNeeded": "All publications",
+      "actions": [
+        "1. Disclose funding",
+        "2. Declare author contributions",
+        "3. Declare COI",
+        "4. Provide data availability",
+        "5. Avoid plagiarism",
+        "6. Proper attribution",
+        "7. Respect embargoes"
+      ],
+      "documentation": "Publication manuscript; declarations; data availability statement; funding acknowledgment",
+      "responsibleParty": "Authors; Corresponding author; Journal editor",
+      "timeline": "At manuscript submission",
+      "penalties": "Publication rejection; retraction; authorship disputes; career damage; legal liability",
+      "resources": []
+    },
+    {
+      "id": "E010",
+      "category": "Publication",
+      "name": "Authorship",
+      "description": "Ensure fair recognition and documentation of contributor contributions",
+      "whenNeeded": "All publications with multiple contributors",
+      "actions": [
+        "1. Discuss authorship criteria upfront",
+        "2. Document contributions",
+        "3. Use CRediT taxonomy",
+        "4. Obtain agreement",
+        "5. Update as needed"
+      ],
+      "documentation": "Authorship agreement; CRediT statement; acknowledgments",
+      "responsibleParty": "All authors; Corresponding author",
+      "timeline": "Before manuscript submission; revisit periodically",
+      "penalties": "Authorship disputes; publication retraction; reputation damage; legal action",
+      "resources": []
+    },
+    {
+      "id": "E011",
+      "category": "Publication",
+      "name": "Plagiarism Prevention",
+      "description": "Avoid reproducing others' work without attribution",
+      "whenNeeded": "All writing and publications",
+      "actions": [
+        "1. Cite sources correctly",
+        "2. Use quotation marks",
+        "3. Paraphrase with citation",
+        "4. Use plagiarism checker",
+        "5. Train on proper attribution",
+        "6. Maintain source records"
+      ],
+      "documentation": "Plagiarism check report; source documentation; properly cited manuscript",
+      "responsibleParty": "All authors; Students",
+      "timeline": "Throughout writing process",
+      "penalties": "Publication rejection; retraction; dismissal; loss of degree; reputation damage; legal liability",
+      "resources": []
+    },
+    {
+      "id": "E012",
+      "category": "Research",
+      "name": "Research Integrity",
+      "description": "Conduct research honestly without fabrication; falsification; or deception",
+      "whenNeeded": "All research",
+      "actions": [
+        "1. Follow research protocols",
+        "2. Document decisions",
+        "3. Avoid p-hacking",
+        "4. Pre-register analysis",
+        "5. Report null findings",
+        "6. Respond to inconsistencies",
+        "7. Seek guidance when uncertain"
+      ],
+      "documentation": "Lab notebook; protocol documentation; preregistration; analysis plan; communication records",
+      "responsibleParty": "All research team",
+      "timeline": "Throughout research conduct",
+      "penalties": "Retraction; loss of funding; career termination; legal action; institutional sanctions",
+      "resources": []
+    },
+    {
+      "id": "E013",
+      "category": "Animal",
+      "name": "Animal Care",
+      "description": "Ethical use of animals in research (if applicable)",
+      "whenNeeded": "Research using animals in experiments",
+      "actions": [
+        "1. Complete IACUC training",
+        "2. Submit protocol to IACUC",
+        "3. Justify animal use",
+        "4. Minimize harm/distress",
+        "5. Use alternatives when possible",
+        "6. Ensure humane euthanasia if needed"
+      ],
+      "documentation": "IACUC approval letter; protocol; training certificate; vet oversight documentation",
+      "responsibleParty": "Primary investigator; IACUC committee; Veterinarian",
+      "timeline": "Before study initiation; ongoing monitoring",
+      "penalties": "Research suspension; legal liability; publication rejection; facility inspection findings",
+      "resources": []
+    },
+    {
+      "id": "E014",
+      "category": "Funding",
+      "name": "Conflict of Interest Disclosure",
+      "description": "Disclose funding sources and conflicts of interest",
+      "whenNeeded": "All research with external funding or conflicts",
+      "actions": [
+        "1. Identify funding source",
+        "2. Disclose in publications",
+        "3. Declare in presentations",
+        "4. Include in manuscripts",
+        "5. Update as funding changes"
+      ],
+      "documentation": "Funding acknowledgment; publication declarations; grant documentation; funding source records",
+      "responsibleParty": "All authors; Primary investigator",
+      "timeline": "At publication/presentation; in proposals",
+      "penalties": "Publication rejection; retraction; reputation damage; funder sanctions",
+      "resources": []
+    },
+    {
+      "id": "E015",
+      "category": "Responsible Conduct",
+      "name": "Training",
+      "description": "Complete Responsible Conduct of Research training",
+      "whenNeeded": "Required for most research; particularly grant-funded",
+      "actions": [
+        "1. Complete institutional RCR training",
+        "2. Document completion",
+        "3. Renew as required (typically every 3-5 years)",
+        "4. Choose discipline-specific if available"
+      ],
+      "documentation": "RCR training certificate; training completion record",
+      "responsibleParty": "All research team members; Students",
+      "timeline": "Before conducting research; renew per institutional requirements",
+      "penalties": "Ineligibility for funding; publication rejection; institutional sanctions",
+      "resources": []
+    }
+  ]
+}

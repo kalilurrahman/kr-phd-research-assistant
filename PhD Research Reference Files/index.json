@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "title": "PhD Research Assistant - Resource Repository",
+    "description": "Comprehensive toolkit for academic research: tools, methodologies, frameworks, best practices, publication strategy, and ethics guidance",
+    "version": "1.0",
+    "lastUpdated": "2026-05-05T12:36:48.182207",
+    "totalResources": 106
+  },
+  "resources": {
+    "tools": {
+      "file": "research_tools.json",
+      "count": 36,
+      "description": "35+ research tools across 8 categories"
+    },
+    "methodologies": {
+      "file": "research_methodologies.json",
+      "count": 15,
+      "description": "15+ research methodologies with detailed characteristics"
+    },
+    "practices": {
+      "file": "phd_best_practices.json",
+      "count": 20,
+      "description": "20+ best practices with month-by-month timeline"
+    },
+    "venues": {
+      "file": "publication_venues.json",
+      "count": 20,
+      "description": "20+ publication venues with timelines and reach"
+    },
+    "ethics": {
+      "file": "research_ethics.json",
+      "count": 15,
+      "description": "15+ compliance requirements with implementation steps"
+    }
+  },
+  "documents": {
+    "masterGuide": {
+      "file": "PhD_Research_Assistant_Master_Guide.docx",
+      "format": "docx",
+      "pages": 18,
+      "description": "Comprehensive 9-section handbook covering entire PhD research lifecycle"
+    },
+    "excelWorkbook": {
+      "file": "PhD_Research_Assistant_Resource_Repository.xlsx",
+      "format": "xlsx",
+      "sheets": 7,
+      "description": "7 sheets with structured data and quick reference tables"
+    },
+    "guides": [
+      {
+        "file": "README_Getting_Started.md",
+        "title": "Getting Started Guide",
+        "description": "Navigation and orientation guide"
+      },
+      {
+        "file": "Data_Management_Best_Practices.md",
+        "title": "Data Management Implementation Guide",
+        "description": "Complete data management practices with templates"
+      },
+      {
+        "file": "Research_Ethics_Compliance_Guide.md",
+        "title": "Ethics & Compliance Implementation Guide",
+        "description": "Detailed ethics and compliance procedures"
+      }
+    ]
+  },
+  "navigation": {
+    "byResearchPhase": {
+      "planning": {
+        "months": "1-2",
+        "resources": [
+          "methodologies",
+          "ethics"
+        ],
+        "guides": [
+          "README_Getting_Started.md"
+        ],
+        "description": "Define research questions, choose methodology, plan ethics"
+      },
+      "setup": {
+        "months": "2-3",
+        "resources": [
+          "practices",
+          "tools",
+          "ethics"
+        ],
+        "guides": [
+          "Data_Management_Best_Practices.md"
+        ],
+        "description": "Obtain IRB approval, set up data management, install tools"
+      },
+      "research": {
+        "months": "3-9",
+        "resources": [
+          "practices",
+          "tools",
+          "ethics"
+        ],
+        "guides": [
+          "Data_Management_Best_Practices.md"
+        ],
+        "description": "Conduct research, maintain documentation, analyze data"
+      },
+      "publication": {
+        "months": "9-12",
+        "resources": [
+          "venues",
+          "practices",
+          "ethics"
+        ],
+        "guides": [
+          "Research_Ethics_Compliance_Guide.md"
+        ],
+        "description": "Write manuscript, submit to journals, share data"
+      }
+    },
+    "byResearchType": {
+      "quantitative": {
+        "recommendedMethodologies": [
+          "M001"
+        ],
+        "recommendedToolCategories": [
+          "Quantitative Analysis"
+        ],
+        "description": "Numerical data analysis using statistics"
+      },
+      "qualitative": {
+        "recommendedMethodologies": [
+          "M002"
+        ],
+        "recommendedToolCategories": [
+          "Qualitative Analysis"
+        ],
+        "description": "In-depth exploration through text and observations"
+      },
+      "mixedMethods": {
+        "recommendedMethodologies": [
+          "M003"
+        ],
+        "recommendedToolCategories": [
+          "Qualitative Analysis",
+          "Quantitative Analysis"
+        ],
+        "description": "Integration of quantitative and qualitative approaches"
+      }
+    }
+  }
+}
