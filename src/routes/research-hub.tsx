@@ -30,7 +30,7 @@ export const Route = createFileRoute("/research-hub")({
 });
 
 function ResearchHubPage() {
-  const { sections, totalPrompts, totalDomains, groupCounts } = useEffectiveData();
+  const { totalPrompts, totalDomains, groupCounts } = useEffectiveData();
   const favorites = useFavorites();
   const [tab, setTab] = useState<TabId>("tools");
   const [query, setQuery] = useState("");
