@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/data/comprehensive-resources";
 import { useEffectiveData } from "@/hooks/use-effective-data";
+import { useFavorites } from "@/hooks/use-user-data";
 
 type TabId = "tools" | "methodologies" | "practices" | "publication" | "ethics";
 
@@ -29,23 +30,20 @@ export const Route = createFileRoute("/research-hub")({
 });
 
 function ResearchHubPage() {
-  const { sections, favorites } = useEffectiveData();
+  const { sections, totalPrompts, totalDomains, groupCounts } = useEffectiveData();
+  const favorites = useFavorites();
   const [tab, setTab] = useState<TabId>("tools");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<string>("all");
-
-  const totalPrompts = sections.reduce((s, sec) => s + sec.prompts.length, 0);
-  const phdCount = sections.filter((s) => s.tier === "phd").reduce((a, b) => a + b.prompts.length, 0);
-  const researchCount = totalPrompts - phdCount;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader
         totalPrompts={totalPrompts}
-        totalDomains={sections.length}
-        phdCount={phdCount}
-        researchCount={researchCount}
-        favoritesCount={favorites.length}
+        totalDomains={totalDomains}
+        phdCount={groupCounts.phd}
+        researchCount={groupCounts.methods}
+        favoritesCount={favorites.ids.length}
       />
       <main className="max-w-7xl mx-auto px-4 py-10">
         <header className="mb-8">
