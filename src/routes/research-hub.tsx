@@ -463,7 +463,7 @@ function PublicationPanel({ query, filter, setFilter }: { query: string; filter:
       <ResultCount shown={filtered.length} total={all.length} label="venues" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filtered.map((v) => (
-          <article key={v.id} className="rounded-xl border border-border bg-card p-5">
+          <article key={v.id} className="rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40">
             <div className="text-[10px] uppercase tracking-wider text-primary mb-1">{v.typeId}</div>
             <h3 className="font-display font-bold text-lg">{v.name}</h3>
             {v.examples && (
