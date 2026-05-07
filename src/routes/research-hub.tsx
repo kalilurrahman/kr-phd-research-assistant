@@ -214,7 +214,7 @@ function ToolsPanel({ query, filter, setFilter }: { query: string; filter: strin
         {filtered.map((t) => (
           <article
             key={t.id}
-            className="rounded-xl border border-border bg-card p-5 hover:border-primary/50 transition-colors flex flex-col"
+            className="rounded-xl border border-border bg-card p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all flex flex-col"
           >
             <div className="flex items-start justify-between gap-2 mb-2">
               <h3 className="font-display font-bold text-lg leading-tight">{t.name}</h3>
