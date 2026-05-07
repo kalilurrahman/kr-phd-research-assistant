@@ -36,8 +36,32 @@ function ResearchHubPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<string>("all");
 
+  const totalForTab: Record<TabId, number> = {
+    tools: resources.tools.data.length,
+    methodologies: resources.methodologies.data.length,
+    practices: Object.values(resources.bestPractices.phases).reduce(
+      (s, p) => s + (p.practices?.length ?? 0),
+      0,
+    ),
+    publication: Object.values(resources.publicationVenues.types).reduce(
+      (s, t) => s + (t.venues?.length ?? 0),
+      0,
+    ),
+    ethics: Object.values(resources.ethicsCompliance.categories).reduce(
+      (s, c) => s + (c.requirements?.length ?? 0),
+      0,
+    ),
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen bg-background text-foreground research-hub-scope"
+      style={{
+        // Royal Blue (#1F4E78) primary, Teal (#2E75B6) secondary — scoped accents
+        ["--hub-primary" as string]: "#1F4E78",
+        ["--hub-secondary" as string]: "#2E75B6",
+      }}
+    >
       <SiteHeader
         totalPrompts={totalPrompts}
         totalDomains={totalDomains}
@@ -90,6 +114,23 @@ function ResearchHubPage() {
             className="w-full pl-9 pr-3 py-2.5 rounded-lg bg-card border border-border focus:border-primary focus:outline-none text-sm"
             aria-label={`Search ${tab}`}
           />
+        </div>
+
+        {/* Stats card */}
+        <div
+          className="mb-6 rounded-xl border p-4 flex flex-wrap items-center gap-4 text-sm"
+          style={{
+            background: "linear-gradient(135deg, rgba(31,78,120,0.18), rgba(46,117,182,0.10))",
+            borderColor: "rgba(46,117,182,0.35)",
+          }}
+        >
+          <span className="font-display font-semibold" style={{ color: "#2E75B6" }}>
+            {TABS.find((t) => t.id === tab)?.label}
+          </span>
+          <span className="text-muted-foreground">
+            {totalForTab[tab]} resources available
+            {query && <> · filtering by "<span className="text-foreground">{query}</span>"</>}
+          </span>
         </div>
 
         {tab === "tools" && <ToolsPanel query={query} filter={filter} setFilter={setFilter} />}
@@ -173,7 +214,7 @@ function ToolsPanel({ query, filter, setFilter }: { query: string; filter: strin
         {filtered.map((t) => (
           <article
             key={t.id}
-            className="rounded-xl border border-border bg-card p-5 hover:border-primary/50 transition-colors flex flex-col"
+            className="rounded-xl border border-border bg-card p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all flex flex-col"
           >
             <div className="flex items-start justify-between gap-2 mb-2">
               <h3 className="font-display font-bold text-lg leading-tight">{t.name}</h3>
@@ -227,21 +268,44 @@ function MethodsPanel({ query }: { query: string }) {
     <div>
       <ResultCount shown={filtered.length} total={methods.length} label="methodologies" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {filtered.map((m) => (
-          <article key={m.id} className="rounded-xl border border-border bg-card p-5">
-            <h3 className="font-display font-bold text-lg mb-1">{m.type}</h3>
-            <p className="text-sm text-muted-foreground mb-3">{m.description}</p>
-            <dl className="grid grid-cols-2 gap-2 text-xs mb-3">
-              <DescItem label="Design" value={m.designApproach} />
-              <DescItem label="Data" value={m.dataType} />
-              <DescItem label="Analysis" value={m.analysisApproach} />
-              {m.sampleSize && <DescItem label="Sample" value={m.sampleSize} />}
-            </dl>
-            <PillList title="Strengths" items={m.strengths} tone="positive" />
-            <PillList title="Challenges" items={m.challenges} tone="warning" />
-            <PillList title="Best for" items={m.bestFor} />
-          </article>
-        ))}
+        {filtered.map((m) => {
+          const diff = m.difficulty ?? "Intermediate";
+          const diffColor =
+            diff === "Beginner"
+              ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/40"
+              : diff === "Advanced"
+                ? "bg-rose-500/15 text-rose-400 border-rose-500/40"
+                : "bg-amber-500/15 text-amber-400 border-amber-500/40";
+          return (
+            <article
+              key={m.id}
+              className="rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40"
+            >
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h3 className="font-display font-bold text-lg">{m.type}</h3>
+                <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border ${diffColor} shrink-0`}>
+                  {diff}
+                </span>
+              </div>
+              {m.timeline && (
+                <div className="text-[11px] text-muted-foreground mb-2">⏱ {m.timeline}</div>
+              )}
+              <p className="text-sm text-muted-foreground mb-3">{m.description}</p>
+              <dl className="grid grid-cols-2 gap-2 text-xs mb-3">
+                <DescItem label="Design" value={m.designApproach} />
+                <DescItem label="Data" value={m.dataType} />
+                <DescItem label="Analysis" value={m.analysisApproach} />
+                {m.sampleSize && <DescItem label="Sample" value={m.sampleSize} />}
+              </dl>
+              <PillList title="Strengths" items={m.strengths} tone="positive" />
+              <PillList title="Challenges" items={m.challenges} tone="warning" />
+              <PillList title="Best for" items={m.bestFor} />
+              {m.recommendedTools && m.recommendedTools.length > 0 && (
+                <PillList title="Recommended tools" items={m.recommendedTools} />
+              )}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -399,7 +463,7 @@ function PublicationPanel({ query, filter, setFilter }: { query: string; filter:
       <ResultCount shown={filtered.length} total={all.length} label="venues" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filtered.map((v) => (
-          <article key={v.id} className="rounded-xl border border-border bg-card p-5">
+          <article key={v.id} className="rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40">
             <div className="text-[10px] uppercase tracking-wider text-primary mb-1">{v.typeId}</div>
             <h3 className="font-display font-bold text-lg">{v.name}</h3>
             {v.examples && (
