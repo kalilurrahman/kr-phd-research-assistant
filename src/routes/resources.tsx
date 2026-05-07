@@ -18,12 +18,22 @@ import {
   Workflow,
   FileText,
   Wrench,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Columns3,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 type CatalogEntry = {
   source: string;
@@ -285,142 +295,17 @@ function ResourcesPage() {
 
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 space-y-10">
         {filteredDomains.map((d) => {
-          const meta = iconFor(d.id);
-          const Icon = meta.icon;
           const allEntries = d.subdomains.flatMap((s) =>
             s.entries.map((e) => ({ subdomain: s.name, entry: e })),
           );
           const headers = pickHeaders(allEntries.map((r) => r.entry));
           return (
-            <section key={d.id} className="space-y-3">
-              <header className="flex items-center gap-3">
-                <span
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
-                  style={{
-                    background: `${meta.tint.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`,
-                    color: meta.tint,
-                  }}
-                >
-                  <Icon className="w-5 h-5" />
-                </span>
-                <div>
-                  <h2 className="font-display text-2xl font-semibold">
-                    {d.name}
-                  </h2>
-                  <div className="text-xs text-muted-foreground">
-                    {allEntries.length} entries · {d.subdomains.length}{" "}
-                    sub-domains
-                  </div>
-                </div>
-              </header>
-
-              <div className="overflow-x-auto rounded-lg border border-border">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr
-                      className="text-left"
-                      style={{
-                        background: meta.tint.replace("hsl(", "hsla(").replace(
-                          ")",
-                          " / 0.10)",
-                        ),
-                      }}
-                    >
-                      <th className="px-3 py-2 font-medium text-foreground/90 w-44">
-                        Sub-domain
-                      </th>
-                      {headers.map((h) => (
-                        <th
-                          key={h}
-                          className="px-3 py-2 font-medium text-foreground/90"
-                        >
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {allEntries.map((row, idx) => {
-                      const url =
-                        row.entry.fields["URL"] ||
-                        row.entry.fields["Url"] ||
-                        row.entry.fields["Website"] ||
-                        row.entry.fields["Link"] ||
-                        "";
-                      return (
-                        <tr
-                          key={`${d.id}-${idx}`}
-                          className={
-                            idx % 2 === 0
-                              ? "bg-card/40"
-                              : "bg-background/40 hover:bg-card/60"
-                          }
-                        >
-                          <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
-                            {row.subdomain}
-                          </td>
-                          {headers.map((h) => {
-                            const val = String(row.entry.fields[h] ?? "");
-                            if (
-                              h.toLowerCase().includes("url") ||
-                              h.toLowerCase() === "website" ||
-                              h.toLowerCase() === "link"
-                            ) {
-                              return (
-                                <td key={h} className="px-3 py-2 align-top">
-                                  {val ? (
-                                    <a
-                                      href={val}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-1 text-primary hover:underline"
-                                    >
-                                      Visit
-                                      <ExternalLink className="w-3 h-3" />
-                                    </a>
-                                  ) : (
-                                    <span className="text-muted-foreground">
-                                      —
-                                    </span>
-                                  )}
-                                </td>
-                              );
-                            }
-                            return (
-                              <td
-                                key={h}
-                                className="px-3 py-2 align-top text-foreground/90"
-                              >
-                                {val || (
-                                  <span className="text-muted-foreground">
-                                    —
-                                  </span>
-                                )}
-                              </td>
-                            );
-                          })}
-                          {!headers.some((h) =>
-                            h.toLowerCase().includes("url"),
-                          ) &&
-                            url && (
-                              <td className="px-3 py-2 align-top">
-                                <a
-                                  href={url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                                >
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              </td>
-                            )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+            <DomainTable
+              key={d.id}
+              domain={d}
+              rows={allEntries}
+              defaultHeaders={headers}
+            />
           );
         })}
 
@@ -433,5 +318,373 @@ function ResourcesPage() {
 
       <SiteFooter />
     </div>
+  );
+}
+
+type DomainRow = { subdomain: string; entry: CatalogEntry };
+
+function allFieldKeys(rows: DomainRow[]): string[] {
+  const keys = new Set<string>();
+  rows.forEach((r) =>
+    Object.keys(r.entry.fields).forEach((k) => {
+      const lower = k.toLowerCase();
+      if (FIELD_DENYLIST.some((d) => lower.includes(d))) return;
+      keys.add(k);
+    }),
+  );
+  return Array.from(keys);
+}
+
+const PAGE_SIZE = 15;
+
+function DomainTable({
+  domain,
+  rows,
+  defaultHeaders,
+}: {
+  domain: CatalogDomain;
+  rows: DomainRow[];
+  defaultHeaders: string[];
+}) {
+  const meta = iconFor(domain.id);
+  const Icon = meta.icon;
+  const tintBg = meta.tint
+    .replace("hsl(", "hsla(")
+    .replace(")", " / 0.10)");
+
+  const availableFields = useMemo(() => allFieldKeys(rows), [rows]);
+  const [visibleHeaders, setVisibleHeaders] = useState<string[]>(
+    defaultHeaders.length ? defaultHeaders : availableFields.slice(0, 5),
+  );
+  const [sortKey, setSortKey] = useState<string>("__subdomain");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [page, setPage] = useState(1);
+  const [openRow, setOpenRow] = useState<DomainRow | null>(null);
+
+  const sortedRows = useMemo(() => {
+    const out = [...rows];
+    out.sort((a, b) => {
+      const av =
+        sortKey === "__subdomain"
+          ? a.subdomain
+          : String(a.entry.fields[sortKey] ?? "");
+      const bv =
+        sortKey === "__subdomain"
+          ? b.subdomain
+          : String(b.entry.fields[sortKey] ?? "");
+      const cmp = av.localeCompare(bv, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    return out;
+  }, [rows, sortKey, sortDir]);
+
+  const totalPages = Math.max(1, Math.ceil(sortedRows.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const pagedRows = sortedRows.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
+
+  const toggleSort = (key: string) => {
+    if (sortKey === key) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir("asc");
+    }
+  };
+
+  const sortIcon = (key: string) => {
+    if (sortKey !== key)
+      return <ArrowUpDown className="w-3 h-3 opacity-50" />;
+    return sortDir === "asc" ? (
+      <ArrowUp className="w-3 h-3 text-primary" />
+    ) : (
+      <ArrowDown className="w-3 h-3 text-primary" />
+    );
+  };
+
+  const toggleHeader = (key: string) => {
+    setVisibleHeaders((cur) =>
+      cur.includes(key) ? cur.filter((k) => k !== key) : [...cur, key],
+    );
+  };
+
+  return (
+    <section className="space-y-3">
+      <header className="flex flex-wrap items-center gap-3">
+        <span
+          className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
+          style={{
+            background: tintBg,
+            color: meta.tint,
+          }}
+        >
+          <Icon className="w-5 h-5" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <h2 className="font-display text-2xl font-semibold">{domain.name}</h2>
+          <div className="text-xs text-muted-foreground">
+            {rows.length} entries · {domain.subdomains.length} sub-domains
+          </div>
+        </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 text-xs"
+              aria-label="Choose visible columns"
+            >
+              <Columns3 className="w-3.5 h-3.5" />
+              Columns ({visibleHeaders.length}/{availableFields.length})
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="end" className="w-64 max-h-80 overflow-y-auto">
+            <div className="text-xs font-semibold mb-2 text-muted-foreground uppercase tracking-wider">
+              Visible columns
+            </div>
+            <div className="space-y-2">
+              {availableFields.map((f) => (
+                <label
+                  key={f}
+                  className="flex items-center gap-2 text-sm cursor-pointer"
+                >
+                  <Checkbox
+                    checked={visibleHeaders.includes(f)}
+                    onCheckedChange={() => toggleHeader(f)}
+                  />
+                  <span className="truncate">{f}</span>
+                </label>
+              ))}
+            </div>
+            <div className="mt-3 pt-2 border-t border-border flex justify-between gap-2">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-xs h-7"
+                onClick={() => setVisibleHeaders(availableFields)}
+              >
+                All
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-xs h-7"
+                onClick={() =>
+                  setVisibleHeaders(
+                    defaultHeaders.length
+                      ? defaultHeaders
+                      : availableFields.slice(0, 5),
+                  )
+                }
+              >
+                Reset
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </header>
+
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left" style={{ background: tintBg }}>
+              <th className="px-3 py-2 font-medium text-foreground/90 w-44">
+                <button
+                  onClick={() => toggleSort("__subdomain")}
+                  className="inline-flex items-center gap-1.5 hover:text-primary"
+                >
+                  Sub-domain {sortIcon("__subdomain")}
+                </button>
+              </th>
+              {visibleHeaders.map((h) => (
+                <th
+                  key={h}
+                  className="px-3 py-2 font-medium text-foreground/90"
+                >
+                  <button
+                    onClick={() => toggleSort(h)}
+                    className="inline-flex items-center gap-1.5 hover:text-primary"
+                  >
+                    {h} {sortIcon(h)}
+                  </button>
+                </th>
+              ))}
+              <th className="px-3 py-2 w-10" aria-label="Actions" />
+            </tr>
+          </thead>
+          <tbody>
+            {pagedRows.map((row, idx) => {
+              const url =
+                row.entry.fields["URL"] ||
+                row.entry.fields["Url"] ||
+                row.entry.fields["Website"] ||
+                row.entry.fields["Link"] ||
+                "";
+              return (
+                <tr
+                  key={`${domain.id}-${(currentPage - 1) * PAGE_SIZE + idx}`}
+                  className={`cursor-pointer transition-colors ${
+                    idx % 2 === 0
+                      ? "bg-card/40 hover:bg-card/70"
+                      : "bg-background/40 hover:bg-card/60"
+                  }`}
+                  onClick={() => setOpenRow(row)}
+                >
+                  <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
+                    {row.subdomain}
+                  </td>
+                  {visibleHeaders.map((h) => {
+                    const val = String(row.entry.fields[h] ?? "");
+                    const isUrl =
+                      h.toLowerCase().includes("url") ||
+                      h.toLowerCase() === "website" ||
+                      h.toLowerCase() === "link";
+                    if (isUrl) {
+                      return (
+                        <td key={h} className="px-3 py-2 align-top">
+                          {val ? (
+                            <a
+                              href={val}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 text-primary hover:underline"
+                            >
+                              Visit
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
+                          )}
+                        </td>
+                      );
+                    }
+                    return (
+                      <td
+                        key={h}
+                        className="px-3 py-2 align-top text-foreground/90 max-w-[28ch]"
+                      >
+                        <div className="line-clamp-2">
+                          {val || (
+                            <span className="text-muted-foreground">—</span>
+                          )}
+                        </div>
+                      </td>
+                    );
+                  })}
+                  <td className="px-3 py-2 align-top text-right">
+                    {url && (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-muted-foreground hover:text-primary"
+                        aria-label="Open external link"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+        <span>
+          Page {currentPage} of {totalPages} · Showing{" "}
+          {pagedRows.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1}–
+          {(currentPage - 1) * PAGE_SIZE + pagedRows.length} of{" "}
+          {sortedRows.length}
+        </span>
+        <div className="flex items-center gap-1">
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-7 px-2"
+            disabled={currentPage <= 1}
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+          >
+            <ChevronLeft className="w-3.5 h-3.5" />
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-7 px-2"
+            disabled={currentPage >= totalPages}
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+          >
+            <ChevronRight className="w-3.5 h-3.5" />
+          </Button>
+        </div>
+      </div>
+
+      <Sheet open={!!openRow} onOpenChange={(o) => !o && setOpenRow(null)}>
+        <SheetContent className="w-full sm:max-w-lg overflow-y-auto">
+          {openRow && (
+            <>
+              <SheetHeader>
+                <SheetTitle className="font-display">
+                  {openRow.entry.fields["Tool Name"] ||
+                    openRow.entry.fields["Name"] ||
+                    openRow.entry.fields["Title"] ||
+                    openRow.subdomain}
+                </SheetTitle>
+                <SheetDescription>
+                  {domain.name} · {openRow.subdomain}
+                </SheetDescription>
+              </SheetHeader>
+              <dl className="mt-6 space-y-4 text-sm">
+                {Object.entries(openRow.entry.fields)
+                  .filter(([, v]) => String(v).trim().length > 0)
+                  .map(([k, v]) => {
+                    const val = String(v);
+                    const isUrl =
+                      k.toLowerCase().includes("url") ||
+                      k.toLowerCase() === "website" ||
+                      k.toLowerCase() === "link";
+                    return (
+                      <div
+                        key={k}
+                        className="border-b border-border/60 pb-3 last:border-0"
+                      >
+                        <dt className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                          {k}
+                        </dt>
+                        <dd className="text-foreground/90 whitespace-pre-wrap break-words">
+                          {isUrl ? (
+                            <a
+                              href={val}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-primary hover:underline break-all"
+                            >
+                              {val}
+                              <ExternalLink className="w-3 h-3 shrink-0" />
+                            </a>
+                          ) : (
+                            val
+                          )}
+                        </dd>
+                      </div>
+                    );
+                  })}
+                <div className="text-[10px] text-muted-foreground pt-2">
+                  Source: {openRow.entry.source}
+                </div>
+              </dl>
+            </>
+          )}
+        </SheetContent>
+      </Sheet>
+    </section>
   );
 }
