@@ -116,6 +116,23 @@ function ResearchHubPage() {
           />
         </div>
 
+        {/* Stats card */}
+        <div
+          className="mb-6 rounded-xl border p-4 flex flex-wrap items-center gap-4 text-sm"
+          style={{
+            background: "linear-gradient(135deg, rgba(31,78,120,0.18), rgba(46,117,182,0.10))",
+            borderColor: "rgba(46,117,182,0.35)",
+          }}
+        >
+          <span className="font-display font-semibold" style={{ color: "#2E75B6" }}>
+            {TABS.find((t) => t.id === tab)?.label}
+          </span>
+          <span className="text-muted-foreground">
+            {totalForTab[tab]} resources available
+            {query && <> · filtering by "<span className="text-foreground">{query}</span>"</>}
+          </span>
+        </div>
+
         {tab === "tools" && <ToolsPanel query={query} filter={filter} setFilter={setFilter} />}
         {tab === "methodologies" && <MethodsPanel query={query} />}
         {tab === "practices" && <PracticesPanel query={query} filter={filter} setFilter={setFilter} />}
