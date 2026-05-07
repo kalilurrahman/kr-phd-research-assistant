@@ -18,12 +18,22 @@ import {
   Workflow,
   FileText,
   Wrench,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Columns3,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 type CatalogEntry = {
   source: string;
