@@ -244,3 +244,18 @@ html {
   transition: background-color 0.25s ease, color 0.25s ease;
   scroll-behavior: smooth;
 }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.btn-shimmer {
+  background: linear-gradient(90deg, hsl(43,52%,54%) 0%, hsl(43,70%,66%) 25%, hsla(0,0%,100%,0.3) 50%, hsl(43,70%,66%) 75%, hsl(43,52%,54%) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+.border-gold-glow { border-color: hsla(43, 52%, 54%, 0.35); }
+.border-gold-glow-strong {
+  border-color: hsla(43, 52%, 54%, 0.6);
+  box-shadow: 0 0 12px hsla(43, 52%, 54%, 0.15);
+}
