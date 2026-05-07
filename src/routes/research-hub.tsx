@@ -36,8 +36,32 @@ function ResearchHubPage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<string>("all");
 
+  const totalForTab: Record<TabId, number> = {
+    tools: resources.tools.data.length,
+    methodologies: resources.methodologies.data.length,
+    practices: Object.values(resources.bestPractices.phases).reduce(
+      (s, p) => s + (p.practices?.length ?? 0),
+      0,
+    ),
+    publication: Object.values(resources.publicationVenues.types).reduce(
+      (s, t) => s + (t.venues?.length ?? 0),
+      0,
+    ),
+    ethics: Object.values(resources.ethicsCompliance.categories).reduce(
+      (s, c) => s + (c.requirements?.length ?? 0),
+      0,
+    ),
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen bg-background text-foreground research-hub-scope"
+      style={{
+        // Royal Blue (#1F4E78) primary, Teal (#2E75B6) secondary — scoped accents
+        ["--hub-primary" as string]: "#1F4E78",
+        ["--hub-secondary" as string]: "#2E75B6",
+      }}
+    >
       <SiteHeader
         totalPrompts={totalPrompts}
         totalDomains={totalDomains}
