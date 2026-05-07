@@ -268,21 +268,44 @@ function MethodsPanel({ query }: { query: string }) {
     <div>
       <ResultCount shown={filtered.length} total={methods.length} label="methodologies" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {filtered.map((m) => (
-          <article key={m.id} className="rounded-xl border border-border bg-card p-5">
-            <h3 className="font-display font-bold text-lg mb-1">{m.type}</h3>
-            <p className="text-sm text-muted-foreground mb-3">{m.description}</p>
-            <dl className="grid grid-cols-2 gap-2 text-xs mb-3">
-              <DescItem label="Design" value={m.designApproach} />
-              <DescItem label="Data" value={m.dataType} />
-              <DescItem label="Analysis" value={m.analysisApproach} />
-              {m.sampleSize && <DescItem label="Sample" value={m.sampleSize} />}
-            </dl>
-            <PillList title="Strengths" items={m.strengths} tone="positive" />
-            <PillList title="Challenges" items={m.challenges} tone="warning" />
-            <PillList title="Best for" items={m.bestFor} />
-          </article>
-        ))}
+        {filtered.map((m) => {
+          const diff = m.difficulty ?? "Intermediate";
+          const diffColor =
+            diff === "Beginner"
+              ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/40"
+              : diff === "Advanced"
+                ? "bg-rose-500/15 text-rose-400 border-rose-500/40"
+                : "bg-amber-500/15 text-amber-400 border-amber-500/40";
+          return (
+            <article
+              key={m.id}
+              className="rounded-xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40"
+            >
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h3 className="font-display font-bold text-lg">{m.type}</h3>
+                <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border ${diffColor} shrink-0`}>
+                  {diff}
+                </span>
+              </div>
+              {m.timeline && (
+                <div className="text-[11px] text-muted-foreground mb-2">⏱ {m.timeline}</div>
+              )}
+              <p className="text-sm text-muted-foreground mb-3">{m.description}</p>
+              <dl className="grid grid-cols-2 gap-2 text-xs mb-3">
+                <DescItem label="Design" value={m.designApproach} />
+                <DescItem label="Data" value={m.dataType} />
+                <DescItem label="Analysis" value={m.analysisApproach} />
+                {m.sampleSize && <DescItem label="Sample" value={m.sampleSize} />}
+              </dl>
+              <PillList title="Strengths" items={m.strengths} tone="positive" />
+              <PillList title="Challenges" items={m.challenges} tone="warning" />
+              <PillList title="Best for" items={m.bestFor} />
+              {m.recommendedTools && m.recommendedTools.length > 0 && (
+                <PillList title="Recommended tools" items={m.recommendedTools} />
+              )}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
