@@ -27,7 +27,7 @@ function applyPalette(id: PaletteId): void {
   }
 }
 
-export function ThemeSwitcher(): JSX.Element {
+export function ThemeSwitcher() {
   const [current, setCurrent] = useState<PaletteId>("default");
 
   useEffect(() => {
