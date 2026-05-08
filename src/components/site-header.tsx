@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Globe, Github, Star, Settings } from "lucide-react";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export function SiteHeader({
   totalPrompts,
