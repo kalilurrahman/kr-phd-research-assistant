@@ -31,33 +31,33 @@ import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
 import resourcesAddon from "@/data/resources-addon-2026-05.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
-
-type CatalogEntry = {
-  source: string;
-  fields: Record<string, string>;
-};
-
-type CatalogSubdomain = {
-  name: string;
-  count: number;
-  entries: CatalogEntry[];
-};
-
-type CatalogDomain = {
-  id: string;
-  name: string;
-  count: number;
-  sources: string[];
-  subdomains: CatalogSubdomain[];
-};
+import {
+  mergeResourceCatalog,
+  type ResourceCatalog,
+  type AddonResourcePack,
+  type CatalogEntry,
+  type CatalogDomain,
+} from "@/utils/resource-merge";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 
 const catalogRaw = mergeResourceCatalog(
   resourcesCatalog as unknown as ResourceCatalog,
-  resourcesAddon as unknown as AddonResourcePack
+  resourcesAddon as unknown as AddonResourcePack,
 );
 
-// Drop guide/prose/index/duplicate-aggregator domains — they contain free-form
-// general info, not structured tool entries.
 const EXCLUDED_DOMAIN_IDS = new Set<string>([
   "data-management-best-practices",
   "file-index",
@@ -80,7 +80,6 @@ const EXCLUDED_DOMAIN_IDS = new Set<string>([
 
 const EXCLUDED_SUBDOMAINS = new Set<string>(["Guides", "General"]);
 
-// Keep only meaningful structured fields.
 const FIELD_DENYLIST = [
   "guide",
   "notes",
@@ -92,7 +91,6 @@ const FIELD_DENYLIST = [
 
 function isDenseProse(value: string): boolean {
   if (!value) return false;
-  // > 3 lines OR very long single block of prose
   if (value.split(/\r?\n/).length > 3) return true;
   if (value.length > 280) return true;
   return false;
@@ -113,7 +111,6 @@ const catalog = {
               (v) => String(v).trim().length > 0,
             );
             if (values.length === 0) return false;
-            // drop entries that are essentially a single long prose blob
             if (values.length === 1 && isDenseProse(String(values[0])))
               return false;
             return true;
@@ -146,23 +143,29 @@ const DOMAIN_ICONS: Record<string, { icon: LucideIcon; tint: string }> = {
   "systematic-review-tools": { icon: Layers, tint: "hsl(105 55% 50%)" },
   "open-science-compliance": { icon: Shield, tint: "hsl(180 70% 45%)" },
   "ai-discovery-evidence-mapping": { icon: Sparkles, tint: "hsl(280 80% 60%)" },
-  "systematic-review-and-reporting-standards": { icon: Layers, tint: "hsl(140 60% 50%)" },
-  "reproducible-computational-research": { icon: Workflow, tint: "hsl(210 80% 55%)" },
-  "research-impact-and-evaluation": { icon: BarChart3, tint: "hsl(340 70% 55%)" },
+  "phd-productivity-wellbeing": { icon: Sparkles, tint: "hsl(330 70% 60%)" },
+  "systematic-review-and-reporting-standards": {
+    icon: Layers,
+    tint: "hsl(140 60% 50%)",
+  },
+  "reproducible-computational-research": {
+    icon: Workflow,
+    tint: "hsl(210 80% 55%)",
+  },
+  "research-impact-and-evaluation": {
+    icon: BarChart3,
+    tint: "hsl(340 70% 55%)",
+  },
 };
 
 function iconFor(domainId: string): { icon: LucideIcon; tint: string } {
-  return (
-    DOMAIN_ICONS[domainId] ?? { icon: Wrench, tint: "hsl(43 52% 54%)" }
-  );
+  return DOMAIN_ICONS[domainId] ?? { icon: Wrench, tint: "hsl(43 52% 54%)" };
 }
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
-      {
-        title: "Resources Hub - PhD Research Scholar Prompt Guide",
-      },
+      { title: "Resources Hub - PhD Research Scholar Prompt Guide" },
       {
         name: "description",
         content:
@@ -172,13 +175,6 @@ export const Route = createFileRoute("/resources")({
   }),
   component: ResourcesPage,
 });
-
-type Row = {
-  domain: string;
-  domainId: string;
-  subdomain: string;
-  entry: CatalogEntry;
-};
 
 function pickHeaders(entries: CatalogEntry[]): string[] {
   const counts = new Map<string, number>();
@@ -259,8 +255,9 @@ function ResourcesPage() {
           </h1>
           <p className="text-sm text-muted-foreground max-w-3xl">
             Curated tools and references parsed from CSV datasets and JSON
-            sources. Generic guides, READMEs, and prose blobs have been removed
-            so only structured rows remain.
+            sources, including the May 2026 PhD Excellence addon. Generic
+            guides, READMEs, and prose blobs have been removed so only
+            structured rows remain.
           </p>
           <div className="text-xs font-mono text-muted-foreground">
             Domains: {catalog.domains.length} · Entries: {totalEntries}
@@ -350,9 +347,7 @@ function DomainTable({
 }) {
   const meta = iconFor(domain.id);
   const Icon = meta.icon;
-  const tintBg = meta.tint
-    .replace("hsl(", "hsla(")
-    .replace(")", " / 0.10)");
+  const tintBg = meta.tint.replace("hsl(", "hsla(").replace(")", " / 0.10)");
 
   const availableFields = useMemo(() => allFieldKeys(rows), [rows]);
   const [visibleHeaders, setVisibleHeaders] = useState<string[]>(
@@ -400,8 +395,7 @@ function DomainTable({
   };
 
   const sortIcon = (key: string) => {
-    if (sortKey !== key)
-      return <ArrowUpDown className="w-3 h-3 opacity-50" />;
+    if (sortKey !== key) return <ArrowUpDown className="w-3 h-3 opacity-50" />;
     return sortDir === "asc" ? (
       <ArrowUp className="w-3 h-3 text-primary" />
     ) : (
@@ -415,15 +409,19 @@ function DomainTable({
     );
   };
 
+  const isUrlField = (h: string) => {
+    const lower = h.toLowerCase();
+    return (
+      lower.includes("url") || lower === "website" || lower === "link"
+    );
+  };
+
   return (
     <section className="space-y-3">
       <header className="flex flex-wrap items-center gap-3">
         <span
           className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
-          style={{
-            background: tintBg,
-            color: meta.tint,
-          }}
+          style={{ background: tintBg, color: meta.tint }}
         >
           <Icon className="w-5 h-5" />
         </span>
@@ -497,28 +495,39 @@ function DomainTable({
             <tr
               className="text-left"
               style={{
-                background: meta.tint.replace("hsl(", "hsla(").replace(
-                  ")",
-                  " / 0.10)",
-                ),
+                background: meta.tint
+                  .replace("hsl(", "hsla(")
+                  .replace(")", " / 0.10)"),
               }}
             >
               <th className="px-3 py-2 font-medium text-foreground/90 w-44">
-                Sub-domain
+                <button
+                  type="button"
+                  onClick={() => toggleSort("__subdomain")}
+                  className="inline-flex items-center gap-1 hover:text-primary"
+                >
+                  Sub-domain {sortIcon("__subdomain")}
+                </button>
               </th>
-              {headers.map((h) => (
+              {visibleHeaders.map((h) => (
                 <th
                   key={h}
                   className="px-3 py-2 font-medium text-foreground/90"
                 >
-                  {h}
+                  <button
+                    type="button"
+                    onClick={() => toggleSort(h)}
+                    className="inline-flex items-center gap-1 hover:text-primary"
+                  >
+                    {h} {sortIcon(h)}
+                  </button>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {allEntries.map((row, idx) => {
-              const url =
+            {pagedRows.map((row, idx) => {
+              const fallbackUrl =
                 row.entry.fields["URL"] ||
                 row.entry.fields["Url"] ||
                 row.entry.fields["Website"] ||
@@ -526,23 +535,28 @@ function DomainTable({
                 "";
               return (
                 <tr
-                  key={`${d.id}-${idx}`}
+                  key={`${domain.id}-${(currentPage - 1) * PAGE_SIZE + idx}`}
                   className={
-                    idx % 2 === 0
-                      ? "bg-card/40"
-                      : "bg-background/40 hover:bg-card/60"
+                    "cursor-pointer " +
+                    (idx % 2 === 0
+                      ? "bg-card/40 hover:bg-card/70"
+                      : "bg-background/40 hover:bg-card/60")
                   }
+                  onClick={() => setOpenRow(row)}
                 >
                   <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
-                    {row.subdomain}
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span>{row.subdomain}</span>
+                      {row.entry.isAddon && (
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-500 border border-amber-500/30">
+                          Addon
+                        </span>
+                      )}
+                    </div>
                   </td>
-                  {headers.map((h) => {
+                  {visibleHeaders.map((h) => {
                     const val = String(row.entry.fields[h] ?? "");
-                    if (
-                      h.toLowerCase().includes("url") ||
-                      h.toLowerCase() === "website" ||
-                      h.toLowerCase() === "link"
-                    ) {
+                    if (isUrlField(h)) {
                       return (
                         <td key={h} className="px-3 py-2 align-top">
                           {val ? (
@@ -550,15 +564,14 @@ function DomainTable({
                               href={val}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
                               className="inline-flex items-center gap-1 text-primary hover:underline"
                             >
                               Visit
                               <ExternalLink className="w-3 h-3" />
                             </a>
                           ) : (
-                            <span className="text-muted-foreground">
-                              —
-                            </span>
+                            <span className="text-muted-foreground">—</span>
                           )}
                         </td>
                       );
@@ -569,48 +582,119 @@ function DomainTable({
                         className="px-3 py-2 align-top text-foreground/90"
                       >
                         {val || (
-                          <span className="text-muted-foreground">
-                            —
-                          </span>
+                          <span className="text-muted-foreground">—</span>
                         )}
                       </td>
                     );
                   })}
-                  {!headers.some((h) =>
-                    h.toLowerCase().includes("url"),
-                  ) &&
-                    url && (
-                      <td className="px-3 py-2 align-top">
-                        <a
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-primary hover:underline"
-                        >
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </td>
-                    )}
+                  {!visibleHeaders.some((h) => isUrlField(h)) && fallbackUrl && (
+                    <td className="px-3 py-2 align-top">
+                      <a
+                        href={fallbackUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-primary hover:underline"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </td>
+                  )}
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <span>
+            Page {currentPage} of {totalPages} · {sortedRows.length} entries
+          </span>
+          <div className="flex gap-1">
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-7 px-2"
+              disabled={currentPage <= 1}
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-7 px-2"
+              disabled={currentPage >= totalPages}
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            >
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      <Sheet open={!!openRow} onOpenChange={(o) => !o && setOpenRow(null)}>
+        <SheetContent className="overflow-y-auto sm:max-w-lg">
+          {openRow && (
+            <>
+              <SheetHeader>
+                <SheetTitle className="flex items-center gap-2 flex-wrap">
+                  {openRow.entry.fields["Tool Name"] ||
+                    openRow.entry.fields["Name"] ||
+                    openRow.subdomain}
+                  {openRow.entry.isAddon && (
+                    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-500 border border-amber-500/30">
+                      Addon
+                    </span>
+                  )}
+                </SheetTitle>
+                <SheetDescription className="font-mono text-xs">
+                  {domain.name} · {openRow.subdomain}
+                </SheetDescription>
+              </SheetHeader>
+              <dl className="mt-6 space-y-4 text-sm">
+                {Object.entries(openRow.entry.fields).map(([k, v]) => {
+                  const value = String(v ?? "").trim();
+                  if (!value) return null;
+                  const isLink = /^https?:\/\//i.test(value) || isUrlField(k);
+                  return (
+                    <div key={k}>
+                      <dt className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                        {k}
+                      </dt>
+                      <dd className="text-foreground/90 whitespace-pre-wrap break-words">
+                        {isLink && /^https?:\/\//i.test(value) ? (
+                          <a
+                            href={value}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-primary hover:underline break-all"
+                          >
+                            {value}
+                            <ExternalLink className="w-3 h-3 shrink-0" />
+                          </a>
+                        ) : (
+                          value
+                        )}
+                      </dd>
+                    </div>
+                  );
+                })}
+                <div className="pt-2 border-t border-border">
+                  <dt className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    Source
+                  </dt>
+                  <dd className="font-mono text-xs text-muted-foreground break-all">
+                    {openRow.entry.source}
+                  </dd>
+                </div>
+              </dl>
+            </>
+          )}
+        </SheetContent>
+      </Sheet>
     </section>
-  );
-})}
-
-{
-  filteredDomains.length === 0 && (
-    <div className="text-sm text-muted-foreground py-12 text-center">
-      No resources matched your search/filter.
-    </div>
-  )
-}
-      </main >
-
-  <SiteFooter />
-    </div >
   );
 }
