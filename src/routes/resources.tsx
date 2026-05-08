@@ -18,6 +18,12 @@ import {
   Workflow,
   FileText,
   Wrench,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Columns3,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
@@ -25,12 +31,25 @@ import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
 import resourcesAddon from "@/data/resources-addon-2026-05.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
-import { 
-  mergeResourceCatalog, 
-  type ResourceCatalog, 
-  type AddonResourcePack,
-  type CatalogEntry 
-} from "@/utils/resource-merge";
+
+type CatalogEntry = {
+  source: string;
+  fields: Record<string, string>;
+};
+
+type CatalogSubdomain = {
+  name: string;
+  count: number;
+  entries: CatalogEntry[];
+};
+
+type CatalogDomain = {
+  id: string;
+  name: string;
+  count: number;
+  sources: string[];
+  subdomains: CatalogSubdomain[];
+};
 
 const catalogRaw = mergeResourceCatalog(
   resourcesCatalog as unknown as ResourceCatalog,
@@ -278,149 +297,17 @@ function ResourcesPage() {
 
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 space-y-10">
         {filteredDomains.map((d) => {
-          const meta = iconFor(d.id);
-          const Icon = meta.icon;
           const allEntries = d.subdomains.flatMap((s) =>
             s.entries.map((e) => ({ subdomain: s.name, entry: e })),
           );
           const headers = pickHeaders(allEntries.map((r) => r.entry));
           return (
-            <section key={d.id} className="space-y-3">
-              <header className="flex items-center gap-3">
-                <span
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
-                  style={{
-                    background: `${meta.tint.replace("hsl(", "hsla(").replace(")", " / 0.12)")}`,
-                    color: meta.tint,
-                  }}
-                >
-                  <Icon className="w-5 h-5" />
-                </span>
-                <div>
-                  <h2 className="font-display text-2xl font-semibold">
-                    {d.name}
-                  </h2>
-                  <div className="text-xs text-muted-foreground">
-                    {allEntries.length} entries · {d.subdomains.length}{" "}
-                    sub-domains
-                  </div>
-                </div>
-              </header>
-
-              <div className="overflow-x-auto rounded-lg border border-border">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr
-                      className="text-left"
-                      style={{
-                        background: meta.tint.replace("hsl(", "hsla(").replace(
-                          ")",
-                          " / 0.10)",
-                        ),
-                      }}
-                    >
-                      <th className="px-3 py-2 font-medium text-foreground/90 w-44">
-                        Sub-domain
-                      </th>
-                      {headers.map((h) => (
-                        <th
-                          key={h}
-                          className="px-3 py-2 font-medium text-foreground/90"
-                        >
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {allEntries.map((row, idx) => {
-                      const url =
-                        row.entry.fields["URL"] ||
-                        row.entry.fields["Url"] ||
-                        row.entry.fields["Website"] ||
-                        row.entry.fields["Link"] ||
-                        "";
-                      return (
-                        <tr
-                          key={`${d.id}-${idx}`}
-                          className={
-                            idx % 2 === 0
-                              ? "bg-card/40"
-                              : "bg-background/40 hover:bg-card/60"
-                          }
-                        >
-                          <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
-                            <div className="flex flex-col gap-1">
-                              {row.subdomain}
-                              {row.entry.isAddon && (
-                                <span className="inline-flex items-center w-fit px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">
-                                  Addon
-                                </span>
-                              )}
-                            </div>
-                          </td>
-                          {headers.map((h) => {
-                            const val = String(row.entry.fields[h] ?? "");
-                            if (
-                              h.toLowerCase().includes("url") ||
-                              h.toLowerCase() === "website" ||
-                              h.toLowerCase() === "link"
-                            ) {
-                              return (
-                                <td key={h} className="px-3 py-2 align-top">
-                                  {val ? (
-                                    <a
-                                      href={val}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-1 text-primary hover:underline"
-                                    >
-                                      Visit
-                                      <ExternalLink className="w-3 h-3" />
-                                    </a>
-                                  ) : (
-                                    <span className="text-muted-foreground">
-                                      —
-                                    </span>
-                                  )}
-                                </td>
-                              );
-                            }
-                            return (
-                              <td
-                                key={h}
-                                className="px-3 py-2 align-top text-foreground/90"
-                              >
-                                {val || (
-                                  <span className="text-muted-foreground">
-                                    —
-                                  </span>
-                                )}
-                              </td>
-                            );
-                          })}
-                          {!headers.some((h) =>
-                            h.toLowerCase().includes("url"),
-                          ) &&
-                            url && (
-                              <td className="px-3 py-2 align-top">
-                                <a
-                                  href={url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-primary hover:underline"
-                                >
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              </td>
-                            )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+            <DomainTable
+              key={d.id}
+              domain={d}
+              rows={allEntries}
+              defaultHeaders={headers}
+            />
           );
         })}
 
@@ -433,5 +320,297 @@ function ResourcesPage() {
 
       <SiteFooter />
     </div>
+  );
+}
+
+type DomainRow = { subdomain: string; entry: CatalogEntry };
+
+function allFieldKeys(rows: DomainRow[]): string[] {
+  const keys = new Set<string>();
+  rows.forEach((r) =>
+    Object.keys(r.entry.fields).forEach((k) => {
+      const lower = k.toLowerCase();
+      if (FIELD_DENYLIST.some((d) => lower.includes(d))) return;
+      keys.add(k);
+    }),
+  );
+  return Array.from(keys);
+}
+
+const PAGE_SIZE = 15;
+
+function DomainTable({
+  domain,
+  rows,
+  defaultHeaders,
+}: {
+  domain: CatalogDomain;
+  rows: DomainRow[];
+  defaultHeaders: string[];
+}) {
+  const meta = iconFor(domain.id);
+  const Icon = meta.icon;
+  const tintBg = meta.tint
+    .replace("hsl(", "hsla(")
+    .replace(")", " / 0.10)");
+
+  const availableFields = useMemo(() => allFieldKeys(rows), [rows]);
+  const [visibleHeaders, setVisibleHeaders] = useState<string[]>(
+    defaultHeaders.length ? defaultHeaders : availableFields.slice(0, 5),
+  );
+  const [sortKey, setSortKey] = useState<string>("__subdomain");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [page, setPage] = useState(1);
+  const [openRow, setOpenRow] = useState<DomainRow | null>(null);
+
+  const sortedRows = useMemo(() => {
+    const out = [...rows];
+    out.sort((a, b) => {
+      const av =
+        sortKey === "__subdomain"
+          ? a.subdomain
+          : String(a.entry.fields[sortKey] ?? "");
+      const bv =
+        sortKey === "__subdomain"
+          ? b.subdomain
+          : String(b.entry.fields[sortKey] ?? "");
+      const cmp = av.localeCompare(bv, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    return out;
+  }, [rows, sortKey, sortDir]);
+
+  const totalPages = Math.max(1, Math.ceil(sortedRows.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const pagedRows = sortedRows.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
+
+  const toggleSort = (key: string) => {
+    if (sortKey === key) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir("asc");
+    }
+  };
+
+  const sortIcon = (key: string) => {
+    if (sortKey !== key)
+      return <ArrowUpDown className="w-3 h-3 opacity-50" />;
+    return sortDir === "asc" ? (
+      <ArrowUp className="w-3 h-3 text-primary" />
+    ) : (
+      <ArrowDown className="w-3 h-3 text-primary" />
+    );
+  };
+
+  const toggleHeader = (key: string) => {
+    setVisibleHeaders((cur) =>
+      cur.includes(key) ? cur.filter((k) => k !== key) : [...cur, key],
+    );
+  };
+
+  return (
+    <section className="space-y-3">
+      <header className="flex flex-wrap items-center gap-3">
+        <span
+          className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border"
+          style={{
+            background: tintBg,
+            color: meta.tint,
+          }}
+        >
+          <Icon className="w-5 h-5" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <h2 className="font-display text-2xl font-semibold">{domain.name}</h2>
+          <div className="text-xs text-muted-foreground">
+            {rows.length} entries · {domain.subdomains.length} sub-domains
+          </div>
+        </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 text-xs"
+              aria-label="Choose visible columns"
+            >
+              <Columns3 className="w-3.5 h-3.5" />
+              Columns ({visibleHeaders.length}/{availableFields.length})
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="end" className="w-64 max-h-80 overflow-y-auto">
+            <div className="text-xs font-semibold mb-2 text-muted-foreground uppercase tracking-wider">
+              Visible columns
+            </div>
+            <div className="space-y-2">
+              {availableFields.map((f) => (
+                <label
+                  key={f}
+                  className="flex items-center gap-2 text-sm cursor-pointer"
+                >
+                  <Checkbox
+                    checked={visibleHeaders.includes(f)}
+                    onCheckedChange={() => toggleHeader(f)}
+                  />
+                  <span className="truncate">{f}</span>
+                </label>
+              ))}
+            </div>
+            <div className="mt-3 pt-2 border-t border-border flex justify-between gap-2">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-xs h-7"
+                onClick={() => setVisibleHeaders(availableFields)}
+              >
+                All
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-xs h-7"
+                onClick={() =>
+                  setVisibleHeaders(
+                    defaultHeaders.length
+                      ? defaultHeaders
+                      : availableFields.slice(0, 5),
+                  )
+                }
+              >
+                Reset
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </header>
+
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <thead>
+            <tr
+              className="text-left"
+              style={{
+                background: meta.tint.replace("hsl(", "hsla(").replace(
+                  ")",
+                  " / 0.10)",
+                ),
+              }}
+            >
+              <th className="px-3 py-2 font-medium text-foreground/90 w-44">
+                Sub-domain
+              </th>
+              {headers.map((h) => (
+                <th
+                  key={h}
+                  className="px-3 py-2 font-medium text-foreground/90"
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {allEntries.map((row, idx) => {
+              const url =
+                row.entry.fields["URL"] ||
+                row.entry.fields["Url"] ||
+                row.entry.fields["Website"] ||
+                row.entry.fields["Link"] ||
+                "";
+              return (
+                <tr
+                  key={`${d.id}-${idx}`}
+                  className={
+                    idx % 2 === 0
+                      ? "bg-card/40"
+                      : "bg-background/40 hover:bg-card/60"
+                  }
+                >
+                  <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
+                    {row.subdomain}
+                  </td>
+                  {headers.map((h) => {
+                    const val = String(row.entry.fields[h] ?? "");
+                    if (
+                      h.toLowerCase().includes("url") ||
+                      h.toLowerCase() === "website" ||
+                      h.toLowerCase() === "link"
+                    ) {
+                      return (
+                        <td key={h} className="px-3 py-2 align-top">
+                          {val ? (
+                            <a
+                              href={val}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-primary hover:underline"
+                            >
+                              Visit
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : (
+                            <span className="text-muted-foreground">
+                              —
+                            </span>
+                          )}
+                        </td>
+                      );
+                    }
+                    return (
+                      <td
+                        key={h}
+                        className="px-3 py-2 align-top text-foreground/90"
+                      >
+                        {val || (
+                          <span className="text-muted-foreground">
+                            —
+                          </span>
+                        )}
+                      </td>
+                    );
+                  })}
+                  {!headers.some((h) =>
+                    h.toLowerCase().includes("url"),
+                  ) &&
+                    url && (
+                      <td className="px-3 py-2 align-top">
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-primary hover:underline"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </td>
+                    )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+})}
+
+{
+  filteredDomains.length === 0 && (
+    <div className="text-sm text-muted-foreground py-12 text-center">
+      No resources matched your search/filter.
+    </div>
+  )
+}
+      </main >
+
+  <SiteFooter />
+    </div >
   );
 }
