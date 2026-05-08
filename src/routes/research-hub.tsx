@@ -4,8 +4,10 @@ import { Search, ExternalLink, Wrench, BookOpen, CheckCircle2, Send, Scale, Chev
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/data/comprehensive-resources";
+import resourcesAddon from "@/data/resources-addon-2026-05.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
 import { useFavorites } from "@/hooks/use-user-data";
+import { type AddonResourcePack } from "@/utils/resource-merge";
 
 type TabId = "tools" | "methodologies" | "practices" | "publication" | "ethics";
 
@@ -97,6 +99,10 @@ function ResearchHubPage() {
         {tab === "practices" && <PracticesPanel query={query} filter={filter} setFilter={setFilter} />}
         {tab === "publication" && <PublicationPanel query={query} filter={filter} setFilter={setFilter} />}
         {tab === "ethics" && <EthicsPanel query={query} filter={filter} setFilter={setFilter} />}
+
+        <div className="mt-16 pt-10 border-t border-border">
+          <HubAddons addon={resourcesAddon as unknown as AddonResourcePack} />
+        </div>
       </main>
       <SiteFooter />
     </div>

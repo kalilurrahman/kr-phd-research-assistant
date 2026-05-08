@@ -23,31 +23,19 @@ import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import resourcesCatalog from "@/data/resources-catalog.json";
+import resourcesAddon from "@/data/resources-addon-2026-05.json";
 import { useEffectiveData } from "@/hooks/use-effective-data";
+import { 
+  mergeResourceCatalog, 
+  type ResourceCatalog, 
+  type AddonResourcePack,
+  type CatalogEntry 
+} from "@/utils/resource-merge";
 
-type CatalogEntry = {
-  source: string;
-  fields: Record<string, string>;
-};
-
-type CatalogSubdomain = {
-  name: string;
-  count: number;
-  entries: CatalogEntry[];
-};
-
-type CatalogDomain = {
-  id: string;
-  name: string;
-  count: number;
-  sources: string[];
-  subdomains: CatalogSubdomain[];
-};
-
-const catalogRaw = resourcesCatalog as {
-  totals: { domains: number; entries: number; files: number };
-  domains: CatalogDomain[];
-};
+const catalogRaw = mergeResourceCatalog(
+  resourcesCatalog as unknown as ResourceCatalog,
+  resourcesAddon as unknown as AddonResourcePack
+);
 
 // Drop guide/prose/index/duplicate-aggregator domains — they contain free-form
 // general info, not structured tool entries.
@@ -137,6 +125,11 @@ const DOMAIN_ICONS: Record<string, { icon: LucideIcon; tint: string }> = {
   "statistical-analysis-tools": { icon: BarChart3, tint: "hsl(155 65% 50%)" },
   "survey-data-collection-tools": { icon: FileText, tint: "hsl(14 90% 60%)" },
   "systematic-review-tools": { icon: Layers, tint: "hsl(105 55% 50%)" },
+  "open-science-compliance": { icon: Shield, tint: "hsl(180 70% 45%)" },
+  "ai-discovery-evidence-mapping": { icon: Sparkles, tint: "hsl(280 80% 60%)" },
+  "systematic-review-and-reporting-standards": { icon: Layers, tint: "hsl(140 60% 50%)" },
+  "reproducible-computational-research": { icon: Workflow, tint: "hsl(210 80% 55%)" },
+  "research-impact-and-evaluation": { icon: BarChart3, tint: "hsl(340 70% 55%)" },
 };
 
 function iconFor(domainId: string): { icon: LucideIcon; tint: string } {
@@ -357,7 +350,14 @@ function ResourcesPage() {
                           }
                         >
                           <td className="px-3 py-2 align-top text-xs font-mono text-primary whitespace-nowrap">
-                            {row.subdomain}
+                            <div className="flex flex-col gap-1">
+                              {row.subdomain}
+                              {row.entry.isAddon && (
+                                <span className="inline-flex items-center w-fit px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                                  Addon
+                                </span>
+                              )}
+                            </div>
                           </td>
                           {headers.map((h) => {
                             const val = String(row.entry.fields[h] ?? "");

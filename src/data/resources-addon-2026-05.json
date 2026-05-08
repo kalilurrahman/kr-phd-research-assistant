@@ -1,0 +1,210 @@
+{
+  "addonMetadata": {
+    "id": "resources-addon-2026-05",
+    "name": "PhD Excellence & Productivity Addon (May 2026)",
+    "version": "1.1.0",
+    "generatedOn": "2026-05-07",
+    "compatibility": "resources-catalog-v1"
+  },
+  "hubHighlights": {
+    "featuredStacks": [
+      {
+        "id": "open-science-stack",
+        "title": "Open Science Stack",
+        "items": ["OSF", "Zenodo", "RO-Crate", "CITATION.cff", "DataCite"]
+      },
+      {
+        "id": "systematic-review-stack",
+        "title": "Systematic Review Stack",
+        "items": ["Rayyan", "Covidence", "CADIMA", "PRISMA 2020", "PROSPERO"]
+      },
+      {
+        "id": "reproducibility-stack",
+        "title": "Reproducibility Stack",
+        "items": ["Code Ocean", "Renku", "Docker", "Conda", "GitHub Actions"]
+      },
+      {
+        "id": "wellbeing-stack",
+        "title": "PhD Wellbeing & Focus",
+        "items": ["Focus@Will", "Forest", "Insight Timer", "Notion", "Toggl"]
+      }
+    ],
+    "quickRecommendations": {
+      "byBudget": {
+        "free": ["OSF", "Zenodo", "Rayyan", "OpenAlex", "Lens.org", "JASP", "Insight Timer"],
+        "institutional": ["Overleaf", "Scopus", "Web of Science", "Covidence", "REDCap", "NVivo"],
+        "premium": ["Code Ocean", "Dimensions", "DistillerSR", "MAXQDA", "BioRender"]
+      },
+      "byResearchStage": {
+        "planning": ["OpenAlex", "Connected Papers", "Research Rabbit", "MindMeister"],
+        "review": ["Rayyan", "Covidence", "PRISMA 2020", "Elicit"],
+        "analysis": ["R", "Python", "JASP", "NVivo", "Tableau Public"],
+        "reproducibility": ["Code Ocean", "Renku", "Docker", "RO-Crate"],
+        "dissemination": ["ORCID", "Crossref", "Zenodo", "DataCite", "Altmetric"]
+      }
+    }
+  },
+  "domains": [
+    {
+      "id": "open-science-compliance",
+      "name": "Open Science and Compliance",
+      "sources": ["addon/resources-addon-2026-05.json"],
+      "subdomains": [
+        {
+          "name": "Open Science Frameworks",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "OSF",
+                "Category": "Open Science Frameworks",
+                "Description": "Project workspace for preregistration, versioning, and collaboration",
+                "Type": "Free",
+                "Best For": "Preregistration and open workflows",
+                "URL": "https://osf.io"
+              }
+            },
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "RO-Crate",
+                "Category": "Open Science Frameworks",
+                "Description": "Metadata packaging standard for reproducible research objects",
+                "Type": "Free Standard",
+                "Best For": "Machine-readable research packaging",
+                "URL": "https://www.researchobject.org/ro-crate/"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Persistent Identifiers",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "DataCite",
+                "Category": "Persistent Identifiers",
+                "Description": "DOI registration for datasets and software outputs",
+                "Type": "Institutional",
+                "Best For": "Citable non-article outputs",
+                "URL": "https://datacite.org"
+              }
+            },
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Crossref",
+                "Category": "Persistent Identifiers",
+                "Description": "DOI infrastructure for scholarly publications and metadata",
+                "Type": "Institutional",
+                "Best For": "Reference linking and DOI metadata checks",
+                "URL": "https://www.crossref.org"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-discovery-evidence-mapping",
+      "name": "AI Discovery and Evidence Mapping",
+      "sources": ["addon/resources-addon-2026-05.json"],
+      "subdomains": [
+        {
+          "name": "AI Literature Mapping",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Research Rabbit",
+                "Category": "AI Literature Mapping",
+                "Description": "Citation graph exploration and evolving collections",
+                "Type": "Free",
+                "Best For": "Keeping literature maps current",
+                "URL": "https://www.researchrabbit.ai"
+              }
+            },
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Elicit",
+                "Category": "AI Literature Mapping",
+                "Description": "AI-assisted evidence extraction and paper triage",
+                "Type": "Freemium",
+                "Best For": "Question-driven literature review",
+                "URL": "https://elicit.org"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Open Metadata Graphs",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "OpenAlex",
+                "Category": "Open Metadata Graphs",
+                "Description": "Open catalog of scholarly works, authors, institutions, and concepts",
+                "Type": "Free",
+                "Best For": "Programmatic bibliometrics and trend analysis",
+                "URL": "https://openalex.org"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phd-productivity-wellbeing",
+      "name": "PhD Productivity & Wellbeing",
+      "sources": ["addon/resources-addon-2026-05.json"],
+      "subdomains": [
+        {
+          "name": "Mental Health & Focus",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Insight Timer",
+                "Category": "Mental Health & Focus",
+                "Description": "Free app for sleep, anxiety, and stress with scientific meditations",
+                "Type": "Free",
+                "Best For": "Managing PhD stress and imposter syndrome",
+                "URL": "https://insighttimer.com"
+              }
+            },
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Freedom",
+                "Category": "Mental Health & Focus",
+                "Description": "App and website blocker to help you focus on deep work",
+                "Type": "Paid",
+                "Best For": "Blocking distractions during writing phases",
+                "URL": "https://freedom.to"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Academic Project Management",
+          "entries": [
+            {
+              "source": "addon/resources-addon-2026-05.json",
+              "fields": {
+                "Tool Name": "Notion for Academia",
+                "Category": "Academic Project Management",
+                "Description": "All-in-one workspace for notes, tasks, and research databases",
+                "Type": "Free for Students",
+                "Best For": "PhD life organization and literature databases",
+                "URL": "https://www.notion.so/students"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
