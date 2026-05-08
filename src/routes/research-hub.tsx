@@ -573,3 +573,98 @@ function EthicsCard({ requirement, category }: { requirement: { id: string; name
     </article>
   );
 }
+
+function HubAddons({ addon }: { addon: AddonResourcePack }) {
+  const stacks = addon.hubHighlights?.featuredStacks ?? [];
+  const byBudget = addon.hubHighlights?.quickRecommendations?.byBudget ?? {};
+  const byStage = addon.hubHighlights?.quickRecommendations?.byResearchStage ?? {};
+
+  return (
+    <section aria-labelledby="hub-addons-heading" className="space-y-8">
+      <div className="flex items-center gap-3 flex-wrap">
+        <h2 id="hub-addons-heading" className="font-display text-2xl md:text-3xl font-bold">
+          Hub Addons
+        </h2>
+        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-500 border border-amber-500/30">
+          {addon.addonMetadata.version} · {addon.addonMetadata.generatedOn}
+        </span>
+      </div>
+      <p className="text-sm text-muted-foreground max-w-2xl -mt-4">
+        {addon.addonMetadata.name}
+      </p>
+
+      {stacks.length > 0 && (
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+            Featured stacks
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {stacks.map((stack) => (
+              <article
+                key={stack.id}
+                className="rounded-xl border border-border bg-card/40 p-4 hover:border-primary/40 transition-colors"
+              >
+                <h4 className="font-display font-semibold mb-2">{stack.title}</h4>
+                <ul className="flex flex-wrap gap-1.5">
+                  {stack.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-[11px] px-2 py-0.5 rounded-full border border-border bg-background/60 text-foreground/80"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <RecommendationGrid title="By budget" map={byBudget} />
+        <RecommendationGrid title="By research stage" map={byStage} />
+      </div>
+    </section>
+  );
+}
+
+function RecommendationGrid({
+  title,
+  map,
+}: {
+  title: string;
+  map: Record<string, string[]>;
+}) {
+  const entries = Object.entries(map);
+  if (entries.length === 0) return null;
+  return (
+    <div>
+      <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+        {title}
+      </h3>
+      <div className="space-y-3">
+        {entries.map(([key, items]) => (
+          <div
+            key={key}
+            className="rounded-lg border border-border bg-card/30 p-3"
+          >
+            <div className="text-xs font-mono text-primary capitalize mb-2">
+              {key.replace(/([A-Z])/g, " $1").trim()}
+            </div>
+            <ul className="flex flex-wrap gap-1.5">
+              {items.map((item) => (
+                <li
+                  key={item}
+                  className="text-[11px] px-2 py-0.5 rounded-full border border-border bg-background/60 text-foreground/80"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
