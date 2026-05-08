@@ -118,6 +118,7 @@ export function SiteHeader({
               )}
             </button>
           )}
+          <ThemeSwitcher />
           <Link
             to="/admin"
             className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
