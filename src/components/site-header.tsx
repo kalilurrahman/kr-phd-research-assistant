@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Globe, Github, Star, Settings } from "lucide-react";
+import { Linkedin, Globe, Github, Star, Settings, BarChart3, Flame, GraduationCap } from "lucide-react";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { useStreak } from "@/hooks/use-streak";
 
 export function SiteHeader({
   totalPrompts,
@@ -9,6 +10,8 @@ export function SiteHeader({
   researchCount,
   onOpenLibrary,
   favoritesCount,
+  stage,
+  onOpenWizard,
 }: {
   totalPrompts: number;
   totalDomains: number;
@@ -16,7 +19,10 @@ export function SiteHeader({
   researchCount: number;
   onOpenLibrary?: () => void;
   favoritesCount?: number;
+  stage?: string;
+  onOpenWizard?: () => void;
 }) {
+  const streak = useStreak();
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       {/* Curator strip */}
