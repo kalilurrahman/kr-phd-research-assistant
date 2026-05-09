@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Eye, Copy, ExternalLink, Flame, Trash2, ArrowRight } from "lucide-react";
+import { Eye, Copy, ExternalLink, Trash2, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useEffectiveData } from "@/hooks/use-effective-data";
 import { useFavorites } from "@/hooks/use-user-data";
 import {
-  computeStreak,
   getUsageLog,
   resetAllUserData,
   type UsageEvent,
@@ -346,20 +345,3 @@ function heatColor(n: number): string {
   return "bg-emerald-400";
 }
 
-/** Re-export streak for header use elsewhere. */
-export function useStreak(): number {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    const update = () => setN(computeStreak(getUsageLog()));
-    update();
-    window.addEventListener("kr-phd:storage", update);
-    window.addEventListener("storage", update);
-    return () => {
-      window.removeEventListener("kr-phd:storage", update);
-      window.removeEventListener("storage", update);
-    };
-  }, []);
-  return n;
-}
-
-export { Flame };
