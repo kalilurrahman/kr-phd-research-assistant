@@ -10,9 +10,13 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { PromptCard, PromptModal } from "@/components/prompt-card";
+import { PromptCard } from "@/components/prompt-card";
+import { PromptStudio } from "@/components/prompt-studio";
 import { FavoritesPanel } from "@/components/favorites-panel";
 import { ExportBar, ExportLauncher } from "@/components/export-bar";
+import { OnboardingWizard } from "@/components/onboarding-wizard";
+import { StartingTenStrip } from "@/components/starting-ten-strip";
+import { SuggestPromptFab } from "@/components/suggest-prompt-fab";
 import {
   type FlatPrompt,
   type SectionGroupKey,
@@ -24,6 +28,12 @@ import {
   useRecentViews,
   useSelection,
 } from "@/hooks/use-user-data";
+import {
+  getProfile,
+  isOnboarded,
+  type PhdProfile,
+} from "@/lib/usage-tracker";
+import { pickStartingTen } from "@/lib/starting-ten";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,11 +80,31 @@ function Index() {
   const [filter, setFilter] = useState<Filter>({ kind: "all" });
   const [active, setActive] = useState<FlatPrompt | null>(null);
   const [libraryOpen, setLibraryOpen] = useState(false);
+  const [profile, setProfileState] = useState<PhdProfile | null>(null);
+  const [wizardOpen, setWizardOpen] = useState(false);
+  const [showFab, setShowFab] = useState(false);
 
   const favorites = useFavorites();
   const recentSearches = useRecentSearches();
   const recentViews = useRecentViews();
   const selection = useSelection();
+
+  // First-visit onboarding + profile hydration.
+  useEffect(() => {
+    setProfileState(getProfile());
+    if (!isOnboarded()) setWizardOpen(true);
+  }, []);
+
+  // Reveal "Suggest a Prompt" FAB after 5s.
+  useEffect(() => {
+    const id = window.setTimeout(() => setShowFab(true), 5000);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  const startingTen = useMemo(
+    () => (profile ? pickStartingTen(profile, flatPrompts) : []),
+    [profile, flatPrompts],
+  );
 
   // Debounce-record searches once the user pauses typing.
   useEffect(() => {
@@ -135,8 +165,17 @@ function Index() {
         researchCount={groupCounts.methods}
         onOpenLibrary={() => setLibraryOpen(true)}
         favoritesCount={favorites.ids.length}
+        stage={profile?.stage}
+        onOpenWizard={() => setWizardOpen(true)}
       />
 
+      {profile && startingTen.length > 0 && (
+        <StartingTenStrip
+          prompts={startingTen}
+          onOpen={openPrompt}
+          stage={profile.stage}
+        />
+      )}
       {/* HERO */}
       <section className="hero-backdrop border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-14 sm:py-20">
@@ -323,13 +362,26 @@ function Index() {
 
       <SiteFooter />
 
-      <PromptModal
+      <PromptStudio
         prompt={active}
         onClose={() => setActive(null)}
         isFavorite={active ? favorites.isFavorite(active.num) : false}
         onToggleFavorite={
           active ? () => favorites.toggle(active.num) : undefined
         }
+      />
+
+      <OnboardingWizard
+        open={wizardOpen}
+        onClose={() => setWizardOpen(false)}
+        onFinish={(p) => setProfileState(p)}
+        allowSkip={!isOnboarded()}
+      />
+
+      <SuggestPromptFab
+        flatPrompts={flatPrompts}
+        visible={showFab}
+        onOpenPrompt={openPrompt}
       />
 
       <FavoritesPanel

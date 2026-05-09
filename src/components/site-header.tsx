@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Globe, Github, Star, Settings } from "lucide-react";
+import { Linkedin, Globe, Github, Star, Settings, BarChart3, Flame, GraduationCap } from "lucide-react";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { useStreak } from "@/hooks/use-streak";
 
 export function SiteHeader({
   totalPrompts,
@@ -9,6 +10,8 @@ export function SiteHeader({
   researchCount,
   onOpenLibrary,
   favoritesCount,
+  stage,
+  onOpenWizard,
 }: {
   totalPrompts: number;
   totalDomains: number;
@@ -16,7 +19,10 @@ export function SiteHeader({
   researchCount: number;
   onOpenLibrary?: () => void;
   favoritesCount?: number;
+  stage?: string;
+  onOpenWizard?: () => void;
 }) {
+  const streak = useStreak();
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       {/* Curator strip */}
@@ -80,13 +86,30 @@ export function SiteHeader({
         </Link>
 
         <div className="flex items-center gap-2 text-xs">
+          {streak > 0 && (
+            <span
+              className="inline-flex items-center gap-1 px-2 py-1 rounded-md border border-amber-500/40 bg-amber-500/10 text-amber-400 font-mono text-[11px]"
+              title={`${streak}-day streak`}
+            >
+              <Flame className="w-3 h-3" /> {streak}
+            </span>
+          )}
+          {stage && onOpenWizard && (
+            <button
+              type="button"
+              onClick={onOpenWizard}
+              className="hidden sm:inline-flex items-center gap-1 px-2 py-1 rounded-md border border-primary/40 bg-primary/10 text-primary text-[11px] hover:border-primary"
+              title="Edit your PhD profile"
+            >
+              <GraduationCap className="w-3 h-3" /> {stage.split(" – ")[0].replace("Year ", "Yr ")} ✦
+            </button>
+          )}
           <Link
             to="/research-hub"
             className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
             aria-label="Research Hub"
           >
-            <span className="hidden sm:inline">Hub</span>
-            <span className="sm:hidden">Hub</span>
+            <span>Hub</span>
           </Link>
           <Link
             to="/resources"
@@ -95,6 +118,14 @@ export function SiteHeader({
           >
             <span className="hidden sm:inline">Resources</span>
             <span className="sm:hidden">Res</span>
+          </Link>
+          <Link
+            to="/my-stats"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border hover:border-primary text-foreground hover:text-primary transition-colors"
+            aria-label="My Stats"
+          >
+            <BarChart3 className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">My Stats</span>
           </Link>
           <div className="hidden md:flex items-center gap-2">
             <Stat label="Prompts" value={totalPrompts} />
