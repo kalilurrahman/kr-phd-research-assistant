@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ResearchHubRouteImport } from './routes/research-hub'
+import { Route as MyStatsRouteImport } from './routes/my-stats'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const ResearchHubRoute = ResearchHubRouteImport.update({
   id: '/research-hub',
   path: '/research-hub',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyStatsRoute = MyStatsRouteImport.update({
+  id: '/my-stats',
+  path: '/my-stats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/my-stats': typeof MyStatsRoute
   '/research-hub': typeof ResearchHubRoute
   '/resources': typeof ResourcesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/my-stats': typeof MyStatsRoute
   '/research-hub': typeof ResearchHubRoute
   '/resources': typeof ResourcesRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/my-stats': typeof MyStatsRoute
   '/research-hub': typeof ResearchHubRoute
   '/resources': typeof ResourcesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/research-hub' | '/resources'
+  fullPaths: '/' | '/admin' | '/my-stats' | '/research-hub' | '/resources'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/research-hub' | '/resources'
-  id: '__root__' | '/' | '/admin' | '/research-hub' | '/resources'
+  to: '/' | '/admin' | '/my-stats' | '/research-hub' | '/resources'
+  id: '__root__' | '/' | '/admin' | '/my-stats' | '/research-hub' | '/resources'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  MyStatsRoute: typeof MyStatsRoute
   ResearchHubRoute: typeof ResearchHubRoute
   ResourcesRoute: typeof ResourcesRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/research-hub'
       fullPath: '/research-hub'
       preLoaderRoute: typeof ResearchHubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-stats': {
+      id: '/my-stats'
+      path: '/my-stats'
+      fullPath: '/my-stats'
+      preLoaderRoute: typeof MyStatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -105,9 +122,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  MyStatsRoute: MyStatsRoute,
   ResearchHubRoute: ResearchHubRoute,
   ResourcesRoute: ResourcesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
