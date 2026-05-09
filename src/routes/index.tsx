@@ -165,8 +165,17 @@ function Index() {
         researchCount={groupCounts.methods}
         onOpenLibrary={() => setLibraryOpen(true)}
         favoritesCount={favorites.ids.length}
+        stage={profile?.stage}
+        onOpenWizard={() => setWizardOpen(true)}
       />
 
+      {profile && startingTen.length > 0 && (
+        <StartingTenStrip
+          prompts={startingTen}
+          onOpen={openPrompt}
+          stage={profile.stage}
+        />
+      )}
       {/* HERO */}
       <section className="hero-backdrop border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-14 sm:py-20">
@@ -353,13 +362,26 @@ function Index() {
 
       <SiteFooter />
 
-      <PromptModal
+      <PromptStudio
         prompt={active}
         onClose={() => setActive(null)}
         isFavorite={active ? favorites.isFavorite(active.num) : false}
         onToggleFavorite={
           active ? () => favorites.toggle(active.num) : undefined
         }
+      />
+
+      <OnboardingWizard
+        open={wizardOpen}
+        onClose={() => setWizardOpen(false)}
+        onFinish={(p) => setProfileState(p)}
+        allowSkip={!isOnboarded()}
+      />
+
+      <SuggestPromptFab
+        flatPrompts={flatPrompts}
+        visible={showFab}
+        onOpenPrompt={openPrompt}
       />
 
       <FavoritesPanel
