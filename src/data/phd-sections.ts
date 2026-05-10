@@ -1063,7 +1063,7 @@ export const sectionGroups: SectionGroup[] = [
     key: "bonus2",
     label: "KR Bonus II",
     accent: "#A78BFA",
-    sectionIds: ["s41"],
+    sectionIds: ["s41", "s42"],
   },
 ];
 
