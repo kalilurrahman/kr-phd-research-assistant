@@ -991,7 +991,49 @@ const bonusSection2: PhdSection = {
 ],
 };
 
-export const phdSections: PhdSection[] = [...baseSections, bonusSection, bonusSection2];
+// Third bonus — career, wellbeing, communication and modern AI-era practice.
+const bonusSection3: PhdSection = {
+  id: "s42",
+  colorHex: "#34D399",
+  dim: "rgba(52,211,153,0.10)",
+  border: "rgba(52,211,153,0.32)",
+  icon: "🌱",
+  label: "Scholar Wellbeing & Career (KR Bonus III)",
+  meta: "16 prompts",
+  prompts: ((): PhdPrompt[] => {
+    const defs: Array<Omit<PhdPrompt, "vars" | "prompt"> & { vars: string[] }> = [
+      { num: "295", title: "PhD Burnout Recovery Coach", badge: "intermediate", useCase: "Diagnose burnout signals and design a 6-week recovery plan with boundaries, sleep, and supervisor conversation.", vars: ["SYMPTOMS", "WORKLOAD", "SUPPORT", "DEADLINE"], frameworks: "Maslach Burnout Inventory; Boundaries theory; Restorative routines; Supervisor renegotiation scripts", output: "Recovery plan with daily rituals, weekly checkpoints, supervisor email draft, and red-flag escalation triggers.", tip: "Tell one trusted person before you cut work — isolation makes recovery 3× harder." },
+      { num: "296", title: "Imposter Syndrome Reframing Therapist", badge: "foundational", useCase: "Reframe imposter feelings into evidence-based self-assessment with kind, accurate inner narration.", vars: ["TRIGGER", "FIELD", "EVIDENCE", "ROLE_MODEL"], frameworks: "Clance impostor scale; Cognitive reappraisal; Self-compassion (Neff); Strengths inventory", output: "Reframing journal template, accomplishment audit, and a 5-minute pre-meeting grounding script.", tip: "Audit accomplishments quarterly — memory under-counts wins by an order of magnitude." },
+      { num: "297", title: "Difficult Supervisor Conversation Strategist", badge: "advanced", useCase: "Prepare for a hard conversation with an advisor about scope, authorship, or feedback gaps.", vars: ["ISSUE", "HISTORY", "OUTCOME", "ESCALATION"], frameworks: "Crucial Conversations; Nonviolent Communication; BATNA; Mentor compacts", output: "Talk plan with opening line, evidence packet, requested outcome, fallback, and post-meeting summary email.", tip: "Send a written summary within 24 hours — verbal agreements quietly evaporate." },
+      { num: "298", title: "Two-Body Career Negotiator", badge: "advanced", useCase: "Plan an academic job search that protects a partner's career and family logistics.", vars: ["FIELD", "PARTNER_FIELD", "GEOGRAPHY", "TIMELINE"], frameworks: "Dual-career hiring policies; Spousal hire frameworks; Geographic constraint mapping", output: "Search strategy with target list, partner-track inquiries, negotiation script, and contingency offers.", tip: "Disclose two-body status only after the offer — earlier disclosure shrinks the bargaining surface." },
+      { num: "299", title: "Postdoc to Faculty Transition Coach", badge: "advanced", useCase: "Map the 18-month runway from postdoc to TT faculty: papers, talks, network, application kit.", vars: ["FIELD", "STAGE", "TARGETS", "GAPS"], frameworks: "Research statement frameworks; Teaching philosophy; Diversity statement; Chalk talks", output: "18-month plan with paper milestones, invited-talk targets, mentor map, and application document drafts.", tip: "Start the research statement at month one — every other document descends from it." },
+      { num: "300", title: "Industry Pivot Translator", badge: "intermediate", useCase: "Translate a research CV into industry-readable resume and interview answers without losing depth.", vars: ["FIELD", "TARGET_ROLE", "PROJECTS", "CONSTRAINTS"], frameworks: "STAR stories; Skills bridging; ATS optimisation; Behavioural interviews", output: "Industry resume, LinkedIn rewrite, 6 STAR stories, and a 30-60-90 day plan tailored to the role.", tip: "Lead bullets with outcomes, not tools — the tool list belongs at the end." },
+      { num: "301", title: "Time-Boxed Writing Sprint Designer", badge: "foundational", useCase: "Design a 90-minute deep-work sprint that yields 500 reviewable words on a hard chapter.", vars: ["CHAPTER", "GOAL", "BLOCKERS", "ENERGY"], frameworks: "Pomodoro variants; Shut up and write; Pre-mortem; Cal Newport deep work", output: "Sprint plan with warm-up, 3 timed blocks, recovery rituals, and a one-line success criterion.", tip: "Define done as 'reviewable by a peer', not 'finished' — it lowers activation energy enormously." },
+      { num: "302", title: "Reading Stack Triage Mentor", badge: "foundational", useCase: "Triage an overflowing reading list into must-read, skim, and abandon piles by purpose.", vars: ["GOAL", "DEADLINE", "STACK_SIZE", "FIELD"], frameworks: "Inverted pyramid reading; Three-pass approach (Keshav); Citation chasing; Zotero workflows", output: "Triage table with verdict, reading mode, and a synthesis prompt per kept paper.", tip: "Decide the verdict in 90 seconds per paper — perfect classification is the enemy of progress." },
+      { num: "303", title: "Conference Networking Stage-Fit Coach", badge: "foundational", useCase: "Plan low-energy, high-yield networking that fits introverted scholars at large conferences.", vars: ["VENUE", "GOALS", "ENERGY", "DAYS"], frameworks: "Weak ties (Granovetter); Pre-conference outreach; Hallway micro-rituals; Follow-up cadences", output: "Day-by-day plan with target conversations, opening lines, recovery breaks, and a 2-week follow-up sequence.", tip: "Send the follow-up note before you leave the venue — momentum dies on the flight home." },
+      { num: "304", title: "Public Engagement and Op-Ed Writer", badge: "intermediate", useCase: "Convert a paper into an 800-word op-ed with a clear hook, stake and call to action.", vars: ["PAPER", "OUTLET", "AUDIENCE", "ANGLE"], frameworks: "Op-ed pyramid; News pegs; Bridge-buoy-headline; Public scholarship ethics", output: "Op-ed draft, two alternative leads, pitch email, and a list of three follow-up outlets.", tip: "Write the pitch email before the op-ed — the editor's filter sharpens the angle." },
+      { num: "305", title: "Teaching Portfolio Architect", badge: "intermediate", useCase: "Assemble an evidence-based teaching portfolio: philosophy, syllabi, evaluations, peer reviews.", vars: ["LEVEL", "FIELD", "EVIDENCE", "GOALS"], frameworks: "SoTL frameworks; Backward design (Wiggins & McTighe); Bloom's taxonomy; Inclusive pedagogy", output: "Portfolio bundle with statement, three syllabi annotated with rationale, peer-review summary, and learning-evidence appendix.", tip: "Annotate syllabi with the why — search committees read the marginalia first." },
+      { num: "306", title: "Inclusive Classroom Design Mentor", badge: "intermediate", useCase: "Redesign a course for accessibility, neurodiversity and varied prior knowledge.", vars: ["COURSE", "POPULATION", "ASSESSMENTS", "BUDGET"], frameworks: "Universal Design for Learning; Anti-deficit pedagogy; Transparent assignment design (TILT)", output: "Redesign plan with module rewrites, alt-format assessments, accommodation map, and inclusion rubric.", tip: "Replace one high-stakes exam with two scaffolded ones — outcomes rise without lowering the bar." },
+      { num: "307", title: "AI-Assisted Literature Synthesis Strategist", badge: "advanced", useCase: "Use LLM tools responsibly to accelerate literature mapping while preserving rigour.", vars: ["TOPIC", "TOOLS", "GUARDRAILS", "DELIVERABLE"], frameworks: "PRISMA-AI extensions; Hallucination audits; Reverse citation; Provenance logging", output: "Workflow with tool roles, prompt log, hallucination-check protocol, and human-only verification gates.", tip: "Verify every AI-suggested citation manually — fabricated DOIs are the #1 retraction risk in 2025+." },
+      { num: "308", title: "Research Integrity Self-Audit Coach", badge: "advanced", useCase: "Run a personal pre-submission integrity audit covering authorship, data, images and AI use.", vars: ["MANUSCRIPT", "DATA", "TEAM", "POLICY"], frameworks: "COPE flowcharts; ICMJE; Image-forensics checks; AI disclosure templates", output: "Audit checklist with red-flag log, evidence trail, corrective actions, and a sign-off page.", tip: "Run the audit a week before submission — fixes during proofs cost ten times more." },
+      { num: "309", title: "Thesis Acknowledgements Composer", badge: "foundational", useCase: "Draft thesis acknowledgements that are warm, accurate, and inclusive of unseen labour.", vars: ["JOURNEY", "PEOPLE", "FUNDERS", "TONE"], frameworks: "Acknowledgement conventions; CRediT-inspired contribution mapping; Gratitude practice", output: "Three drafts (formal, warm, hybrid), funder list, and a checklist of unseen contributors not to forget.", tip: "Name caregivers and admin staff explicitly — their absence from acknowledgements is a recurring critique." },
+      { num: "310", title: "Post-Defense Decompression Planner", badge: "foundational", useCase: "Plan a structured decompression after the viva to recover energy and pick the next horizon.", vars: ["DEFENSE_DATE", "OBLIGATIONS", "ENERGY", "HORIZON"], frameworks: "Recovery cycles; Identity transition (Ibarra); Sabbath rituals; Career horizon scanning", output: "4-week decompression plan with rest, light admin, reflection prompts, and a horizon-scan worksheet.", tip: "Block week one for nothing — the brain needs idle time to consolidate five years of work." },
+    ];
+    return defs.map((d) => ({
+      ...d,
+      prompt: `You are a ${d.title}. Working with inputs ${d.vars
+        .map((v) => `[${v}]`)
+        .join(", ")}, deliver: ${d.output} Apply ${d.frameworks}. ${d.tip}`,
+    }));
+  })(),
+};
+
+export const phdSections: PhdSection[] = [
+  ...baseSections,
+  bonusSection,
+  bonusSection2,
+  bonusSection3,
+];
 
 const generalIds = Array.from({ length: 22 }, (_, i) => `s${i + 1}`);
 const phdIds = Array.from({ length: 7 }, (_, i) => `s${i + 23}`);
