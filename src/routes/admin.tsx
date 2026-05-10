@@ -14,6 +14,7 @@ import {
   RotateCcw,
   Pencil,
   X,
+  FileUp,
 } from "lucide-react";
 import {
   useAdminOverrides,
