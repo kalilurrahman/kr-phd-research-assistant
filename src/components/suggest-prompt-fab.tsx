@@ -69,12 +69,10 @@ export function SuggestPromptFab({
 
       if (res.picks.length > 0) {
         const byNum = new Map(flatPrompts.map((p) => [p.num, p]));
-        const mapped: Suggestion[] = res.picks
-          .map((pk) => {
-            const prompt = byNum.get(pk.num);
-            return prompt ? { prompt, reason: pk.reason } : null;
-          })
-          .filter((x): x is Suggestion => x !== null);
+        const mapped: Suggestion[] = res.picks.flatMap((pk) => {
+          const prompt = byNum.get(pk.num);
+          return prompt ? [{ prompt, reason: pk.reason }] : [];
+        });
         if (mapped.length > 0) {
           setResults(mapped);
           setInfo(`Ranked by Claude · ${res.model}`);
