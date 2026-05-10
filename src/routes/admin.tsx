@@ -379,7 +379,7 @@ function AdminPage() {
               onClick={() => fileInput.current?.click()}
               className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-md border border-border hover:border-primary"
             >
-              <Upload className="w-3.5 h-3.5" /> Import
+              <Upload className="w-3.5 h-3.5" /> Import overrides
             </button>
             <input
               ref={fileInput}
@@ -389,6 +389,25 @@ function AdminPage() {
               onChange={(e) => {
                 const f = e.target.files?.[0];
                 if (f) importOverrides(f);
+                e.currentTarget.value = "";
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => promptsImportInput.current?.click()}
+              className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-md border border-primary/60 text-primary hover:bg-primary/10"
+              title="Upload a JSON prompt pack to extend the catalog"
+            >
+              <FileUp className="w-3.5 h-3.5" /> Import prompts
+            </button>
+            <input
+              ref={promptsImportInput}
+              type="file"
+              accept="application/json"
+              hidden
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) importPrompts(f);
                 e.currentTarget.value = "";
               }}
             />
