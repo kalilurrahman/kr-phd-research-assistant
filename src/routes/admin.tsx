@@ -254,6 +254,115 @@ function AdminPage() {
     }
   };
 
+  /**
+   * Import a JSON prompt pack and append to the catalog.
+   * Accepts either:
+   *   { sections: AddedSection[] }
+   *   { targetSectionId: string, prompts: PhdPrompt[] }
+   *   AddedSection[]  (bare array of sections)
+   *   PhdPrompt[]     (drops into a fresh "Imported" custom section)
+   */
+  const importPrompts = async (file: File) => {
+    try {
+      const text = await file.text();
+      const raw: unknown = JSON.parse(text);
+
+      const sectionsToAdd: AddedSection[] = [];
+      const promptAdds: { sectionId: string; prompts: PhdPrompt[] }[] = [];
+
+      const validatePrompt = (p: unknown): p is PhdPrompt => {
+        const o = p as Record<string, unknown>;
+        return (
+          !!o &&
+          typeof o.num === "string" &&
+          typeof o.title === "string" &&
+          typeof o.prompt === "string"
+        );
+      };
+
+      const normaliseSection = (s: Record<string, unknown>): AddedSection => {
+        const id = (s.id as string) || `custom-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+        const finalId = id.startsWith("custom-") ? id : `custom-${id}`;
+        const prompts = Array.isArray(s.prompts) ? (s.prompts as unknown[]).filter(validatePrompt) : [];
+        if (prompts.length === 0) throw new Error(`Section ${finalId} has no valid prompts`);
+        return {
+          id: finalId,
+          label: (s.label as string) || "Imported Prompts",
+          icon: (s.icon as string) || "📥",
+          colorHex: (s.colorHex as string) || "#22D3EE",
+          groupKey: ((s.groupKey as SectionGroupKey) || "bonus2"),
+          prompts,
+        };
+      };
+
+      if (Array.isArray(raw)) {
+        if (raw.length > 0 && validatePrompt(raw[0])) {
+          sectionsToAdd.push(
+            normaliseSection({
+              label: `Imported Prompts (${new Date().toLocaleDateString()})`,
+              prompts: raw,
+            }),
+          );
+        } else {
+          for (const s of raw as Record<string, unknown>[]) {
+            sectionsToAdd.push(normaliseSection(s));
+          }
+        }
+      } else if (raw && typeof raw === "object") {
+        const r = raw as Record<string, unknown>;
+        if (Array.isArray(r.sections)) {
+          for (const s of r.sections as Record<string, unknown>[]) {
+            sectionsToAdd.push(normaliseSection(s));
+          }
+        } else if (typeof r.targetSectionId === "string" && Array.isArray(r.prompts)) {
+          const prompts = (r.prompts as unknown[]).filter(validatePrompt);
+          if (prompts.length === 0) throw new Error("No valid prompts");
+          promptAdds.push({ sectionId: r.targetSectionId, prompts });
+        } else if (Array.isArray(r.prompts)) {
+          sectionsToAdd.push(
+            normaliseSection({
+              label: (r.label as string) || `Imported Prompts (${new Date().toLocaleDateString()})`,
+              icon: r.icon,
+              colorHex: r.colorHex,
+              groupKey: r.groupKey,
+              prompts: r.prompts,
+            }),
+          );
+        } else {
+          throw new Error("Unrecognised JSON shape — expected sections[], prompts[], or targetSectionId+prompts");
+        }
+      } else {
+        throw new Error("Invalid JSON root");
+      }
+
+      const totalPrompts =
+        sectionsToAdd.reduce((n, s) => n + s.prompts.length, 0) +
+        promptAdds.reduce((n, a) => n + a.prompts.length, 0);
+
+      setOverrides((prev) => {
+        const next: AdminOverrides = {
+          ...prev,
+          addedSections: [...prev.addedSections, ...sectionsToAdd],
+          sectionOverrides: { ...prev.sectionOverrides },
+        };
+        for (const a of promptAdds) {
+          const existing = next.sectionOverrides[a.sectionId] ?? { id: a.sectionId };
+          next.sectionOverrides[a.sectionId] = {
+            ...existing,
+            addedPrompts: [...(existing.addedPrompts ?? []), ...a.prompts],
+          };
+        }
+        return next;
+      });
+
+      alert(
+        `Imported ${totalPrompts} prompt(s) across ${sectionsToAdd.length} new section(s) + ${promptAdds.length} extension(s).`,
+      );
+    } catch (e) {
+      alert(`Prompt import failed: ${(e as Error).message}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur-md">
