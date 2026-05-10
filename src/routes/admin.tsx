@@ -58,6 +58,7 @@ function AdminPage() {
   const { overrides, setOverrides, reset } = useAdminOverrides();
   const data = useEffectiveData();
   const fileInput = useRef<HTMLInputElement>(null);
+  const promptsImportInput = useRef<HTMLInputElement>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [editing, setEditing] = useState<{
     sectionId: string;
